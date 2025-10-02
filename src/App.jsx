@@ -56,7 +56,7 @@ function App() {
         <h1 className="pacifico">Time to sleep...</h1>
         <div className="flex justify-between flex-col items-center gap-6 my-10 w-full px-2">
           <h2>Recommended wakeup times:</h2>
-          <div className="overflow-auto h-[500px] flex flex-col gap-3 w-full  max-w-[800px] no-scrollbar">
+          <div className="overflow-y-auto h-[500px] flex flex-col gap-3 w-full  max-w-[800px] no-scrollbar">
             {sleepLengthArray
               .map((interval, index) => (
                 <div
