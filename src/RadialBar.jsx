@@ -19,7 +19,7 @@ const RadialBar = ({ hours, ranking }) => {
       xmlns="http://www.w3.org/2000/svg"
       style={{ transform: "rotate(-90deg)" }}
     >
-      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#e0e0e0" strokeWidth="20" />
+      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#55505b" strokeWidth="20" />
 
       <circle
         r="90"
