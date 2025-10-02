@@ -9,7 +9,7 @@ const RadialBar = ({ intervalHours, ranking }) => {
   const dashOffset = circumference * (1 - percentage / 100);
 
   // Adjust text ranking slightly based on number of digits
-  const textX = intervalHours && (intervalHours.toString().length === 3 ? "58px" : "75px");
+  const textX = intervalHours && (intervalHours.toString().length === 3 ? "65px" : "80px");
 
   return (
     <svg
@@ -19,15 +19,15 @@ const RadialBar = ({ intervalHours, ranking }) => {
       xmlns="http://www.w3.org/2000/svg"
       style={{ transform: "rotate(-90deg)" }}
     >
-      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#55505b" strokeWidth="20" />
+      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#FFFFFF09" strokeWidth="5" />
 
       <circle
         r="90"
         cx="100"
         cy="100"
         fill="transparent"
-        stroke="#509e86"
-        strokeWidth="20"
+        stroke="#FEC119"
+        strokeWidth="10"
         strokeLinecap="round"
         strokeDasharray={`${circumference}px`}
         strokeDashoffset={`${dashOffset}px`}
@@ -36,10 +36,9 @@ const RadialBar = ({ intervalHours, ranking }) => {
       <text
         x={textX}
         y="115px"
-        fill="#e0e0e0"
-        fontSize="45px"
-        fontWeight="bold"
+        fontSize="50px"
         style={{ transform: "rotate(90deg) translate(0px, -196px)" }}
+        className="barlow font-light fill-white/60"
       >
         {intervalHours}h
       </text>

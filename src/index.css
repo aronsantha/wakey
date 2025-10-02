@@ -1,18 +1,30 @@
 @import "tailwindcss";
+@import "./fonts.css";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
+  overflow: hidden;
   color: rgba(255, 255, 255, 0.87);
   background-color: #1b1426;
+  background: linear-gradient(-45deg, #37203b, #291542, #180d26, #4b1f02);
+  background-size: 200% 200%;
+  animation: gradient 50s ease infinite;
+
+  --star-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 a {
@@ -26,10 +38,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -56,14 +64,143 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.cedarville {
-  font-family: "Cedarville Cursive", cursive;
-  font-weight: 400;
-  font-style: normal;
+.noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  mix-blend-mode: multiply;
 }
 
-.pacifico {
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-style: normal;
+.stars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 1px;
+  width: 1px;
+  background-color: var(--star-color);
+  border-radius: 50%;
+  box-shadow: 24vw 9vh 1px 0px var(--star-color), 12vw -24vh 0px 1px var(--star-color),
+    -45vw -22vh 0px 0px var(--star-color), -37vw -40vh 0px 1px var(--star-color),
+    29vw 19vh 0px 1px var(--star-color), 4vw -8vh 0px 1px var(--star-color),
+    -5vw 21vh 1px 1px var(--star-color), -27vw 26vh 1px 1px var(--star-color),
+    -47vw -3vh 1px 1px var(--star-color), -28vw -30vh 0px 1px var(--star-color),
+    -43vw -27vh 0px 1px var(--star-color), 4vw 22vh 1px 1px var(--star-color),
+    36vw 23vh 0px 0px var(--star-color), -21vw 24vh 1px 1px var(--star-color),
+    -16vw 2vh 1px 0px var(--star-color), -16vw -6vh 0px 0px var(--star-color),
+    5vw 26vh 0px 0px var(--star-color), -34vw 41vh 0px 0px var(--star-color),
+    1vw 42vh 1px 1px var(--star-color), 11vw -13vh 1px 1px var(--star-color),
+    48vw -8vh 1px 0px var(--star-color), 22vw -15vh 0px 0px var(--star-color),
+    45vw 49vh 0px 0px var(--star-color), 43vw -27vh 1px 1px var(--star-color),
+    20vw -2vh 0px 0px var(--star-color), 8vw 22vh 0px 1px var(--star-color),
+    39vw 48vh 1px 1px var(--star-color), -21vw -11vh 0px 1px var(--star-color),
+    -40vw 45vh 0px 1px var(--star-color), 11vw -30vh 1px 0px var(--star-color),
+    26vw 30vh 1px 0px var(--star-color), 45vw -29vh 0px 1px var(--star-color),
+    -2vw 18vh 0px 0px var(--star-color), -29vw -45vh 1px 0px var(--star-color),
+    -7vw -27vh 1px 1px var(--star-color), 42vw 24vh 0px 0px var(--star-color),
+    45vw -48vh 1px 0px var(--star-color), -36vw -18vh 0px 0px var(--star-color),
+    -44vw 13vh 0px 1px var(--star-color), 36vw 16vh 0px 1px var(--star-color),
+    40vw 24vh 0px 0px var(--star-color), 18vw 11vh 0px 0px var(--star-color),
+    -15vw -23vh 1px 0px var(--star-color), -24vw 48vh 0px 1px var(--star-color),
+    27vw -45vh 1px 0px var(--star-color), -2vw -24vh 0px 1px var(--star-color),
+    -15vw -28vh 0px 0px var(--star-color), -43vw 13vh 1px 0px var(--star-color),
+    7vw 27vh 1px 0px var(--star-color), 47vw 5vh 0px 0px var(--star-color),
+    -45vw 15vh 1px 1px var(--star-color), -5vw -28vh 0px 1px var(--star-color),
+    38vw 25vh 1px 1px var(--star-color), -39vw -1vh 1px 0px var(--star-color),
+    5vw 0vh 1px 0px var(--star-color), 49vw 13vh 0px 0px var(--star-color),
+    48vw 10vh 0px 1px var(--star-color), 19vw -28vh 0px 0px var(--star-color),
+    4vw 7vh 0px 0px var(--star-color), 21vw 21vh 1px 1px var(--star-color),
+    -15vw -15vh 0px 1px var(--star-color), -6vw -42vh 1px 0px var(--star-color),
+    -15vw 48vh 1px 1px var(--star-color), -23vw 25vh 1px 1px var(--star-color),
+    -48vw 25vh 0px 1px var(--star-color), -31vw -19vh 0px 1px var(--star-color),
+    4vw 37vh 1px 1px var(--star-color), -43vw 28vh 0px 0px var(--star-color),
+    3vw -25vh 0px 1px var(--star-color), -39vw 14vh 0px 1px var(--star-color),
+    -40vw 31vh 0px 1px var(--star-color), 35vw -36vh 1px 1px var(--star-color),
+    16vw 49vh 0px 0px var(--star-color), 6vw 39vh 0px 0px var(--star-color),
+    3vw -35vh 0px 1px var(--star-color), -44vw -2vh 1px 0px var(--star-color),
+    -6vw 21vh 1px 0px var(--star-color), 48vw 9vh 1px 1px var(--star-color),
+    -43vw 30vh 1px 1px var(--star-color), 29vw -12vh 1px 1px var(--star-color),
+    -48vw 13vh 1px 0px var(--star-color), -42vw 32vh 1px 1px var(--star-color),
+    34vw 15vh 1px 1px var(--star-color), 29vw -37vh 1px 1px var(--star-color),
+    28vw 2vh 0px 0px var(--star-color);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Styling for the main box */
+.glow {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+/* Styling for the gradient animation on the main box */
+.glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(from var(--a), #ffd700, #ffdc4f, #eb790f, #ffcc00, #ffdc4f);
+  border-radius: 20px;
+  animation: rotating 2s linear infinite;
+  /* Applying rotation animation */
+}
+
+/* Styling for the blurred gradient on the main box */
+.glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(from var(--a), #ffd700, #ffdc4f, #eb790f, #ffcc00, #ffdc4f);
+  border-radius: 20px;
+  animation: rotating 2s linear infinite;
+  /* Applying rotation animation */
+  filter: blur(10px);
+  opacity: 0.2;
+}
+
+/* Styling for the inner div within the main box */
+.glow div {
+  position: absolute;
+  inset: 4px;
+  background: black;
+  /* Setting background color */
+  border-radius: 16px;
+  z-index: 1;
+}
+
+/* Custom property for the rotation angle */
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Keyframes for the rotating animation */
+@keyframes rotating {
+  0% {
+    --a: 0deg;
+  }
+
+  100% {
+    --a: 360deg;
+  }
 }
