@@ -20,8 +20,13 @@ function App() {
   }, []);
 
   const step = 60 * 60 * 1000;
-  const sevenAndAHalfHours = new Date(time.getTime() + offsetInMs + step * 7.5);
-  const nineHours = new Date(time.getTime() + offsetInMs + step * 9);
+  const intervals = [1.5, 3, 4.5, 6, 7.5, 9];
+  const sleepLengthArray = intervals.map(
+    (hours) => new Date(time.getTime() + offsetInMs + hours * step)
+  );
+
+  const sevenAndAHalfHours = sleepLengthArray[4];
+  const nineHours = sleepLengthArray[5];
 
   function formatTime(date) {
     return date.toLocaleTimeString(timeFormat === "24h" ? "en-GB" : "en-US", {
@@ -39,19 +44,19 @@ function App() {
       <div className="flex justify-between flex-col gap-6 my-10 w-full">
         <h2>Recommended wakeup times:</h2>
 
-        <div className="bg-[#4d4756] py-2 px-10 rounded-2xl  flex items-center justify-between w-full ">
-          <p className="text-3xl   font-bold">{formatTime(sevenAndAHalfHours)}</p>
-          <div className="h-20 shrink-0">
-            <RadialBar hours={"7.5"} ranking={4} />
-          </div>
-        </div>
-
-        <div className="bg-[#4d4756] py-2 px-10 rounded-2xl flex items-center justify-between w-full">
-          <p className="text-3xl font-bold ">{formatTime(nineHours)}</p>
-          <div className="h-20 shrink-0">
-            <RadialBar hours={"9"} ranking={5} />
-          </div>
-        </div>
+        {sleepLengthArray
+          .map((interval, index) => (
+            <div
+              key={index}
+              className="bg-[#4d4756] py-2 px-10 rounded-2xl  flex items-center justify-between w-full "
+            >
+              <p className="text-3xl font-bold">{formatTime(interval)}</p>
+              <div className="h-20 shrink-0">
+                <RadialBar intervalHours={intervals[index]} ranking={index} />
+              </div>
+            </div>
+          ))
+          .reverse()}
       </div>
 
       <div className="flex flex-col gap-4">

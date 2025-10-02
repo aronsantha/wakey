@@ -1,4 +1,4 @@
-const RadialBar = ({ hours, ranking }) => {
+const RadialBar = ({ intervalHours, ranking }) => {
   // Map ranking (0-5) to percentage (0-100)
   const percentage = (ranking / 5) * 100;
 
@@ -9,7 +9,7 @@ const RadialBar = ({ hours, ranking }) => {
   const dashOffset = circumference * (1 - percentage / 100);
 
   // Adjust text ranking slightly based on number of digits
-  const textX = hours && (hours.length < 3 ? "70px" : "55px");
+  const textX = intervalHours && (intervalHours.toString().length === 3 ? "58px" : "75px");
 
   return (
     <svg
@@ -37,11 +37,11 @@ const RadialBar = ({ hours, ranking }) => {
         x={textX}
         y="115px"
         fill="#e0e0e0"
-        fontSize="50px"
+        fontSize="45px"
         fontWeight="bold"
         style={{ transform: "rotate(90deg) translate(0px, -196px)" }}
       >
-        {hours}h
+        {intervalHours}h
       </text>
     </svg>
   );
