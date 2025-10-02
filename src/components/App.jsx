@@ -51,8 +51,11 @@ function App() {
       </svg>
       <div className="w-full max-w-[1200px] mx-auto text-center">
         <Cog6ToothIcon
+          as={"button"}
+          tabindex="0"
           onClick={() => setIsModalOpen(true)}
-          className="w-10 h-10 text-white/50 hover:text-white cursor-pointer fixed top-4 right-4 z-50"
+          className="fixed top-4 right-4 -ml-5 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
+          aria-label="Open settings modal"
         />
         <h1 className="pacifico">Time to sleep...</h1>
         <div className="flex justify-between flex-col items-center gap-6 my-10 w-full px-2">

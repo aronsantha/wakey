@@ -55,6 +55,7 @@ h1 {
 
 .stars {
   position: absolute;
+  animation: rotate 1000s linear infinite;
   top: 50%;
   left: 50%;
   height: 1px;
@@ -149,6 +150,16 @@ h1 {
     28vw 2vh 0px 0px var(--star-color);
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -184,7 +195,6 @@ h1 {
   background: repeating-conic-gradient(from var(--a), #ffd700, #ffdc4f, #eb790f, #ffcc00, #ffdc4f);
   border-radius: 20px;
   animation: rotating 2s linear infinite;
-  /* Applying rotation animation */
 }
 
 /* Styling for the blurred gradient on the main box */
