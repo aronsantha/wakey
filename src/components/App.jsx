@@ -37,6 +37,7 @@ function App() {
   return (
     <>
       <div className="stars opacity-50"></div>
+
       <svg xmlns="http://www.w3.org/2000/svg" className="noise -z-[999]">
         <filter id="noise" x="0" y="0">
           <feTurbulence
@@ -57,14 +58,16 @@ function App() {
           className="fixed top-4 right-4 -ml-5 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
           aria-label="Open settings modal"
         />
-        <h1 className="pacifico">Time to sleep...</h1>
+        <h1 className="caprasimo text-[#fec119] glow">Time to sleep...</h1>
         <div className="flex justify-between flex-col items-center gap-6 my-10 w-full px-2">
-          <h2>Pick one of the scientifically recommended wake up times for a restful sleep:</h2>
+          <h2 className="text-[#745b18] font-serif text-2xl">
+            Let's find you a wake up time for perfect, restful sleep.{" "}
+          </h2>
           <div className="overflow-y-auto  overflow-x-hidden  flex-wrap flex gap-3 w-full max-w-[800px] max-h-[50vh] no-scrollbar">
             {sleepLengthArray.map((interval, index) => (
               <div
                 key={index}
-                className="grow first:text-6xl first:w-full first:h-50 h-20 max-h-50 gap-y-1 text-3xl bg-black/40 backdrop-blur-sm py-4 first:py-6 px-6 first:px-12  overflow-hidden rounded-3xl flex-wrap flex justify-between items-center"
+                className="grow  first:text-6xl first:w-full first:h-50 h-16 max-h-50 gap-y-1 text-xl bg-[#01031d]/40  backdrop-blur-xs py-4 first:py-6 px-5 first:px-12  overflow-hidden rounded-2xl flex-wrap flex justify-between items-center"
               >
                 <p className="barlow">{formatTime(interval)}</p>
                 <div className="h-full">

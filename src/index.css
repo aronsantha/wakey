@@ -6,7 +6,7 @@
   line-height: 1.5;
   font-weight: 400;
   overflow: hidden;
-  color: #fff5d8;
+  color: #fffcf3;
   background-color: #1b1426;
   background: linear-gradient(-45deg, #101231, #1f0e33, #180d26, #0f0543);
   background-size: 200% 200%;
@@ -17,6 +17,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.glow {
+  animation: pulsate 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 0 0 10px #fec119;
+    text-shadow: 0 0 40px #fec119;
+  }
+  0% {
+    text-shadow: 0 0 10px #fec119;
+    text-shadow: 0 0 50px #fec119;
+  }
 }
 
 #root {
@@ -178,62 +193,4 @@ h1 {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Styling for the main box */
-.glow {
-  position: relative;
-  width: 100%;
-  height: 300px;
-}
-
-/* Styling for the gradient animation on the main box */
-.glow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-conic-gradient(from var(--a), #ffd700, #ffdc4f, #eb790f, #ffcc00, #ffdc4f);
-  border-radius: 20px;
-  animation: rotating 2s linear infinite;
-}
-
-/* Styling for the blurred gradient on the main box */
-.glow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-conic-gradient(from var(--a), #ffd700, #ffdc4f, #eb790f, #ffcc00, #ffdc4f);
-  border-radius: 20px;
-  animation: rotating 2s linear infinite;
-  /* Applying rotation animation */
-  filter: blur(10px);
-  opacity: 0.2;
-}
-
-/* Styling for the inner div within the main box */
-.glow div {
-  position: absolute;
-  inset: 4px;
-  background: black;
-  /* Setting background color */
-  border-radius: 16px;
-  z-index: 1;
-}
-
-/* Custom property for the rotation angle */
-@property --a {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
-/* Keyframes for the rotating animation */
-@keyframes rotating {
-  0% {
-    --a: 0deg;
-  }
-
-  100% {
-    --a: 360deg;
-  }
 }
