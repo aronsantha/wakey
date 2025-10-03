@@ -58,13 +58,13 @@ function App() {
           <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
             It's sleepy time...
           </h1>
-          <h2 className="text-[#e4af1d] text-2xl font-serif  text-shadow-2xl">
-            If you fall asleep in <span className="font-bold">{offsetInMins} minutes﹡</span>, these
+          <h2 className="text-[#e4af1d] text-xl font-serif  text-shadow-2xl">
+            If you fall asleep in <span className="font-bold">{offsetInMins} minutes*</span>, these
             are the ideal wake-up times for perfect, restful sleep.
           </h2>
-          <p className="text-xs">﹡Note: you can adjust your fall asleep time in the settings.</p>
+          <p className="text-xs">*Note: you can adjust your fall asleep time in the settings.</p>
         </main>
-        <div className="flex-wrap flex  gap-3 w-full max-w-[800px] px-5 pt-5">
+        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 py-5 bg-emerald-600">
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
