@@ -54,15 +54,15 @@ function App() {
         />
       </div> */}
       <div className="h-screen flex flex-col items-center overflow-y-auto">
-        <main className="flex flex-col gap-6 px-4 py-8 text-center">
+        <main className="flex flex-col gap-6 px-4 py-8 text-center h-full">
           <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
             It's sleepy time...
           </h1>
           <h2 className="text-[#e4af1d] text-2xl font-serif  text-shadow-2xl">
-            If you fall asleep in <span className="font-bold">{offsetInMins} minutes</span>, here
-            are your ideal wake-up times for perfect, restful sleep.
+            If you fall asleep in <span className="font-bold">{offsetInMins} minutes﹡</span>, these
+            are the ideal wake-up times for perfect, restful sleep.
           </h2>
-          <p className="text-xs">Note: you can adjust your fall asleep time in the settings.</p>
+          <p className="text-xs">﹡Note: you can adjust your fall asleep time in the settings.</p>
         </main>
         <div className="flex-wrap flex  gap-3 w-full max-w-[800px] px-5 pt-5">
           {sleepLengthArray.map((interval, index) => (
