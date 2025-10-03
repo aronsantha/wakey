@@ -54,6 +54,15 @@ function App() {
         />
       </div> */}
       <div className="h-screen flex flex-col items-center overflow-y-auto">
+        <div className="z-50 flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
+          <Cog6ToothIcon
+            as={"button"}
+            tabIndex="0"
+            onClick={() => setIsModalOpen(true)}
+            className=" z-10   cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
+            aria-label="Open settings modal"
+          />
+        </div>
         <main className="flex flex-col gap-6 px-4 py-8 text-center h-full">
           <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
             It's sleepy time...
@@ -64,7 +73,7 @@ function App() {
           </h2>
           <p className="text-xs">*Note: you can adjust your fall asleep time in the settings.</p>
         </main>
-        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5 mb-20 pb-10 bg-emerald-600">
+        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5 mb-20 pb-10 ">
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
@@ -76,16 +85,6 @@ function App() {
           ))}
         </div>
       </div>
-
-      {/* <div className="flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
-        <Cog6ToothIcon
-          as={"button"}
-          tabIndex="0"
-          onClick={() => setIsModalOpen(true)}
-          className=" z-10   cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
-          aria-label="Open settings modal"
-        />
-      </div> */}
     </>
   );
 }
