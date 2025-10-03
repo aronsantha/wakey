@@ -38,7 +38,7 @@ function App() {
     <>
       <div className="stars"></div>
 
-      <div className="w-full max-w-[1200px] mx-auto text-center">
+      <div className="w-full max-w-[1200px] mx-auto text-center h-[100dvh]">
         <Cog6ToothIcon
           as={"button"}
           tabindex="0"
