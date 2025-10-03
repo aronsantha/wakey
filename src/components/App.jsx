@@ -54,7 +54,7 @@ function App() {
         />
       </div> */}
       <div className="h-screen flex flex-col items-center overflow-y-auto">
-        <div className="z-50 flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
+        {/* <div className="z-50 flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
           <Cog6ToothIcon
             as={"button"}
             tabIndex="0"
@@ -62,7 +62,7 @@ function App() {
             className=" z-10   cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
             aria-label="Open settings modal"
           />
-        </div>
+        </div> */}
         <main className="flex flex-col gap-6 px-4 py-8 text-center h-full">
           <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
             It's sleepy time...
