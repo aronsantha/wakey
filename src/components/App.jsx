@@ -55,14 +55,14 @@ function App() {
             are your ideal wake-up times for perfect, restful sleep.
           </h2>
           <p>Note: you can adjust your fall asleep time in the settings.</p>
-          <div className="overflow-y-auto  overflow-x-hidden  flex-wrap flex gap-3 w-full max-w-[800px] max-h-[50vh] no-scrollbar">
+          <div className="flex-wrap flex gap-3 w-full max-w-[800px] max-h-[50vh] no-scrollbar px-5">
             {sleepLengthArray.map((interval, index) => (
               <div
                 key={index}
-                className="grow first:text-6xl first:py-18 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4  px-8    rounded-2xl  flex flex-col  "
+                className="grow first:mb-10 first:shadow-[0_0_10px_#fec119] first:text-6xl first:py-18 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4  px-8    rounded-2xl  flex flex-col  "
               >
-                <p className="barlow">{formatTime(interval)}</p>
-                <p className="text-xs opacity-70">{intervals[index]} hours</p>
+                <p className="barlow text-amber-200">{formatTime(interval)}</p>
+                <p className="text-xs opacity-40">{intervals[index]} hours</p>
               </div>
             ))}
           </div>
