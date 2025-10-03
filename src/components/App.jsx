@@ -36,7 +36,7 @@ function App() {
   return (
     <>
       {/* <div className="stars"></div> */}
-      <div className="flex flex-col gap-4 z-50 absolute">
+      {/* <div className="flex flex-col gap-4 z-50 absolute">
         <BaseModal
           type={"info"}
           isOpen={isModalOpen}
@@ -46,7 +46,7 @@ function App() {
           handleSelectTimeFormat={(format) => () => setTimeFormat(format)}
           handleSelectOffset={(mins) => setOffset(mins)}
         />
-      </div>
+      </div> */}
       <div className="absolute inset-0 h-100dvh overflow-y-auto ">
         <div className="flex flex-col gap-5 items-center justify-center">
           <div className="flex flex-col  px-5">
@@ -74,6 +74,15 @@ function App() {
           </div>
         </div>
       </div>
+      {/* <div className="flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
+        <Cog6ToothIcon
+          as={"button"}
+          tabIndex="0"
+          onClick={() => setIsModalOpen(true)}
+          className=" z-10   cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
+          aria-label="Open settings modal"
+        />
+      </div> */}
     </>
   );
 }
