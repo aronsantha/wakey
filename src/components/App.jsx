@@ -47,8 +47,8 @@ function App() {
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div>
-      <div className="absolute inset-0 h-full ">
-        <main className="overflow-y-auto h-full  pb-18">
+      <div className="absolute inset-0 h-100dvh">
+        <main className="overflow-y-auto h-full   pb-18">
           <div className="flex flex-col gap-5 items-center justify-center">
             <div className="flex flex-col  px-5">
               <h1 className="text-4xl caprasimo text-[#fec119] py-14 text-shadow-[0_0_40px_#fec119]">
@@ -77,7 +77,7 @@ function App() {
             </div>
           </div>
         </main>
-        <div className="flex px-3 h-12 items-center backdrop-blur-sm bg-white/10 justify-end fixed bottom-0 w-full">
+        <div className="flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
           <Cog6ToothIcon
             as={"button"}
             tabIndex="0"
