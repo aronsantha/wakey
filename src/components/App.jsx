@@ -47,22 +47,22 @@ function App() {
           aria-label="Open settings modal"
         />
         <h1 className="text-7xl caprasimo text-[#fec119] text-shadow-[0_0_40px_#fec119]">
-          Time to sleep...
+          It's sleepy time...
         </h1>
         <div className="flex justify-between flex-col items-center gap-6 my-10 w-full px-2">
-          <h2 className="text-[#745b18] font-serif text-2xl">
-            Let's find you a wake up time for perfect, restful sleep.{" "}
+          <h2 className="text-[#e4af1d] font-serif text-2xl text-shadow-2xl">
+            If you fall asleep in <span className="font-bold">{offsetInMins} minutes</span>, here
+            are your ideal wake-up times for perfect, restful sleep.
           </h2>
+          <p>Note: you can adjust your fall asleep time in the settings.</p>
           <div className="overflow-y-auto  overflow-x-hidden  flex-wrap flex gap-3 w-full max-w-[800px] max-h-[50vh] no-scrollbar">
             {sleepLengthArray.map((interval, index) => (
               <div
                 key={index}
-                className="grow  first:text-6xl first:w-full first:h-50 h-16 max-h-50 gap-y-1 text-xl bg-black/10 backdrop-blur-sm py-4 first:py-6 px-5 first:px-12  overflow-hidden rounded-2xl flex-wrap flex justify-between items-center"
+                className="grow first:text-6xl first:py-18 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4  px-8    rounded-2xl  flex flex-col  "
               >
                 <p className="barlow">{formatTime(interval)}</p>
-                <div className="h-full inline-block">
-                  <RadialBar intervalHours={intervals[index]} ranking={5 - index} />
-                </div>
+                <p className="text-xs opacity-70">{intervals[index]} hours</p>
               </div>
             ))}
           </div>
