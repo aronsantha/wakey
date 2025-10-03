@@ -40,7 +40,7 @@ function App() {
         as={"button"}
         tabIndex="0"
         onClick={() => setIsModalOpen(true)}
-        className="fixed  top-4 right-4 -ml-5 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
+        className="fixed z-10  top-4 right-4 -ml-5 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
         aria-label="Open settings modal"
       />
       <div className="flex flex-col gap-4 z-50 absolute">
