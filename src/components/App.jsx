@@ -36,13 +36,6 @@ function App() {
   return (
     <>
       <div className="stars"></div>
-      <Cog6ToothIcon
-        as={"button"}
-        tabIndex="0"
-        onClick={() => setIsModalOpen(true)}
-        className="fixed z-10  top-4 right-4 -ml-5 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
-        aria-label="Open settings modal"
-      />
       <div className="flex flex-col gap-4 z-50 absolute">
         <BaseModal
           type={"info"}
@@ -54,30 +47,45 @@ function App() {
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div>
-      <div className="absolute inset-0 flex flex-col gap-5 pt-20 items-center justify-center">
-        <div className="flex flex-col gap-8 px-5">
-          <h1 className="text-7xl caprasimo text-[#fec119] text-shadow-[0_0_40px_#fec119]">
-            It's sleepy time...
-          </h1>
-          <div className="flex flex-col gap-3 ">
-            <h2 className="text-[#e4af1d] font-serif text-xl text-shadow-2xl">
-              If you fall asleep in <span className="font-bold">{offsetInMins} minutes</span>, here
-              are your ideal wake-up times for perfect, restful sleep.
-            </h2>
-            <p className="text-xs">Note: you can adjust your fall asleep time in the settings.</p>
-          </div>
-        </div>
-        <div className="flex-wrap flex overflow-y-auto gap-3 w-full max-w-[800px] px-5 py-5">
-          {sleepLengthArray.map((interval, index) => (
-            <div
-              key={index}
-              className="grow items-center first:mb-3 first:shadow-[0_0_10px_#fec119] first:text-5xl first:py-8 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4 px-8 rounded-2xl flex flex-col"
-            >
-              <p className="barlow text-amber-200">{formatTime(interval)}</p>
-              <p className="text-xs opacity-40">{intervals[index]} hours</p>
+      <div className="absolute inset-0 h-full flex flex-col">
+        <main className="overflow-y-auto h-full">
+          <div className="flex flex-col gap-5 items-center justify-center">
+            <div className="flex flex-col  px-5">
+              <h1 className="text-4xl caprasimo text-[#fec119] py-14 text-shadow-[0_0_40px_#fec119]">
+                It's sleepy time...
+              </h1>
+              <div className="flex flex-col gap-3 ">
+                <h2 className="text-[#e4af1d] font-serif text-xl text-shadow-2xl">
+                  If you fall asleep in <span className="font-bold">{offsetInMins} minutes</span>,
+                  here are your ideal wake-up times for perfect, restful sleep.
+                </h2>
+                <p className="text-xs">
+                  Note: you can adjust your fall asleep time in the settings.
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
+            <div className="flex-wrap flex  gap-3 w-full max-w-[800px] px-5 pt-5">
+              {sleepLengthArray.map((interval, index) => (
+                <div
+                  key={index}
+                  className="grow items-center first:mb-3 first:shadow-[0_0_10px_#fec119] first:text-5xl first:py-8 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4 px-8 rounded-2xl flex flex-col"
+                >
+                  <p className="barlow text-amber-200">{formatTime(interval)}</p>
+                  <p className="text-xs opacity-40">{intervals[index]} hours</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </main>
+        <nav className="flex p-5 backdrop-blur-sm justify-end">
+          <Cog6ToothIcon
+            as={"button"}
+            tabIndex="0"
+            onClick={() => setIsModalOpen(true)}
+            className=" z-10   cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
+            aria-label="Open settings modal"
+          />
+        </nav>
       </div>
     </>
   );
