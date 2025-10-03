@@ -53,7 +53,7 @@ function App() {
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div> */}
-      <main className="flex flex-col gap-6 h-full px-4 py-8 text-center bg-red-300">
+      <main className="flex flex-col gap-6 h-screen px-4 py-8 text-center bg-red-300">
         <h1 className="caprasimo text-[#fec119] text-shadow-[0_0_40px_#fec119]">
           It's sleepy time...
         </h1>
