@@ -64,7 +64,7 @@ function App() {
           </h2>
           <p className="text-xs">*Note: you can adjust your fall asleep time in the settings.</p>
         </main>
-        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 py-5 bg-emerald-600">
+        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5 mb-20 bg-emerald-600">
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
