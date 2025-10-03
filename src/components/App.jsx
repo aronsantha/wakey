@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <div className="stars"></div>
+      {/* <div className="stars"></div> */}
       <div className="flex flex-col gap-4 z-50 absolute">
         <BaseModal
           type={"info"}
