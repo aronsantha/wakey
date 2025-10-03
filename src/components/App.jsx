@@ -60,7 +60,7 @@ function App() {
                 className="grow  first:text-6xl first:w-full first:h-50 h-16 max-h-50 gap-y-1 text-xl bg-black/10 backdrop-blur-sm py-4 first:py-6 px-5 first:px-12  overflow-hidden rounded-2xl flex-wrap flex justify-between items-center"
               >
                 <p className="barlow">{formatTime(interval)}</p>
-                <div className="h-full">
+                <div className="h-full inline-block">
                   <RadialBar intervalHours={intervals[index]} ranking={5 - index} />
                 </div>
               </div>

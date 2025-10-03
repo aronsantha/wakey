@@ -17,7 +17,7 @@ function RadialBar({ intervalHours, ranking }) {
       viewBox="-25 -25 250 250"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#FFFFFF09" strokeWidth="5" />
+      <circle r="90" cx="100" cy="100" fill="transparent" stroke="#FFFFFF09" strokeWidth="10" />
 
       <circle
         r="90"
@@ -25,7 +25,7 @@ function RadialBar({ intervalHours, ranking }) {
         cy="100"
         fill="transparent"
         stroke="#FEC119"
-        strokeWidth="10"
+        strokeWidth="15"
         strokeLinecap="round"
         strokeDasharray={`${circumference}px`}
         strokeDashoffset={`${dashOffset}px`}
