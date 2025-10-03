@@ -54,7 +54,7 @@ function App() {
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div>
-      <div className="absolute inset-0 flex flex-col gap-5 pt-20">
+      <div className="absolute inset-0 flex flex-col gap-5 pt-20 items-center justify-center">
         <div className="flex flex-col gap-8 px-5">
           <h1 className="text-7xl caprasimo text-[#fec119] text-shadow-[0_0_40px_#fec119]">
             It's sleepy time...
@@ -67,7 +67,7 @@ function App() {
             <p className="text-xs">Note: you can adjust your fall asleep time in the settings.</p>
           </div>
         </div>
-        <div className="flex-wrap flex overflow-y-scroll gap-3 w-full max-w-[800px] px-5 py-5">
+        <div className="flex-wrap flex overflow-y-auto gap-3 w-full max-w-[800px] px-5 py-5">
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
