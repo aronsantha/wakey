@@ -20,14 +20,20 @@ function App() {
     };
   }, []);
 
-  const step = 60 * 60 * 1000;
+  const oneHourMs = 60 * 60 * 1000;
   const intervals = [9, 7.5, 6, 4.5, 3, 1.5];
   const sleepLengthArray = intervals.map(
-    (hours) => new Date(time.getTime() + offsetInMs + hours * step)
+    (hours) => new Date(time.getTime() + offsetInMs + hours * oneHourMs)
   );
 
+  const TIME_FORMAT_LOCALE = {
+    "24h": "en-GB",
+    "12h": "en-US",
+  };
+
   function formatTime(date) {
-    return date.toLocaleTimeString(timeFormat === "24h" ? "en-GB" : "en-US", {
+    const locale = TIME_FORMAT_LOCALE[timeFormat] || "en-US";
+    return date.toLocaleTimeString(locale, {
       hour: "numeric",
       minute: "numeric",
     });
@@ -48,16 +54,27 @@ function App() {
         />
       </div> */}
       <main className="flex flex-col gap-6 h-full px-4 py-8 text-center bg-red-300">
-        <h1 className="text-4xl caprasimo text-[#fec119] text-shadow-[0_0_40px_#fec119]">
+        <h1 className="caprasimo text-[#fec119] text-shadow-[0_0_40px_#fec119]">
           It's sleepy time...
         </h1>
-        <h2 className="text-[#e4af1d] font-serif text-xl text-shadow-2xl">
+        <h2 className="text-[#e4af1d] font-serif  text-shadow-2xl">
           If you fall asleep in <span className="font-bold">{offsetInMins} minutes</span>, here are
           your ideal wake-up times for perfect, restful sleep.
         </h2>
         <p className="text-xs">Note: you can adjust your fall asleep time in the settings.</p>
       </main>
 
+      {/* <div className="flex-wrap flex  gap-3 w-full max-w-[800px] px-5 pt-5">
+          {sleepLengthArray.map((interval, index) => (
+            <div
+              key={index}
+              className="grow items-center first:mb-3 first:shadow-[0_0_10px_#fec119] first:text-5xl first:py-8 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4 px-8 rounded-2xl flex flex-col"
+            >
+              <p className="barlow text-amber-200">{formatTime(interval)}</p>
+              <p className="text-xs opacity-40">{intervals[index]} hours</p>
+            </div>
+          ))}
+        </div> */}
       {/* <div className="flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
         <Cog6ToothIcon
           as={"button"}
