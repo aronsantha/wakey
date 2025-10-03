@@ -19,21 +19,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.glow {
-  animation: pulsate 4s ease-in-out infinite alternate;
-}
-
-@keyframes pulsate {
-  100% {
-    text-shadow: 0 0 10px #fec119;
-    text-shadow: 0 0 40px #fec119;
-  }
-  0% {
-    text-shadow: 0 0 10px #fec119;
-    text-shadow: 0 0 50px #fec119;
-  }
-}
-
 #root {
   display: flex;
   justify-content: center;
@@ -54,29 +39,16 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.noise {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  mix-blend-mode: multiply;
-}
-
 .stars {
   position: absolute;
   animation: rotate 1000s linear infinite;
   top: 50%;
   left: 50%;
-  height: 1px;
-  width: 1px;
+  height: 4px;
+  width: 4px;
   background-color: var(--star-color);
   border-radius: 50%;
+  filter: blur(1px);
   box-shadow:
     24vw 9vh 1px 0px var(--star-color),
     12vw -24vh 0px 1px var(--star-color),
