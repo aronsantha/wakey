@@ -55,7 +55,7 @@ function App() {
             are your ideal wake-up times for perfect, restful sleep.
           </h2>
           <p>Note: you can adjust your fall asleep time in the settings.</p>
-          <div className="flex-wrap flex gap-3 w-full max-w-[800px] max-h-[50vh] no-scrollbar px-5">
+          <div className="flex-wrap flex overflow-y-auto gap-3 w-full max-w-[800px] max-h-[50vh] no-scrollbar px-5 py-5">
             {sleepLengthArray.map((interval, index) => (
               <div
                 key={index}
