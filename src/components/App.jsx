@@ -53,7 +53,7 @@ function App() {
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div> */}
-      <div className="h-screen flex flex-col items-center overflow-y-auto">
+      <div className="h-screen flex flex-col md:justify-center items-center overflow-y-auto">
         {/* <div className="z-50 flex px-3 h-12 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
           <Cog6ToothIcon
             as={"button"}
@@ -63,21 +63,21 @@ function App() {
             aria-label="Open settings modal"
           />
         </div> */}
-        <main className="flex flex-col gap-6 px-4 py-8 text-center h-full">
-          <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
+        <main className="flex flex-col gap-4 px-4 py-8 text-center">
+          <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
             It's sleepy time...
           </h1>
           <h2 className="text-[#e4af1d] text-xl font-serif  text-shadow-2xl">
             If you fall asleep in <span className="font-bold">{offsetInMins} minutes*</span>, these
             are the ideal wake-up times for perfect, restful sleep.
           </h2>
-          <p className="text-xs">*Note: you can adjust your fall asleep time in the settings.</p>
+          <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
         </main>
         <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5 mb-20 pb-10 ">
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
-              className="grow items-center first:mb-3 first:shadow-[0_0_10px_#fec119] first:text-5xl first:py-8 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4 px-8 rounded-2xl flex flex-col"
+              className="grow items-center first:mb-3 first:shadow-[0_0_15px_#fec119]/50 first:text-5xl first:py-8 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4 px-8 rounded-2xl flex flex-col"
             >
               <p className="barlow text-amber-200">{formatTime(interval)}</p>
               <p className="text-xs opacity-40">{intervals[index]} hours</p>

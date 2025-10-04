@@ -8,9 +8,9 @@
   overflow: hidden;
   color: #fffcf3;
   background-color: #1b1426;
-  background: linear-gradient(-45deg, #101231, #1f0e33, #180d26, #0f0543);
+  background: linear-gradient(-45deg, #101231, #2c0a52, #180d26, #0f0543);
   background-size: 200% 200%;
-  animation: gradient 30s ease infinite;
+  animation: gradient 10s ease infinite;
 
   --star-color: #f0d184;
   font-synthesis: none;
