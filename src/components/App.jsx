@@ -48,11 +48,11 @@ function App() {
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
-        <footer className="fixed right-0 bottom-0 z-50 flex h-14 w-full items-center justify-end bg-neutral-900/50 px-3 backdrop-blur-lg">
+        <footer className="fixed right-0 bottom-0 z-50 flex h-12 w-full items-center justify-end bg-neutral-900/50 px-3 backdrop-blur-lg">
           <Cog6ToothIcon
             as={"button"}
             onClick={() => setIsModalOpen(true)}
-            className="z-10 h-12 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
+            className="z-10 h-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
             aria-label="Open settings modal"
           />
         </footer>
@@ -82,8 +82,8 @@ function App() {
                   </p>
                   <p className="font-digital col-1 row-1 opacity-15">00:00</p>
                 </div>
-                <p className="mt-auto text-xs text-white/25">
-                  {intervals[index]} hours
+                <p className="mt-auto text-xs tracking-wide text-white/25">
+                  {intervals[index]}h
                 </p>
               </div>
             ))}
