@@ -36,7 +36,7 @@ function App() {
   return (
     <>
       <div className="stars"></div>
-      {/* <div className="flex flex-col gap-4 z-50 absolute">
+      <div className="flex flex-col gap-4 z-50 absolute">
         <BaseModal
           type={"info"}
           isOpen={isModalOpen}
@@ -46,7 +46,7 @@ function App() {
           handleSelectTimeFormat={(format) => () => setTimeFormat(format)}
           handleSelectOffset={(mins) => setOffset(mins)}
         />
-      </div> */}
+      </div>
       <div className="h-screen pb-40 flex flex-col md:justify-center items-center overflow-y-auto scroll-smooth">
         <div className="z-50 flex px-3 h-16 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
           <Cog6ToothIcon
@@ -72,7 +72,7 @@ function App() {
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
-              className="grow items-center first:mb-3 first:shadow-[0_0_20px_#fec119]/20 first:text-4xl   text-[#fec119]/80 first:py-5 first:w-full gap-2 first:gap-4 text-xl bg-black/40  backdrop-blur-sm py-3 px-8 rounded-2xl flex flex-col"
+              className="grow items-center first:mb-3 first:shadow-[0_0_20px_#fec119]/20 first:text-4xl   text-amber-300 first:py-5 first:w-full gap-2 first:gap-4 text-xl bg-black/40  backdrop-blur-sm py-3 px-8 rounded-2xl flex flex-col"
             >
               <div className="h-lh mx-auto relative w-full">
                 <p className="font-digital absolute left-[50%] -translate-x-[50%]">
