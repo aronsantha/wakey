@@ -70,6 +70,7 @@ function BaseModal({
                     min={0}
                     max={99}
                     type="number"
+                    pattern="\d*"
                     onChange={(event) => {
                       const value = event.target.value;
                       if (value.length <= 2) {
