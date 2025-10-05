@@ -47,7 +47,7 @@ function App() {
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div> */}
-      <div className="h-screen flex flex-col md:justify-center items-center overflow-y-auto">
+      <div className="h-screen pb-40 flex flex-col md:justify-center items-center overflow-y-auto scroll-smooth">
         <div className="z-50 flex px-3 h-16 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
           <Cog6ToothIcon
             as={"button"}
@@ -68,7 +68,7 @@ function App() {
           </h2>
           <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
         </main>
-        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5 mb-20 pb-10 ">
+        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5  pb-10 ">
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
