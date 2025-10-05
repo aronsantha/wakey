@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      {/* <div className="stars"></div> */}
+      <div className="stars"></div>
       {/* <div className="flex flex-col gap-4 z-50 absolute">
         <BaseModal
           type={"info"}
@@ -61,7 +61,7 @@ function App() {
           <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
             It's sleepy time...
           </h1>
-          <h2 className="text-neutral-300 text-xl  text-shadow-2xl">
+          <h2 className="text-neutral-300 text-xl text-shadow-neutral-900 text-shadow-[0_0_2px]">
             If you fall asleep in{" "}
             <span className="font-bold text-[#fec119]">{offsetInMins} minutes*</span>, these are the
             ideal wake-up times for perfect, refreshing sleep.
