@@ -57,15 +57,15 @@ function App() {
             aria-label="Open settings modal"
           />
         </div>
-        <main className="flex flex-col gap-14 px-4 mt-30 text-center max-w-[600px]">
+        <main className="flex flex-col gap-10 px-4 mt-16 text-center max-w-[600px]">
           <div className="flex flex-col gap-4 ">
-            <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
+            <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] mb-10">
               It's sleepy time...
             </h1>
-            <h2 className="text-neutral-300 text-xl text-shadow-neutral-900 text-shadow-[0_0_2px]">
+            <h2 className="text-neutral-300 text-lg text-shadow-neutral-900 text-shadow-[0_0_2px]">
               If you fall asleep in{" "}
-              <span className="font-bold text-[#fec119]">{offsetInMins} minutes*</span>, these are
-              the ideal wake-up times for perfect, refreshing sleep.
+              <span className="font-bold text-[#fec119]">{offsetInMins || 0} minutes*</span>, these
+              are the ideal wake-up times for perfect, refreshing sleep.
             </h2>
             <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
           </div>
