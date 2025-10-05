@@ -2,11 +2,11 @@
 @import "./fonts.css";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   overflow: hidden;
-  color: #fffcf3;
+  color: #e3e3e3;
   background-color: #1b1426;
   background: linear-gradient(-45deg, #101231, #2c0a52, #180d26, #0f0543);
   background-size: 200% 200%;

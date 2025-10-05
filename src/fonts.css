@@ -1,17 +1,39 @@
-.pacifico {
-  font-family: "Pacifico", cursive;
+@font-face {
+  font-family: "DSEG7Classic";
+  src: url("./assets/fonts/DSEG7Classic-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DSEG7ClassicMini";
+  src: url("./assets/fonts/DSEG7ClassicMini-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Caprasimo";
+  src: url("./assets/fonts/Caprasimo-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
-.barlow {
-  font-family: "Barlow Semi Condensed", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.caprasimo {
+.font-caprasimo {
   font-family: "Caprasimo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-digital {
+  font-family: "DSEG7Classic", monospace;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-nunito {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }

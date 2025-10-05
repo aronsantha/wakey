@@ -26,14 +26,8 @@ function App() {
     (hours) => new Date(time.getTime() + offsetInMs + hours * oneHourMs)
   );
 
-  const TIME_FORMAT_LOCALE = {
-    "24h": "en-GB",
-    "12h": "en-US",
-  };
-
-  function formatTime(date) {
-    const locale = TIME_FORMAT_LOCALE[timeFormat] || "en-US";
-    return date.toLocaleTimeString(locale, {
+  function formatTime(time) {
+    return time.toLocaleTimeString("en-GB", {
       hour: "numeric",
       minute: "numeric",
     });
@@ -64,12 +58,13 @@ function App() {
           />
         </div> */}
         <main className="flex flex-col gap-4 px-4 py-8 text-center">
-          <h1 className="caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
+          <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
             It's sleepy time...
           </h1>
-          <h2 className="text-[#e4af1d] text-xl font-serif  text-shadow-2xl">
-            If you fall asleep in <span className="font-bold">{offsetInMins} minutes*</span>, these
-            are the ideal wake-up times for perfect, restful sleep.
+          <h2 className="text-neutral-300 text-xl  text-shadow-2xl">
+            If you fall asleep in{" "}
+            <span className="font-bold text-[#fec119]">{offsetInMins} minutes*</span>, these are the
+            ideal wake-up times for perfect, refreshing sleep.
           </h2>
           <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
         </main>
@@ -77,10 +72,17 @@ function App() {
           {sleepLengthArray.map((interval, index) => (
             <div
               key={index}
-              className="grow items-center first:mb-3 first:shadow-[0_0_15px_#fec119]/50 first:text-5xl first:py-8 first:w-full gap-5 text-xl bg-black/20 backdrop-blur-sm py-4 px-8 rounded-2xl flex flex-col"
+              className="grow items-center first:mb-3 first:shadow-[0_0_20px_#fec119]/20 first:text-4xl   text-[#fec119]/80 first:py-5 first:w-full gap-2 first:gap-4 text-xl bg-black/40  backdrop-blur-sm py-3 px-8 rounded-2xl flex flex-col"
             >
-              <p className="barlow text-amber-200">{formatTime(interval)}</p>
-              <p className="text-xs opacity-40">{intervals[index]} hours</p>
+              <div className="h-lh mx-auto relative w-full">
+                <p className="font-digital absolute left-[50%] -translate-x-[50%]">
+                  {formatTime(interval)}
+                </p>
+                <p className="font-digital absolute opacity-10 left-[50%] -translate-x-[50%]">
+                  00:00
+                </p>
+              </div>
+              <p className="text-xs text-neutral-400">{intervals[index]} hours</p>
             </div>
           ))}
         </div>
