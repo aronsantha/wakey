@@ -53,39 +53,42 @@ function App() {
             as={"button"}
             tabIndex="0"
             onClick={() => setIsModalOpen(true)}
-            className=" z-10   cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-8"
+            className=" p-2 z-10 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-14"
             aria-label="Open settings modal"
           />
         </div>
-        <main className="flex flex-col gap-4 px-4 py-8 text-center">
-          <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
-            It's sleepy time...
-          </h1>
-          <h2 className="text-neutral-300 text-xl text-shadow-neutral-900 text-shadow-[0_0_2px]">
-            If you fall asleep in{" "}
-            <span className="font-bold text-[#fec119]">{offsetInMins} minutes*</span>, these are the
-            ideal wake-up times for perfect, refreshing sleep.
-          </h2>
-          <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
-        </main>
-        <div className="flex-wrap flex gap-3 w-full max-w-[800px] px-5 pt-5  pb-10 ">
-          {sleepLengthArray.map((interval, index) => (
-            <div
-              key={index}
-              className="grow items-center first:mb-3 first:shadow-[0_0_20px_#fec119]/20 first:text-4xl   text-amber-300 first:py-5 first:w-full gap-2 first:gap-4 text-xl bg-black/40  backdrop-blur-sm py-3 px-8 rounded-2xl flex flex-col"
-            >
-              <div className="h-lh mx-auto relative w-full">
-                <p className="font-digital absolute left-[50%] -translate-x-[50%]">
-                  {formatTime(interval)}
-                </p>
-                <p className="font-digital absolute opacity-10 left-[50%] -translate-x-[50%]">
-                  00:00
-                </p>
+        <main className="flex flex-col gap-14 px-4 mt-30 text-center max-w-[600px]">
+          <div className="flex flex-col gap-4 ">
+            <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] m-6">
+              It's sleepy time...
+            </h1>
+            <h2 className="text-neutral-300 text-xl text-shadow-neutral-900 text-shadow-[0_0_2px]">
+              If you fall asleep in{" "}
+              <span className="font-bold text-[#fec119]">{offsetInMins} minutes*</span>, these are
+              the ideal wake-up times for perfect, refreshing sleep.
+            </h2>
+            <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
+          </div>
+
+          <div className="flex-wrap flex gap-3 w-full">
+            {sleepLengthArray.map((interval, index) => (
+              <div
+                key={index}
+                className="grow items-center first:mb-3 first:shadow-[0_0_20px_#fec119]/20 first:text-4xl   text-amber-300 first:py-5 first:w-full gap-2 first:gap-4 text-xl bg-black/40  backdrop-blur-sm py-3 px-8 rounded-2xl flex flex-col"
+              >
+                <div className="h-lh mx-auto relative w-full">
+                  <p className="font-digital absolute left-[50%] -translate-x-[50%]">
+                    {formatTime(interval)}
+                  </p>
+                  <p className="font-digital absolute opacity-10 left-[50%] -translate-x-[50%]">
+                    00:00
+                  </p>
+                </div>
+                <p className="text-xs text-neutral-400">{intervals[index]} hours</p>
               </div>
-              <p className="text-xs text-neutral-400">{intervals[index]} hours</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </main>
       </div>
     </>
   );
