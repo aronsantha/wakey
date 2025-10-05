@@ -1,4 +1,10 @@
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, CloseButton } from "@headlessui/react";
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+  CloseButton,
+} from "@headlessui/react";
 import { XCircleIcon } from "@heroicons/react/20/solid";
 
 function BaseModal({
@@ -25,7 +31,7 @@ function BaseModal({
               className="w-full max-w-5xl overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-200 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
             >
               <div className="flex items-center px-2 py-1">
-                <DialogTitle className="grow px-1 text-center text-md font-bold text-white">
+                <DialogTitle className="text-md grow px-1 text-center font-bold text-white">
                   Settings
                 </DialogTitle>
                 <CloseButton
@@ -37,11 +43,11 @@ function BaseModal({
                 </CloseButton>
               </div>
 
-              <div className="flex justify-center flex-col pb-6 px-4">
-                <h2 className="font-bold mt-5">Fall asleep time</h2>
-                <div className="relative h-26 my-6 flex items-center flex-col gap-3  bg-neutral-800 rounded-md overflow-hidden">
+              <div className="flex flex-col justify-center px-4 pb-6">
+                <h2 className="mt-5 font-bold">Fall asleep time</h2>
+                <div className="relative my-6 flex h-26 flex-col items-center gap-3 overflow-hidden rounded-md bg-neutral-800">
                   <input
-                    className=" text-amber-400/80 font-bold font-digital text-center text-2xl w-full h-full pb-4 rounded-md"
+                    className="font-digital h-full w-full rounded-md pb-4 text-center text-2xl font-bold text-amber-400/80"
                     value={offsetInMins}
                     placeholder="00"
                     min={0}
@@ -55,20 +61,22 @@ function BaseModal({
                       }
                     }}
                   />
-                  <p className="text-sm absolute bottom-2 text-neutral-400">minutes</p>
+                  <p className="absolute bottom-2 text-sm text-neutral-400">
+                    minutes
+                  </p>
                 </div>
                 <div className="flex flex-col gap-4 px-1">
-                  <p className="text-xs text-center text-neutral-500 ">
-                    The calculator includes the time it takes to fall asleep, which is 15 minutes
-                    for most people. You can tweak this number to better align with your personal
-                    sleep habits.
+                  <p className="text-center text-xs text-neutral-500">
+                    The calculator includes the time it takes to fall asleep,
+                    which is 15 minutes for most people. You can tweak this
+                    number to better align with your personal sleep habits.
                   </p>
-                  <p className="text-xs text-center text-neutral-600">
+                  <p className="text-center text-xs text-neutral-600">
                     Note: the highest available fall asleep time is 99 minutes.
                   </p>
                 </div>
 
-                <h2 className="font-bold mt-5">Time format</h2>
+                <h2 className="mt-5 font-bold">Time format</h2>
                 {/* <p className="flex flex-col gap-12 px-2 pt-14 pb-10 sm:px-10">
                 Our sleep naturally follows cycles of about 90 minutes, moving through light sleep,
                 deep sleep, and REM. Waking up in the middle of deep sleep can leave us feeling
