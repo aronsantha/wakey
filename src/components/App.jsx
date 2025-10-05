@@ -48,15 +48,14 @@ function App() {
         />
       </div>
       <div className="h-screen pb-40 flex flex-col md:justify-center items-center overflow-y-auto scroll-smooth">
-        <div className="z-50 flex px-3 h-16 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 w-full">
+        <footer className="z-50 flex px-3 h-14 items-center backdrop-blur-lg bg-neutral-900/50 justify-end fixed bottom-0 right-0 w-full">
           <Cog6ToothIcon
             as={"button"}
-            tabIndex="0"
             onClick={() => setIsModalOpen(true)}
-            className=" p-2 z-10 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-14"
+            className="p-2 z-10 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100 h-12"
             aria-label="Open settings modal"
           />
-        </div>
+        </footer>
         <main className="flex flex-col gap-10 px-4 mt-16 text-center max-w-[600px]">
           <div className="flex flex-col gap-4 ">
             <h1 className="font-caprasimo text-5xl text-[#fec119] text-shadow-[0_0_40px_#fec119] mb-10">
@@ -64,7 +63,7 @@ function App() {
             </h1>
             <h2 className="text-neutral-300 text-lg text-shadow-neutral-900 text-shadow-[0_0_2px]">
               If you fall asleep in{" "}
-              <span className="font-bold text-[#fec119]">{offsetInMins || 0} minutes*</span>, these
+              <span className="font-bold text-[#fec119]">{offsetInMins || 0} minutes</span>*, these
               are the ideal wake-up times for perfect, refreshing sleep.
             </h2>
             <p className="text-xs text-neutral-400">*Note: you can adjust this in the settings.</p>
@@ -74,17 +73,13 @@ function App() {
             {sleepLengthArray.map((interval, index) => (
               <div
                 key={index}
-                className="grow items-center first:mb-3 first:shadow-[0_0_20px_#fec119]/20 first:text-4xl   text-amber-300 first:py-5 first:w-full gap-2 first:gap-4 text-xl bg-black/40  backdrop-blur-sm py-3 px-8 rounded-2xl flex flex-col"
+                className="grow first:w-full first:shadow-[0_0_20px_#fec119]/10 first:shadow-amber-300 first:border-3 first:border-amber-400/20 border-black/10 border-4 items-center py-3 justify-center first:mb-3 first:text-amber-400/80 text-amber-400/60 first:text-5xl first:py-8  gap-x-3 first:gap-4 text-xl first:bg-black/40 bg-black/20 backdrop-blur-sm px-3 rounded-2xl flex flex-row first:flex-col"
               >
-                <div className="h-lh mx-auto relative w-full">
-                  <p className="font-digital absolute left-[50%] -translate-x-[50%]">
-                    {formatTime(interval)}
-                  </p>
-                  <p className="font-digital absolute opacity-10 left-[50%] -translate-x-[50%]">
-                    00:00
-                  </p>
+                <div className="h-lh grid">
+                  <p className="col-1 row-1 font-digital ">{formatTime(interval)}</p>
+                  <p className="col-1 row-1 font-digital opacity-15">00:00</p>
                 </div>
-                <p className="text-xs text-neutral-400">{intervals[index]} hours</p>
+                <p className="text-xs text-white/25 mt-auto">{intervals[index]} hours</p>
               </div>
             ))}
           </div>

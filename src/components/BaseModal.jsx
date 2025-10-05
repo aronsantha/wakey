@@ -26,7 +26,7 @@ function BaseModal({
             >
               <div className="flex items-center px-2 py-1">
                 <DialogTitle className="grow px-1 text-center text-md font-bold text-white">
-                  Fall asleep time
+                  Settings
                 </DialogTitle>
                 <CloseButton
                   as={"button"}
@@ -37,34 +37,11 @@ function BaseModal({
                 </CloseButton>
               </div>
 
-              {/* <p className="flex flex-col gap-12 px-2 pt-14 pb-10 sm:px-10">
-                Our sleep naturally follows cycles of about 90 minutes, moving through light sleep,
-                deep sleep, and REM. Waking up in the middle of deep sleep can leave us feeling
-                groggy and tired, even if we've slept for a long time. But waking up closer to the
-                end of a cycle, when sleep is lighter, makes it easier to get up and feeling
-                refreshed. Fall asleep time: The app also takes into account the average time it
-                takes to fall asleep, which is around 15 minutes for most people. However, we let
-                you customize this time to better fit your personal habits. Time format: Select the
-                time format you prefer, either 12-hour (AM/PM) or 24-hour.
-              </p> */}
-              {/* <button
-                  onClick={handleSelectTimeFormat("24h")}
-                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600"
-                >
-                  24h
-                </button>
-                              <button
-                  onClick={handleSelectTimeFormat("12h")}
-                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600"
-                >
-                  AM/PM
-                </button>
-                */}
-
-              <div className="flex justify-center flex-col pb-6 px-4 ">
+              <div className="flex justify-center flex-col pb-6 px-4">
+                <h2 className="font-bold mt-5">Fall asleep time</h2>
                 <div className="relative h-26 my-6 flex items-center flex-col gap-3  bg-neutral-800 rounded-md overflow-hidden">
                   <input
-                    className=" text-amber-300 font-bold font-digital text-center text-2xl w-full h-full pb-4 rounded-md"
+                    className=" text-amber-400/80 font-bold font-digital text-center text-2xl w-full h-full pb-4 rounded-md"
                     value={offsetInMins}
                     placeholder="00"
                     min={0}
@@ -90,6 +67,31 @@ function BaseModal({
                     Note: the highest available fall asleep time is 99 minutes.
                   </p>
                 </div>
+
+                <h2 className="font-bold mt-5">Time format</h2>
+                {/* <p className="flex flex-col gap-12 px-2 pt-14 pb-10 sm:px-10">
+                Our sleep naturally follows cycles of about 90 minutes, moving through light sleep,
+                deep sleep, and REM. Waking up in the middle of deep sleep can leave us feeling
+                groggy and tired, even if we've slept for a long time. But waking up closer to the
+                end of a cycle, when sleep is lighter, makes it easier to get up and feeling
+                refreshed. Fall asleep time: The app also takes into account the average time it
+                takes to fall asleep, which is around 15 minutes for most people. However, we let
+                you customize this time to better fit your personal habits. Time format: Select the
+                time format you prefer, either 12-hour (AM/PM) or 24-hour.
+              </p> */}
+                {/* <button
+                  onClick={handleSelectTimeFormat("24h")}
+                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                >
+                  24h
+                </button>
+                              <button
+                  onClick={handleSelectTimeFormat("12h")}
+                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                >
+                  AM/PM
+                </button>
+                */}
               </div>
             </DialogPanel>
           </div>
