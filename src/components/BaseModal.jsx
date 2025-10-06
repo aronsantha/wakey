@@ -44,8 +44,13 @@ function BaseModal({
               </div>
 
               <div className="flex flex-col justify-center px-4 pb-6">
-                <h2 className="mt-5 font-bold">Fall asleep time</h2>
-                <div className="relative my-6 flex h-26 flex-col items-center gap-3 overflow-hidden rounded-md bg-neutral-800">
+                <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2>
+                <p className="text-xs text-neutral-500">
+                  The calculator includes the time it takes to fall asleep,
+                  which is 15 minutes for most people. You can tweak this number
+                  to better align with your own sleep habits.{" "}
+                </p>
+                <div className="relative mt-6 flex h-26 flex-col items-center gap-3 overflow-hidden rounded-md bg-neutral-800">
                   <input
                     className="font-digital h-full w-full rounded-md pb-4 text-center text-2xl font-bold text-amber-400/80"
                     value={offsetInMins}
@@ -65,35 +70,43 @@ function BaseModal({
                     minutes
                   </p>
                 </div>
-                <div className="flex flex-col gap-4 px-1">
-                  <p className="text-center text-xs text-neutral-500">
-                    The calculator includes the time it takes to fall asleep,
-                    which is 15 minutes for most people. You can tweak this
-                    number to better align with your personal sleep habits.
-                  </p>
-                  <p className="text-center text-xs text-neutral-600">
-                    Note: the highest available fall asleep time is 99 minutes.
-                  </p>
-                </div>
+                <span className="mt-3 text-xs text-neutral-500">
+                  Note: the highest available time is 99 minutes.
+                </span>
 
-                <h2 className="mt-5 font-bold">Time format</h2>
-                <div className="mt-6 flex flex-row gap-2">
+                <h2 className="mt-8 mb-2 font-bold">Time format</h2>
+                <p className="text-xs text-neutral-500">
+                  Select the time format you prefer, either 12-hour (AM/PM) or
+                  24-hour.
+                </p>
+                <div className="mt-6 flex flex-row items-center gap-2">
                   <button
                     onClick={() => handleSelectTimeFormat("24h")}
                     className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-                      timeFormat === "24h" ? "bg-neutral-800" : "bg-neutral-500"
+                      timeFormat === "24h"
+                        ? "outline-1 outline-amber-400/80"
+                        : "bg-neutral-900"
                     }`}
                   >
-                    24h
+                    24 hour
                   </button>
                   <button
                     onClick={() => handleSelectTimeFormat("12h")}
                     className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-                      timeFormat === "12h" ? "bg-neutral-800" : "bg-neutral-500"
+                      timeFormat === "12h"
+                        ? "outline-1 outline-amber-400/80"
+                        : "bg-neutral-900"
                     }`}
                   >
                     AM/PM
                   </button>
+
+                  {/* 
+                Our sleep naturally follows cycles of about 90 minutes, moving through light sleep,
+                deep sleep, and REM. Waking up in the middle of deep sleep can leave us feeling
+                groggy and tired, even if we've slept for a long time. But waking up closer to the
+                end of a cycle, when sleep is lighter, makes it easier to get up and feeling
+                refreshed.*/}
                 </div>
               </div>
             </DialogPanel>

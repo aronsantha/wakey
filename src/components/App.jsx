@@ -78,12 +78,10 @@ function App() {
 
           <div className="flex w-full flex-row flex-wrap items-center gap-x-2 gap-y-2">
             {sleepLengthArray.map((interval, index) => {
-              const widthPercentage = 100 - index * 10;
               const heightPercent = index * 20;
               return (
                 <div
                   key={index}
-                  // style={{ width: `${widthPercentage}%` }}
                   className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-2 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
                 >
                   <div className="flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
