@@ -62,7 +62,7 @@ function App() {
             aria-label="Open settings modal"
           />
         </footer>
-        <main className="mt-16 flex max-w-[600px] flex-col px-4 text-center">
+        <main className="mt-16 flex max-w-[500px] flex-col px-4 text-center">
           <div className="mb-14 flex flex-col gap-4">
             <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
               It's sleepy time...

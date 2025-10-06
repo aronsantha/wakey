@@ -28,7 +28,7 @@ function BaseModal({
           <div className="flex min-h-full items-center justify-center">
             <DialogPanel
               transition
-              className="w-full max-w-5xl overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-200 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
+              className="w-full max-w-[400px] overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-200 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
             >
               <div className="flex items-center px-2 py-1">
                 <DialogTitle className="text-md grow px-1 text-center font-bold text-white">
@@ -43,7 +43,7 @@ function BaseModal({
                 </CloseButton>
               </div>
 
-              <div className="mx-auto flex max-w-[600px] flex-col justify-center px-4 pb-6 text-center">
+              <div className="mx-auto flex flex-col justify-center px-4 pb-6 text-center">
                 <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2>
                 <p className="text-xs text-neutral-500">
                   The calculator includes the time it takes to fall asleep,
@@ -61,7 +61,7 @@ function BaseModal({
                     -
                   </button>
 
-                  <div className="flex w-full flex-col items-center justify-center gap-2 py-2">
+                  <div className="flex w-full flex-col items-center justify-center gap-1 py-2">
                     <div className="mx-20 grid text-xl text-amber-400/80">
                       <p className="font-digital col-1 row-1 ml-auto">
                         {offsetInMins}
