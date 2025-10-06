@@ -28,10 +28,10 @@ function BaseModal({
           <div className="flex min-h-full items-center justify-center">
             <DialogPanel
               transition
-              className="w-full max-w-[400px] overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-200 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
+              className="w-full max-w-[400px] overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
             >
               <div className="flex items-center px-2 py-1">
-                <DialogTitle className="text-md grow px-1 text-center font-bold text-white">
+                <DialogTitle className="text-md grow px-1 text-center text-xl font-bold text-white">
                   Settings
                 </DialogTitle>
                 <CloseButton
@@ -39,7 +39,7 @@ function BaseModal({
                   aria-label="Close modal"
                   className="-ml-10 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100"
                 >
-                  <XCircleIcon className="w-8" />
+                  <XCircleIcon className="w-7" />
                 </CloseButton>
               </div>
 
