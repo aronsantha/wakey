@@ -56,7 +56,7 @@ function App() {
             aria-label="Open settings modal"
           />
         </footer>
-        <main className="mt-16 flex max-w-[600px] flex-col gap-8 px-4 text-center">
+        <main className="mt-16 flex max-w-[600px] flex-col px-4 text-center">
           <div className="flex flex-col gap-4">
             <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
               It's sleepy time...
@@ -74,25 +74,21 @@ function App() {
             {sleepLengthArray.map((interval, index) => {
               const widthPercentage = 100 - index * 10;
               return (
-                <>
-                  <div
-                    key={index}
-                    style={{ width: `${widthPercentage}%` }}
-                    className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-3 first:flex-col first:gap-4 first:rounded-2xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
-                  >
-                    <div className="grid h-lh">
-                      <p className="font-digital col-1 row-1">
-                        {formatTime(interval)}
-                      </p>
-                      <p className="font-digital col-1 row-1 opacity-5">
-                        00:00
-                      </p>
-                    </div>
-                    <p className="mt-auto text-xs tracking-wide text-white/20">
-                      {SLEEP_CYCLE_INTERVALS[index]} hours
+                <div
+                  key={index}
+                  style={{ width: `${widthPercentage}%` }}
+                  className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:my-14 first:flex-col first:gap-4 first:rounded-2xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
+                >
+                  <div className="grid h-lh">
+                    <p className="font-digital col-1 row-1">
+                      {formatTime(interval)}
                     </p>
+                    <p className="font-digital col-1 row-1 opacity-5">00:00</p>
                   </div>
-                </>
+                  <p className="mt-auto text-xs tracking-wide text-white/20">
+                    {SLEEP_CYCLE_INTERVALS[index]} hours
+                  </p>
+                </div>
               );
             })}
           </div>
