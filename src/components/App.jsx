@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useStickyState } from "../hooks.js";
 import BaseModal from "./BaseModal.jsx";
-import { Cog6ToothIcon } from "@heroicons/react/20/solid";
+import { Cog6ToothIcon, MoonIcon } from "@heroicons/react/24/solid";
 
 function App() {
   const [offsetInMins, setOffset] = useStickyState(15, "time-to-fall-asleep");
@@ -57,7 +57,7 @@ function App() {
           />
         </footer>
         <main className="mt-16 flex max-w-[600px] flex-col px-4 text-center">
-          <div className="flex flex-col gap-4">
+          <div className="mb-14 flex flex-col gap-4">
             <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
               It's sleepy time...
             </h1>
@@ -70,24 +70,43 @@ function App() {
             </h2>
           </div>
 
-          <div className="flex w-full flex-col flex-wrap items-center gap-x-4 gap-y-1">
+          <div className="flex w-full flex-row flex-wrap items-center gap-x-2 gap-y-2">
             {sleepLengthArray.map((interval, index) => {
               const widthPercentage = 100 - index * 10;
+              const heightPercent = index * 20;
               return (
                 <div
                   key={index}
-                  style={{ width: `${widthPercentage}%` }}
-                  className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:my-14 first:flex-col first:gap-4 first:rounded-2xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
+                  // style={{ width: `${widthPercentage}%` }}
+                  className="flex min-w-fit grow flex-row items-center justify-center gap-x-3 gap-y-1 rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-2 first:w-full first:gap-4 first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
                 >
-                  <div className="grid h-lh">
-                    <p className="font-digital col-1 row-1">
-                      {formatTime(interval)}
-                    </p>
-                    <p className="font-digital col-1 row-1 opacity-5">00:00</p>
+                  <div
+                    className="grid h-lh py-1"
+                    aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
+                    title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
+                    hours
+                  >
+                    <MoonIcon className="col-1 row-1 h-full text-white/5" />
+                    <MoonIcon
+                      className="col-1 row-1 h-full text-amber-400"
+                      style={{
+                        clipPath: `inset(${heightPercent}% 0 0 0)`,
+                      }}
+                    />
                   </div>
-                  <p className="mt-auto text-xs tracking-wide text-white/20">
-                    {SLEEP_CYCLE_INTERVALS[index]} hours
-                  </p>
+                  <div className="flex gap-1">
+                    <div className="grid h-lh">
+                      <p className="font-digital col-1 row-1">
+                        {formatTime(interval)}
+                      </p>
+                      <p className="font-digital col-1 row-1 opacity-5">
+                        00:00
+                      </p>
+                    </div>
+                    <p className="mt-auto text-[8px] tracking-wide text-white/30">
+                      AM
+                    </p>
+                  </div>
                 </div>
               );
             })}
