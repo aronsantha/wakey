@@ -77,29 +77,24 @@ function BaseModal({
                 </div>
 
                 <h2 className="mt-5 font-bold">Time format</h2>
-                {/* <p className="flex flex-col gap-12 px-2 pt-14 pb-10 sm:px-10">
-                Our sleep naturally follows cycles of about 90 minutes, moving through light sleep,
-                deep sleep, and REM. Waking up in the middle of deep sleep can leave us feeling
-                groggy and tired, even if we've slept for a long time. But waking up closer to the
-                end of a cycle, when sleep is lighter, makes it easier to get up and feeling
-                refreshed. Fall asleep time: The app also takes into account the average time it
-                takes to fall asleep, which is around 15 minutes for most people. However, we let
-                you customize this time to better fit your personal habits. Time format: Select the
-                time format you prefer, either 12-hour (AM/PM) or 24-hour.
-              </p> */}
-                {/* <button
-                  onClick={handleSelectTimeFormat("24h")}
-                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600"
-                >
-                  24h
-                </button>
-                              <button
-                  onClick={handleSelectTimeFormat("12h")}
-                  className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600"
-                >
-                  AM/PM
-                </button>
-                */}
+                <div className="mt-6 flex flex-row gap-2">
+                  <button
+                    onClick={() => handleSelectTimeFormat("24h")}
+                    className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+                      timeFormat === "24h" ? "bg-neutral-800" : "bg-neutral-500"
+                    }`}
+                  >
+                    24h
+                  </button>
+                  <button
+                    onClick={() => handleSelectTimeFormat("12h")}
+                    className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+                      timeFormat === "12h" ? "bg-neutral-800" : "bg-neutral-500"
+                    }`}
+                  >
+                    AM/PM
+                  </button>
+                </div>
               </div>
             </DialogPanel>
           </div>

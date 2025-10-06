@@ -22,15 +22,21 @@ function App() {
 
   const ONE_HOUR_MS = 60 * 60 * 1000;
   const SLEEP_CYCLE_INTERVALS = [9, 7.5, 6, 4.5, 3, 1.5];
+  const LOCALE_FORMAT_MAP = { "12h": "en-US", "24h": "en-GB" };
   const sleepLengthArray = SLEEP_CYCLE_INTERVALS.map(
     (hours) => new Date(time.getTime() + offsetInMs + hours * ONE_HOUR_MS),
   );
 
   function formatTime(time) {
-    return time.toLocaleTimeString("en-GB", {
+    const timeString = time.toLocaleTimeString(LOCALE_FORMAT_MAP[timeFormat], {
       hour: "numeric",
       minute: "numeric",
     });
+
+    return {
+      time: timeString.split(" ")[0],
+      timeOfDay: timeString.split(" ")[1],
+    };
   }
 
   return (
@@ -43,7 +49,7 @@ function App() {
           timeFormat={timeFormat}
           offsetInMins={offsetInMins}
           handleClose={() => setIsModalOpen(false)}
-          handleSelectTimeFormat={(format) => () => setTimeFormat(format)}
+          handleSelectTimeFormat={(format) => setTimeFormat(format)}
           handleSelectOffset={(mins) => setOffset(mins)}
         />
       </div>
@@ -98,15 +104,18 @@ function App() {
                     <div className="flex items-end gap-1">
                       <div className="grid">
                         <p className="font-digital col-1 row-1">
-                          {formatTime(interval)}
+                          {formatTime(interval).time}
                         </p>
                         <p className="font-digital col-1 row-1 opacity-5">
                           00:00
                         </p>
                       </div>
-                      {/* <p className="mb-px text-[8px] tracking-wide text-white/30">
-                        AM
-                      </p> */}
+
+                      {timeFormat === "12h" && (
+                        <p className="mb-px text-[8px] tracking-wide text-white/30">
+                          {formatTime(interval).timeOfDay}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
