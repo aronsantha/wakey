@@ -56,7 +56,7 @@ function BaseModal({
                     onClick={() =>
                       offsetInMins > 0 && handleSelectOffset(offsetInMins - 5)
                     }
-                    className="font-digital flex shrink-0 items-center bg-neutral-900 px-5 text-sm"
+                    className="font-digital flex shrink-0 cursor-pointer items-center bg-neutral-900 px-5 text-sm"
                   >
                     -
                   </button>
@@ -72,7 +72,7 @@ function BaseModal({
                     <p className="text-xs text-neutral-400">minutes</p>
                   </div>
                   <button
-                    className="font-digital flex shrink-0 items-center bg-neutral-900 px-5 text-sm"
+                    className="font-digital flex shrink-0 cursor-pointer items-center bg-neutral-900 px-5 text-sm"
                     onClick={() =>
                       offsetInMins < 90 && handleSelectOffset(offsetInMins + 5)
                     }
