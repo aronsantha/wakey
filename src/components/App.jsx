@@ -20,10 +20,10 @@ function App() {
     };
   }, []);
 
-  const oneHourMs = 60 * 60 * 1000;
-  const intervals = [9, 7.5, 6, 4.5, 3, 1.5];
-  const sleepLengthArray = intervals.map(
-    (hours) => new Date(time.getTime() + offsetInMs + hours * oneHourMs),
+  const ONE_HOUR_MS = 60 * 60 * 1000;
+  const SLEEP_CYCLE_INTERVALS = [9, 7.5, 6, 4.5, 3, 1.5];
+  const sleepLengthArray = SLEEP_CYCLE_INTERVALS.map(
+    (hours) => new Date(time.getTime() + offsetInMs + hours * ONE_HOUR_MS),
   );
 
   function formatTime(time) {
@@ -70,23 +70,31 @@ function App() {
             </h2>
           </div>
 
-          <div className="flex w-full flex-wrap gap-x-4 gap-y-2">
-            {sleepLengthArray.map((interval, index) => (
-              <div
-                key={index}
-                className="flex grow flex-row items-center justify-center gap-x-3 rounded-xl border-3 border-black/10 bg-black/20 px-3 py-2 text-lg text-amber-400/70 backdrop-blur-sm first:mb-3 first:w-full first:flex-col first:gap-4 first:border-3 first:border-amber-400/20 first:bg-black/40 first:py-6 first:text-3xl first:text-amber-400/80 first:shadow-[0_0_20px_#fec119]/10 first:shadow-amber-300"
-              >
-                <div className="grid h-lh">
-                  <p className="font-digital col-1 row-1">
-                    {formatTime(interval)}
-                  </p>
-                  <p className="font-digital col-1 row-1 opacity-15">00:00</p>
-                </div>
-                <p className="mt-auto text-xs tracking-wide text-white/25">
-                  {intervals[index]}h
-                </p>
-              </div>
-            ))}
+          <div className="flex w-full flex-col flex-wrap items-center gap-x-4 gap-y-1">
+            {sleepLengthArray.map((interval, index) => {
+              const widthPercentage = 100 - index * 10;
+              return (
+                <>
+                  <div
+                    key={index}
+                    style={{ width: `${widthPercentage}%` }}
+                    className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/60 px-3 py-2 text-lg text-amber-400/70 backdrop-blur-sm first:mb-6 first:flex-col first:gap-4 first:rounded-3xl first:border-2 first:border-amber-400/20 first:py-7 first:text-3xl first:text-amber-400/80 first:shadow-[0_0_10px_#fec119]/20"
+                  >
+                    <div className="grid h-lh">
+                      <p className="font-digital col-1 row-1">
+                        {formatTime(interval)}
+                      </p>
+                      <p className="font-digital col-1 row-1 opacity-15">
+                        00:00
+                      </p>
+                    </div>
+                    <p className="mt-auto text-xs tracking-wide text-white/25">
+                      {SLEEP_CYCLE_INTERVALS[index]}h
+                    </p>
+                  </div>
+                </>
+              );
+            })}
           </div>
         </main>
       </div>
