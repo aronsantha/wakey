@@ -70,25 +70,48 @@ function App() {
             </h2>
           </div>
 
-          <div className="flex w-full flex-col flex-wrap items-center gap-x-4 gap-y-1">
+          <div className="mt-14 flex w-full flex-col flex-wrap items-center gap-x-4 gap-y-1">
             {sleepLengthArray.map((interval, index) => {
-              const widthPercentage = 100 - index * 10;
+              const widthPercentage = 100 - index * 15;
               return (
-                <div
-                  key={index}
-                  style={{ width: `${widthPercentage}%` }}
-                  className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:my-14 first:flex-col first:gap-4 first:rounded-2xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
-                >
-                  <div className="grid h-lh">
-                    <p className="font-digital col-1 row-1">
-                      {formatTime(interval)}
+                <>
+                  <div
+                    key={index}
+                    style={{ width: `${widthPercentage}%` }}
+                    className="flex min-w-fit flex-col items-center justify-center gap-x-3 rounded-lg bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-2 first:flex-col first:gap-4 first:rounded-2xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
+                  >
+                    <div className="grid h-lh">
+                      <p className="font-digital col-1 row-1">
+                        {formatTime(interval)}
+                      </p>
+                      <p className="font-digital col-1 row-1 opacity-5">
+                        00:00
+                      </p>
+                    </div>
+                    <p className="mt-auto text-[10px] tracking-wide text-white/20">
+                      {SLEEP_CYCLE_INTERVALS[index]} hours
                     </p>
-                    <p className="font-digital col-1 row-1 opacity-5">00:00</p>
                   </div>
-                  <p className="mt-auto text-xs tracking-wide text-white/20">
-                    {SLEEP_CYCLE_INTERVALS[index]} hours
-                  </p>
-                </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="my-1 size-4 opacity-10 last:hidden"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 18.75 7.5-7.5 7.5 7.5"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m4.5 12.75 7.5-7.5 7.5 7.5"
+                    />
+                  </svg>
+                </>
               );
             })}
           </div>
