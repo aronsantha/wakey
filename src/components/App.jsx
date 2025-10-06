@@ -69,9 +69,12 @@ function App() {
             </h1>
             <h2 className="text-neutral-300 text-shadow-[0_0_2px] text-shadow-neutral-900">
               If you fall asleep in{" "}
-              <span className="font-bold text-[#fec119]">
+              <div
+                className="inline font-bold text-[#fec119]"
+                onClick={() => setIsModalOpen(true)}
+              >
                 {offsetInMins || 0} minutes
-              </span>
+              </div>
               , these are the ideal wake-up times for a refreshing sleep:
             </h2>
           </div>

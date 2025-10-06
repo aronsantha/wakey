@@ -43,53 +43,49 @@ function BaseModal({
                 </CloseButton>
               </div>
 
-              <div className="flex flex-col justify-center px-4 pb-6">
+              <div className="mx-auto flex max-w-[600px] flex-col justify-center px-4 pb-6 text-center">
                 <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2>
                 <p className="text-xs text-neutral-500">
                   The calculator includes the time it takes to fall asleep,
                   which is 15 minutes for most people. You can tweak this number
-                  to better align with your own sleep habits.{" "}
+                  to better align with your own sleep habits. (Limit: 90
+                  minutes){" "}
                 </p>
-                <div className="relative mt-6 flex h-26 flex-col items-center gap-3 overflow-hidden rounded-md bg-neutral-800">
-                  <input
-                    className="font-digital h-full w-full rounded-md pb-4 text-center text-2xl font-bold text-amber-400/80"
-                    value={offsetInMins}
-                    placeholder="00"
-                    min={0}
-                    max={99}
-                    type="number"
-                    pattern="\d*"
-                    onChange={(event) => {
-                      const value = event.target.value;
-                      if (value.length <= 2) {
-                        handleSelectOffset(value);
-                      }
-                    }}
-                  />
-                  <p className="absolute bottom-2 text-sm text-neutral-400">
-                    minutes
-                  </p>
+                <div className="mx-auto mt-6 flex max-w-fit flex-row overflow-hidden rounded-3xl bg-neutral-800">
+                  <button
+                    onClick={() =>
+                      offsetInMins > 0 && handleSelectOffset(offsetInMins - 5)
+                    }
+                    className="font-digital flex shrink-0 items-center bg-neutral-900 px-5 text-sm"
+                  >
+                    -
+                  </button>
+
+                  <div className="flex w-full flex-col items-center justify-center gap-2 py-2">
+                    <div className="mx-20 grid text-xl text-amber-400/80">
+                      <p className="font-digital col-1 row-1 ml-auto">
+                        {offsetInMins}
+                      </p>
+                      <p className="font-digital col-1 row-1 opacity-5">00</p>
+                    </div>
+
+                    <p className="text-xs text-neutral-400">minutes</p>
+                  </div>
+                  <button
+                    className="font-digital flex shrink-0 items-center bg-neutral-900 px-5 text-sm"
+                    onClick={() =>
+                      offsetInMins < 90 && handleSelectOffset(offsetInMins + 5)
+                    }
+                  >
+                    +
+                  </button>
                 </div>
-                <span className="mt-3 text-xs text-neutral-500">
-                  Note: the highest available time is 99 minutes.
-                </span>
 
                 <h2 className="mt-8 mb-2 font-bold">Time format</h2>
                 <p className="text-xs text-neutral-500">
-                  Select the time format you prefer, either 12-hour (AM/PM) or
-                  24-hour.
+                  Time will be displayed in your selected time format.
                 </p>
-                <div className="mt-6 flex flex-row items-center gap-2">
-                  <button
-                    onClick={() => handleSelectTimeFormat("24h")}
-                    className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-                      timeFormat === "24h"
-                        ? "outline-1 outline-amber-400/80"
-                        : "bg-neutral-900"
-                    }`}
-                  >
-                    24 hour
-                  </button>
+                <div className="mx-auto mt-6 flex flex-row items-center gap-2">
                   <button
                     onClick={() => handleSelectTimeFormat("12h")}
                     className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
@@ -98,7 +94,17 @@ function BaseModal({
                         : "bg-neutral-900"
                     }`}
                   >
-                    AM/PM
+                    12-hour
+                  </button>
+                  <button
+                    onClick={() => handleSelectTimeFormat("24h")}
+                    className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+                      timeFormat === "24h"
+                        ? "outline-1 outline-amber-400/80"
+                        : "bg-neutral-900"
+                    }`}
+                  >
+                    24-hour
                   </button>
 
                   {/* 
