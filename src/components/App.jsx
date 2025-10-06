@@ -29,8 +29,8 @@ function App() {
 
   function formatTime(time) {
     const timeString = time.toLocaleTimeString(LOCALE_FORMAT_MAP[timeFormat], {
-      hour: "numeric",
-      minute: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
 
     return {
