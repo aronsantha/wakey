@@ -35,7 +35,7 @@ function App() {
 
   return (
     <>
-      <div className="stars"></div>
+      <div className="stars hidden md:block"></div>
       <div className="absolute z-50 flex flex-col gap-4">
         <BaseModal
           type={"info"}
@@ -78,18 +78,18 @@ function App() {
                   <div
                     key={index}
                     style={{ width: `${widthPercentage}%` }}
-                    className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-6 first:flex-col first:gap-4 first:rounded-3xl first:border-2 first:border-amber-400/50 first:py-7 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]"
+                    className="flex min-w-fit flex-col items-center justify-center gap-x-3 gap-y-1 rounded-t-sm rounded-b-4xl bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-3 first:flex-col first:gap-4 first:rounded-2xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
                   >
                     <div className="grid h-lh">
                       <p className="font-digital col-1 row-1">
                         {formatTime(interval)}
                       </p>
-                      <p className="font-digital col-1 row-1 opacity-15">
+                      <p className="font-digital col-1 row-1 opacity-5">
                         00:00
                       </p>
                     </div>
-                    <p className="mt-auto text-xs tracking-wide text-white/25">
-                      {SLEEP_CYCLE_INTERVALS[index]}h
+                    <p className="mt-auto text-xs tracking-wide text-white/20">
+                      {SLEEP_CYCLE_INTERVALS[index]} hours
                     </p>
                   </div>
                 </>
