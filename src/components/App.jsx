@@ -78,34 +78,36 @@ function App() {
                 <div
                   key={index}
                   // style={{ width: `${widthPercentage}%` }}
-                  className="flex min-w-fit grow flex-row items-center justify-center gap-x-3 gap-y-1 rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-2 first:w-full first:gap-4 first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
+                  className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-2 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
                 >
-                  <div
-                    className="grid h-lh py-1"
-                    aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
-                    title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
-                    hours
-                  >
-                    <MoonIcon className="col-1 row-1 h-full text-white/5" />
-                    <MoonIcon
-                      className="col-1 row-1 h-full text-amber-400"
-                      style={{
-                        clipPath: `inset(${heightPercent}% 0 0 0)`,
-                      }}
-                    />
-                  </div>
-                  <div className="flex gap-1">
-                    <div className="grid h-lh">
-                      <p className="font-digital col-1 row-1">
-                        {formatTime(interval)}
-                      </p>
-                      <p className="font-digital col-1 row-1 opacity-5">
-                        00:00
-                      </p>
+                  <div className="flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
+                    <div
+                      className="grid h-full items-center"
+                      aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
+                      title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
+                      hours
+                    >
+                      <MoonIcon className="col-1 row-1 h-[60%] text-white/5" />
+                      <MoonIcon
+                        className="col-1 row-1 h-[60%] text-amber-400"
+                        style={{
+                          clipPath: `inset(${heightPercent}% 0 0  0)`,
+                        }}
+                      />
                     </div>
-                    <p className="mt-auto text-[8px] tracking-wide text-white/30">
-                      AM
-                    </p>
+                    <div className="flex items-end gap-1">
+                      <div className="grid">
+                        <p className="font-digital col-1 row-1">
+                          {formatTime(interval)}
+                        </p>
+                        <p className="font-digital col-1 row-1 opacity-5">
+                          00:00
+                        </p>
+                      </div>
+                      {/* <p className="mb-px text-[8px] tracking-wide text-white/30">
+                        AM
+                      </p> */}
+                    </div>
                   </div>
                 </div>
               );
