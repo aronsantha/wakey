@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useStickyState } from "../hooks.js";
 import BaseModal from "./BaseModal.jsx";
-import { Cog6ToothIcon, MoonIcon } from "@heroicons/react/24/solid";
+import {
+  Cog6ToothIcon,
+  MoonIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/24/solid";
 
 function App() {
   const [offsetInMins, setOffset] = useStickyState(15, "time-to-fall-asleep");
@@ -54,13 +58,24 @@ function App() {
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
-        <footer className="fixed right-0 bottom-0 z-50 flex h-12 w-full items-center justify-end bg-neutral-900/50 px-3 backdrop-blur-lg">
-          <Cog6ToothIcon
-            as={"button"}
-            onClick={() => setIsModalOpen(true)}
-            className="z-10 h-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
-            aria-label="Open settings modal"
-          />
+        <footer className="fixed right-0 bottom-0 z-50 h-12 w-full bg-neutral-900/50 px-3 backdrop-blur-lg">
+          <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
+            <InformationCircleIcon
+              as={"button"}
+              onClick={() => setIsModalOpen(true)}
+              className="z-10 h-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
+              aria-label="Open information modal"
+            />
+            <h1 className="font-caprasimo pb-1 text-2xl text-white/30">
+              wakey
+            </h1>
+            <Cog6ToothIcon
+              as={"button"}
+              onClick={() => setIsModalOpen(true)}
+              className="z-10 h-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
+              aria-label="Open settings modal"
+            />
+          </div>
         </footer>
         <main className="mt-16 flex max-w-[500px] flex-col px-4 text-center">
           <div className="mb-14 flex flex-col gap-4">
