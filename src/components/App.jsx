@@ -208,7 +208,7 @@ function App() {
               return (
                 <div
                   key={index}
-                  className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-2 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/80"
+                  className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-3 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_20px_#fec119]/50"
                 >
                   <div className="flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                     <div
