@@ -8,7 +8,16 @@ import {
 } from "@heroicons/react/20/solid";
 
 function App() {
-  const [offsetInMins, setOffset] = useStickyState(15, "time-to-fall-asleep");
+  const ONE_HOUR_MS = 60 * 60 * 1000;
+  const SLEEP_CYCLE_INTERVALS = [9, 7.5, 6, 4.5, 3, 1.5];
+  const LOCALE_FORMAT_MAP = { "12h": "en-US", "24h": "en-GB" };
+  const DEFAULT_FALL_ASLEEP_MINUTES = 15;
+  const MAX_FALL_ASLEEP_MINUTES = 90;
+
+  const [offsetInMins, setOffset] = useStickyState(
+    DEFAULT_FALL_ASLEEP_MINUTES,
+    "time-to-fall-asleep",
+  );
   const [timeFormat, setTimeFormat] = useStickyState("12h", "time-format");
   const offsetInMs = offsetInMins * 60 * 1000;
   const [time, setTime] = useState(new Date());
@@ -24,9 +33,6 @@ function App() {
     };
   }, []);
 
-  const ONE_HOUR_MS = 60 * 60 * 1000;
-  const SLEEP_CYCLE_INTERVALS = [9, 7.5, 6, 4.5, 3, 1.5];
-  const LOCALE_FORMAT_MAP = { "12h": "en-US", "24h": "en-GB" };
   const sleepLengthArray = SLEEP_CYCLE_INTERVALS.map(
     (hours) => new Date(time.getTime() + offsetInMs + hours * ONE_HOUR_MS),
   );
@@ -49,7 +55,7 @@ function App() {
       <p className="text-xs text-neutral-500">
         The calculator includes the time it takes to fall asleep, which is 15
         minutes for most people. You can tweak this number to better align with
-        your own sleep habits. (Limit: 90 minutes){" "}
+        your own sleep habits. (Limit: {MAX_FALL_ASLEEP_MINUTES} minutes){" "}
       </p>
       <div className="mx-auto mt-6 flex max-w-fit flex-row overflow-clip rounded-3xl bg-neutral-800">
         <button
@@ -68,7 +74,10 @@ function App() {
         </div>
         <button
           className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-l-3xl rounded-r-3xl bg-neutral-900"
-          onClick={() => offsetInMins < 90 && setOffset(offsetInMins + 5)}
+          onClick={() =>
+            offsetInMins < MAX_FALL_ASLEEP_MINUTES &&
+            setOffset(offsetInMins + 5)
+          }
         >
           +
         </button>
@@ -104,25 +113,33 @@ function App() {
   );
 
   const aboutModalContent = (
-    <div className="mx-auto flex flex-col justify-center gap-5 px-4 py-6 text-center text-sm">
-      {/* <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2> */}
-      <p>
+    <div className="mx-auto flex flex-col justify-center px-4 pb-6 text-left">
+      <h2 className="mt-8 mb-3 font-bold">How sleep works</h2>
+      <p className="text-sm text-neutral-500">
         Our sleep naturally follows cycles of about 90 minutes, where each cycle
         goes through the stages of light sleep, deep sleep, and REM.
       </p>
-      <p>
+      <p className="mt-3 text-sm text-neutral-500">
         Waking up during deep sleep can leave you feeling drained, even after a
         full night's rest. But if you wake closer to the end of a sleep cycle,
         you're more likely to wake up feeling refreshed.
       </p>
-      <p>
-        Wakey helps you wake up at the ideal time, ready for the day. You can
-        also customise your experience by setting how long it usually takes you
-        to fall asleep, and choosing your preferred time format.
+
+      <h2 className="mt-8 mb-3 font-bold">Tailored for you</h2>
+      <p className="text-sm text-neutral-500">
+        Wakey helps you find the ideal time to wake up rested, ready for the
+        day. You can also customise your experience by setting how long it takes
+        you to fall asleep, and choosing your preferred time format.
       </p>
-      <p>Sleep tight!</p>
+      <p className="font-caprasimo mt-8 text-center text-amber-400">
+        Sleep tight!
+      </p>
     </div>
   );
+
+  // const timeCard = (
+
+  // )
 
   const ModalMap = {
     SETTINGS: settingsModalContent,
