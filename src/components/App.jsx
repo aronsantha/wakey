@@ -4,6 +4,7 @@ import BaseModal from "./BaseModal.jsx";
 import {
   Cog6ToothIcon,
   InformationCircleIcon,
+  SparklesIcon,
 } from "@heroicons/react/20/solid";
 
 function App() {
@@ -130,9 +131,10 @@ function App() {
         day. You can also customise your experience by setting how long it takes
         you to fall asleep, and choosing your preferred time format.
       </p>
-      <p className="font-caprasimo mt-8 text-center text-amber-400">
-        Sleep tight!
-      </p>
+      <div className="mt-8 flex items-center justify-center text-amber-400">
+        <p className="font-caprasimo">Sleep tight!</p>
+        <SparklesIcon className="ml-1 w-3 pb-2" />
+      </div>
     </div>
   );
 
@@ -208,7 +210,7 @@ function App() {
               return (
                 <div
                   key={index}
-                  className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-3 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_20px_#fec119]/50"
+                  className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-3 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/60"
                 >
                   <div className="flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                     <div

@@ -24,7 +24,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
               className="w-full max-w-[400px] overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
             >
               <div className="flex items-center px-2 py-1">
-                <DialogTitle className="text-md grow px-1 text-center text-lg font-bold text-white capitalize">
+                <DialogTitle className="text-md grow px-1 text-center text-lg font-extrabold text-white capitalize">
                   {modalTitle}
                 </DialogTitle>
                 <CloseButton
