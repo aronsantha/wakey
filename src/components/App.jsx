@@ -149,7 +149,7 @@ function App() {
 
   return (
     <>
-      <div className="stars"></div>
+      <div className="stars hidden md:block"></div>
       <div className="absolute z-50 flex flex-col gap-4">
         <BaseModal
           modalTitle={shownModal}
