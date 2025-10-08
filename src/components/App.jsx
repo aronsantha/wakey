@@ -5,14 +5,14 @@ import {
   Cog6ToothIcon,
   MoonIcon,
   InformationCircleIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/20/solid";
 
 function App() {
   const [offsetInMins, setOffset] = useStickyState(15, "time-to-fall-asleep");
   const [timeFormat, setTimeFormat] = useStickyState("12h", "time-format");
   const offsetInMs = offsetInMins * 60 * 1000;
   const [time, setTime] = useState(new Date());
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [shownModal, setShownModal] = useState("");
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -43,38 +43,130 @@ function App() {
     };
   }
 
+  const settingsModalContent = (
+    <div className="mx-auto flex flex-col justify-center px-4 pb-6 text-center">
+      <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2>
+      <p className="text-xs text-neutral-500">
+        The calculator includes the time it takes to fall asleep, which is 15
+        minutes for most people. You can tweak this number to better align with
+        your own sleep habits. (Limit: 90 minutes){" "}
+      </p>
+      <div className="mx-auto mt-6 flex max-w-fit flex-row overflow-clip rounded-3xl bg-neutral-800">
+        <button
+          onClick={() => offsetInMins > 0 && setOffset(offsetInMins - 5)}
+          className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-l-3xl rounded-r-3xl bg-neutral-900"
+        >
+          -
+        </button>
+        <div className="flex w-full flex-col items-center justify-center gap-1 py-2">
+          <div className="grid text-xl text-amber-400/80">
+            <p className="font-digital col-1 row-1 ml-auto">{offsetInMins}</p>
+            <p className="font-digital col-1 row-1 opacity-5">00</p>
+          </div>
+
+          <p className="text-xs text-neutral-400">minutes</p>
+        </div>
+        <button
+          className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-l-3xl rounded-r-3xl bg-neutral-900"
+          onClick={() => offsetInMins < 90 && setOffset(offsetInMins + 5)}
+        >
+          +
+        </button>
+      </div>
+
+      <h2 className="mt-8 mb-2 font-bold">Time format</h2>
+      <p className="text-xs text-neutral-500">
+        Time will be displayed in your selected time format.
+      </p>
+      <div className="mx-auto mt-6 flex flex-row items-center gap-2">
+        <button
+          onClick={() => setTimeFormat("12h")}
+          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+            timeFormat === "12h"
+              ? "outline-1 outline-amber-400/80"
+              : "bg-neutral-900"
+          }`}
+        >
+          12-hour
+        </button>
+        <button
+          onClick={() => setTimeFormat("24h")}
+          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+            timeFormat === "24h"
+              ? "outline-1 outline-amber-400/80"
+              : "bg-neutral-900"
+          }`}
+        >
+          24-hour
+        </button>
+      </div>
+    </div>
+  );
+
+  const aboutModalContent = (
+    <div className="mx-auto flex flex-col justify-center gap-5 px-4 py-6 text-center text-sm">
+      {/* <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2> */}
+      <p>
+        Our sleep naturally follows cycles of about 90 minutes, where each cycle
+        goes through the stages of light sleep, deep sleep, and REM.
+      </p>
+      <p>
+        Waking up during deep sleep can leave you feeling drained, even after a
+        full night's rest. But if you wake closer to the end of a sleep cycle,
+        you're more likely to wake up feeling refreshed.
+      </p>
+      <p>
+        Wakey helps you wake up at the ideal time, ready for the day. You can
+        also customise your experience by setting how long it usually takes you
+        to fall asleep, and choosing your preferred time format.
+      </p>
+      <p>Sleep tight!</p>
+    </div>
+  );
+
+  const ModalMap = {
+    SETTINGS: settingsModalContent,
+    ABOUT: aboutModalContent,
+  };
+
   return (
     <>
       <div className="stars hidden md:block"></div>
       <div className="absolute z-50 flex flex-col gap-4">
         <BaseModal
-          type={"info"}
-          isOpen={isModalOpen}
+          modalTitle={shownModal}
+          isOpen={Boolean(shownModal)}
           timeFormat={timeFormat}
-          offsetInMins={offsetInMins}
-          handleClose={() => setIsModalOpen(false)}
-          handleSelectTimeFormat={(format) => setTimeFormat(format)}
-          handleSelectOffset={(mins) => setOffset(mins)}
+          handleClose={() => setShownModal("")}
+          children={shownModal && ModalMap[shownModal]}
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
         <footer className="fixed right-0 bottom-0 z-50 h-12 w-full bg-neutral-900/50 px-3 backdrop-blur-lg">
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
-            <InformationCircleIcon
-              as={"button"}
-              onClick={() => setIsModalOpen(true)}
-              className="z-10 h-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
-              aria-label="Open information modal"
-            />
+            <button
+              onClick={() => setShownModal("ABOUT")}
+              className="z-10 h-10 w-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              style={{
+                opacity: shownModal === "ABOUT" && "1",
+              }}
+              aria-label="Open about modal"
+            >
+              <InformationCircleIcon className="h-full w-full" />
+            </button>
             <h1 className="font-caprasimo pb-1 text-2xl text-white/30">
               wakey
             </h1>
-            <Cog6ToothIcon
-              as={"button"}
-              onClick={() => setIsModalOpen(true)}
-              className="z-10 h-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100"
+            <button
+              onClick={() => setShownModal("SETTINGS")}
+              className="z-10 h-10 w-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              style={{
+                opacity: shownModal === "SETTINGS" && "1",
+              }}
               aria-label="Open settings modal"
-            />
+            >
+              <Cog6ToothIcon className="h-full w-full" />
+            </button>
           </div>
         </footer>
         <main className="mt-16 flex max-w-[500px] flex-col px-4 text-center">
@@ -86,7 +178,7 @@ function App() {
               If you fall asleep in{" "}
               <button
                 className="inline cursor-pointer font-bold text-[#fec119]"
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setShownModal("SETTINGS")}
               >
                 {offsetInMins || 0} minutes
               </button>
@@ -107,7 +199,6 @@ function App() {
                       className="grid h-full items-center"
                       aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                       title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
-                      hours
                     >
                       <MoonIcon className="col-1 row-1 h-[60%] text-white/5" />
                       <MoonIcon
