@@ -119,9 +119,9 @@ function App() {
         goes through the stages of light sleep, deep sleep, and REM.
       </p>
       <p className="mt-3 text-sm text-neutral-500">
-        Waking up during deep sleep can leave you feeling drained, even after a
-        full night's rest. But if you wake closer to the end of a sleep cycle,
-        you're more likely to wake up feeling refreshed.
+        Waking up during deep sleep can leave us feeling drained, even after a
+        full night's rest. But if we wake closer to the end of a sleep cycle,
+        we're more likely to wake up feeling refreshed.
       </p>
 
       <h2 className="mt-8 mb-3 font-bold">Tailored for you</h2>
