@@ -212,11 +212,11 @@ function App() {
                 >
                   <div className="flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                     <div
-                      className="grid h-[60%] items-center"
+                      className="grid h-2/3 max-w-[15px] items-center"
                       aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                       title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                     >
-                      {/* <svg
+                      <svg
                         className="col-1 row-1 text-white/5"
                         fill="currentColor"
                         height="100%"
@@ -264,7 +264,7 @@ function App() {
                           />
                           <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
                         </g>
-                      </svg> */}
+                      </svg>
                     </div>
                     <div className="flex items-end gap-1">
                       <div className="grid">
