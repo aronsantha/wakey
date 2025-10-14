@@ -160,7 +160,7 @@ function App() {
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
-        <footer className="fixed right-0 bottom-0 z-50 h-12 w-full bg-neutral-900/50 px-3 backdrop-blur-lg">
+        <footer className="fixed right-0 bottom-0 z-50 h-12 w-full bg-neutral-900/50 px-3 backdrop-blur">
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
             <button
               onClick={() => setShownModal("ABOUT")}
@@ -187,7 +187,7 @@ function App() {
             </button>
           </div>
         </footer>
-        <main className="mt-16 flex max-w-[500px] flex-col px-4 text-center">
+        <main className="mt-16 flex max-w-[500px] flex-col px-6 text-center">
           <div className="mb-14 flex flex-col gap-4">
             <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119]">
               It's sleepy time...
@@ -206,13 +206,13 @@ function App() {
             </h2>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-x-2 gap-y-2">
+          <div className="flex w-full flex-col items-center gap-y-2">
             {sleepLengthArray.map((interval, index) => {
               const heightPercent = index * 20;
               return (
                 <div
                   key={index}
-                  className="w-full rounded-md bg-[#030014] px-3 py-2 text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30 first:mb-3 first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:outline-2"
+                  className="w-full rounded-md bg-[#030014] px-3 py-2 text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30 first:mb-5 first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:outline-2"
                 >
                   <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                     <div
