@@ -200,26 +200,28 @@ function App() {
               >
                 {offsetInMins || 0} minutes
               </button>
-              , these are the ideal wake-up times for a refreshing sleep:
+              , these wake-up times are ideal for a refreshing sleep. Pick a
+              time that fits you best, and set up an alarm to that time on your
+              favorite alarm clock.
             </h2>
           </div>
 
-          <div className="flex w-full flex-row flex-wrap items-center gap-x-2 gap-y-2">
+          <div className="flex w-full flex-col items-center gap-x-2 gap-y-2">
             {sleepLengthArray.map((interval, index) => {
               const heightPercent = index * 20;
               return (
                 <div
                   key={index}
-                  className="min-w-fit grow rounded-md bg-black/40 px-3 py-2 text-lg shadow-[0_0_20px_white]/5 backdrop-blur-sm first:mb-3 first:w-full first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:shadow-[0_0_10px_#fec119]/60"
+                  className="w-full rounded-md bg-[#030014] px-3 py-2 text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30 first:mb-3 first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:outline-2"
                 >
-                  <div className="flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
+                  <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                     <div
-                      className="grid h-2/3 max-w-[15px] items-center"
+                      className="absolute right-2 grid h-2/3 max-w-[15px] items-center"
                       aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                       title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                     >
                       <svg
-                        className="col-1 row-1 text-white/5"
+                        className="col-1 row-1 text-white/20"
                         fill="currentColor"
                         height="100%"
                         width="100%"
