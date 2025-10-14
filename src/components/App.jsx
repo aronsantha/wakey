@@ -189,7 +189,7 @@ function App() {
         </footer>
         <main className="mt-16 flex max-w-[500px] flex-col px-4 text-center">
           <div className="mb-14 flex flex-col gap-4">
-            <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119] text-shadow-[0_0_40px_#fec119]">
+            <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119]">
               It's sleepy time...
             </h1>
             <h2 className="text-neutral-300 text-shadow-[0_0_2px] text-shadow-neutral-900">
