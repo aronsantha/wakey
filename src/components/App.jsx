@@ -233,16 +233,16 @@ function App() {
                     <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
                       <div className="mx-auto flex items-end gap-1">
                         <div className="grid">
-                          <p className="font-digital col-1 row-1 opacity-90">
+                          <p className="font-digital col-1 row-1 text-[#2c2652]">
                             {formatTime(interval).time}
                           </p>
-                          <p className="font-digital col-1 row-1 opacity-10">
+                          <p className="font-digital col-1 row-1 text-[#413b66]/15">
                             00:00
                           </p>
                         </div>
 
                         {timeFormat === "12h" && (
-                          <p className="mb-px text-[8px] tracking-wide text-white/30">
+                          <p className="mb-px text-[8px] tracking-wide text-white/20">
                             {formatTime(interval).timeOfDay}
                           </p>
                         )}
@@ -256,7 +256,7 @@ function App() {
                         title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                       >
                         <svg
-                          className="col-1 row-1 text-white/20"
+                          className="col-1 row-1 text-[#413b66]/30"
                           fill="currentColor"
                           height="100%"
                           width="100%"
@@ -276,7 +276,7 @@ function App() {
                           </g>
                         </svg>
                         <svg
-                          className="col-1 row-1 text-amber-500"
+                          className="col-1 row-1 text-[#413b66]"
                           style={{
                             clipPath: `inset(${heightPercent}% 0 0  0)`,
                           }}
@@ -284,10 +284,7 @@ function App() {
                           height="100%"
                           width="100%"
                           version="1.1"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
                           viewBox="0 0 32 32"
-                          xml:space="preserve"
                         >
                           <g>
                             <path
