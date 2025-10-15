@@ -115,32 +115,28 @@ function App() {
   const aboutModalContent = (
     <div className="mx-auto flex flex-col justify-center px-4 pb-6 text-left">
       <h2 className="mt-8 mb-3 font-bold">How sleep works</h2>
-      <p className="text-sm text-neutral-500">
+      <p className="text-sm text-neutral-600">
         Our sleep naturally follows cycles of about 90 minutes, where each cycle
         goes through the stages of light sleep, deep sleep, and REM.
       </p>
-      <p className="mt-3 text-sm text-neutral-500">
+      <p className="mt-3 text-sm text-neutral-600">
         Waking up during deep sleep can leave us feeling drained, even after a
         full night's rest. But if we wake closer to the end of a sleep cycle,
         we're more likely to wake up feeling refreshed.
       </p>
 
       <h2 className="mt-8 mb-3 font-bold">Tailored for you</h2>
-      <p className="text-sm text-neutral-500">
+      <p className="text-sm text-neutral-600">
         Wakey helps you find the ideal time to wake up rested, ready for the
         day. You can also customise your experience by setting how long it takes
         you to fall asleep, and choosing your preferred time format.
       </p>
-      <div className="mt-8 flex items-center justify-center text-amber-400">
+      <div className="mt-8 flex items-center justify-center text-amber-500/80">
         <p className="font-caprasimo">Sleep tight!</p>
         <SparklesIcon className="ml-1 w-3 pb-2" />
       </div>
     </div>
   );
-
-  // const timeCard = (
-
-  // )
 
   const ModalMap = {
     SETTINGS: settingsModalContent,
@@ -149,7 +145,7 @@ function App() {
 
   return (
     <>
-      <div className="stars hidden md:block"></div>
+      <div className="stars -z-10 hidden md:block"></div>
       <div className="absolute z-50 flex flex-col gap-4">
         <BaseModal
           modalTitle={shownModal}
@@ -189,13 +185,13 @@ function App() {
         </footer>
         <main className="mt-16 flex max-w-[500px] flex-col px-6 text-center">
           <div className="mb-14 flex flex-col gap-4">
-            <h1 className="font-caprasimo mb-8 text-4xl text-[#fec119]">
+            <h1 className="font-caprasimo mb-8 text-4xl text-amber-500/80">
               It's sleepy time...
             </h1>
-            <h2 className="text-neutral-300 text-shadow-[0_0_2px] text-shadow-neutral-900">
+            <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
               If you fall asleep in{" "}
               <button
-                className="inline cursor-pointer font-bold text-[#fec119]"
+                className="inline cursor-pointer font-bold text-amber-500/80"
                 onClick={() => setShownModal("SETTINGS")}
               >
                 {offsetInMins || 0} minutes
@@ -206,89 +202,111 @@ function App() {
           </div>
 
           <div className="flex w-full flex-col items-center gap-y-2">
-            {sleepLengthArray.map((interval, index) => {
-              const heightPercent = index * 20;
-              return (
+            <div className="mb-5 w-full rounded-xl bg-[#030014] px-3 py-5 text-3xl text-amber-500 shadow-[0_0_8px_white]/10 outline-2 outline-amber-500/30">
+              <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                 <div
-                  key={index}
-                  className="w-full rounded-md bg-[#030014] px-3 py-2 text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30 first:mb-5 first:rounded-xl first:py-5 first:text-3xl first:text-amber-400 first:outline-2"
-                >
-                  <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
-                    <div
-                      className="absolute right-2 grid h-2/3 max-w-[15px] items-center"
-                      aria-label={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
-                      title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
-                    >
-                      <svg
-                        className="col-1 row-1 text-white/20"
-                        fill="currentColor"
-                        height="100%"
-                        width="100%"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 32 32"
-                        xml:space="preserve"
-                      >
-                        <g>
-                          <path
-                            d="M17,4c-0.2,0-0.5,0-0.7,0l-0.1,0c-0.4,0-0.8,0.4-0.9,0.8s0.1,0.9,0.5,1.1C18.4,7.3,20,10,20,13c0,4.4-3.6,8-8,8
-		c-2.3,0-4.6-1-6.1-2.8c-0.3-0.3-0.8-0.4-1.2-0.3c-0.4,0.2-0.6,0.6-0.6,1.1c1,6.4,6.4,11,12.8,11c7.2,0,13-5.8,13-13S24.2,4,17,4z"
-                          />
-                          <path
-                            d="M6,13.2C6.1,13.7,6.5,14,7,14s0.9-0.3,1-0.8c0.5-2.2,1-2.7,3.3-3.3C11.7,9.9,12,9.5,12,9s-0.3-0.9-0.8-1C9,7.5,8.5,7,8,4.8
-		C7.9,4.3,7.5,4,7,4S6.1,4.3,6,4.8C5.5,7,5,7.5,2.8,8C2.3,8.1,2,8.5,2,9s0.3,0.9,0.8,1C5,10.5,5.5,11,6,13.2z"
-                          />
-                          <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
-                        </g>
-                      </svg>
-                      <svg
-                        className="col-1 row-1 text-amber-400"
-                        style={{
-                          clipPath: `inset(${heightPercent}% 0 0  0)`,
-                        }}
-                        fill="currentColor"
-                        height="100%"
-                        width="100%"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 32 32"
-                        xml:space="preserve"
-                      >
-                        <g>
-                          <path
-                            d="M17,4c-0.2,0-0.5,0-0.7,0l-0.1,0c-0.4,0-0.8,0.4-0.9,0.8s0.1,0.9,0.5,1.1C18.4,7.3,20,10,20,13c0,4.4-3.6,8-8,8
-		c-2.3,0-4.6-1-6.1-2.8c-0.3-0.3-0.8-0.4-1.2-0.3c-0.4,0.2-0.6,0.6-0.6,1.1c1,6.4,6.4,11,12.8,11c7.2,0,13-5.8,13-13S24.2,4,17,4z"
-                          />
-                          <path
-                            d="M6,13.2C6.1,13.7,6.5,14,7,14s0.9-0.3,1-0.8c0.5-2.2,1-2.7,3.3-3.3C11.7,9.9,12,9.5,12,9s-0.3-0.9-0.8-1C9,7.5,8.5,7,8,4.8
-		C7.9,4.3,7.5,4,7,4S6.1,4.3,6,4.8C5.5,7,5,7.5,2.8,8C2.3,8.1,2,8.5,2,9s0.3,0.9,0.8,1C5,10.5,5.5,11,6,13.2z"
-                          />
-                          <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
-                        </g>
-                      </svg>
-                    </div>
-                    <div className="flex items-end gap-1">
-                      <div className="grid">
-                        <p className="font-digital col-1 row-1">
-                          {formatTime(interval).time}
-                        </p>
-                        <p className="font-digital col-1 row-1 opacity-5">
-                          00:00
-                        </p>
+                  className="absolute right-2 grid h-2/3 max-w-[15px] items-center"
+                  aria-label={SLEEP_CYCLE_INTERVALS[0] + " " + "hours"}
+                  title={SLEEP_CYCLE_INTERVALS[0] + " " + "hours"}
+                ></div>
+                <div className="flex items-end gap-1">
+                  <div className="grid">
+                    <p className="font-digital col-1 row-1 opacity-90">
+                      {formatTime(sleepLengthArray[0]).time}
+                    </p>
+                    <p className="font-digital col-1 row-1 opacity-5">00:00</p>
+                  </div>
+
+                  {timeFormat === "12h" && (
+                    <p className="mb-px text-[8px] tracking-wide text-white/30">
+                      {formatTime(sleepLengthArray[0]).timeOfDay}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="flex w-full flex-col overflow-clip rounded-2xl bg-[#030014] text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30">
+              {sleepLengthArray.slice(1).map((interval, index) => {
+                const heightPercent = index * 20;
+                return (
+                  <div key={index}>
+                    <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
+                      <div className="mx-auto flex items-end gap-1">
+                        <div className="grid">
+                          <p className="font-digital col-1 row-1 opacity-90">
+                            {formatTime(interval).time}
+                          </p>
+                          <p className="font-digital col-1 row-1 opacity-10">
+                            00:00
+                          </p>
+                        </div>
+
+                        {timeFormat === "12h" && (
+                          <p className="mb-px text-[8px] tracking-wide text-white/30">
+                            {formatTime(interval).timeOfDay}
+                          </p>
+                        )}
                       </div>
 
-                      {timeFormat === "12h" && (
-                        <p className="mb-px text-[8px] tracking-wide text-white/30">
-                          {formatTime(interval).timeOfDay}
-                        </p>
-                      )}
+                      <div
+                        className="ml-[-15px] grid w-[15px] items-center"
+                        aria-label={
+                          SLEEP_CYCLE_INTERVALS[index] + " " + "hours"
+                        }
+                        title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
+                      >
+                        <svg
+                          className="col-1 row-1 text-white/20"
+                          fill="currentColor"
+                          height="100%"
+                          width="100%"
+                          version="1.1"
+                          viewBox="0 0 32 32"
+                        >
+                          <g>
+                            <path
+                              d="M17,4c-0.2,0-0.5,0-0.7,0l-0.1,0c-0.4,0-0.8,0.4-0.9,0.8s0.1,0.9,0.5,1.1C18.4,7.3,20,10,20,13c0,4.4-3.6,8-8,8
+		c-2.3,0-4.6-1-6.1-2.8c-0.3-0.3-0.8-0.4-1.2-0.3c-0.4,0.2-0.6,0.6-0.6,1.1c1,6.4,6.4,11,12.8,11c7.2,0,13-5.8,13-13S24.2,4,17,4z"
+                            />
+                            <path
+                              d="M6,13.2C6.1,13.7,6.5,14,7,14s0.9-0.3,1-0.8c0.5-2.2,1-2.7,3.3-3.3C11.7,9.9,12,9.5,12,9s-0.3-0.9-0.8-1C9,7.5,8.5,7,8,4.8
+		C7.9,4.3,7.5,4,7,4S6.1,4.3,6,4.8C5.5,7,5,7.5,2.8,8C2.3,8.1,2,8.5,2,9s0.3,0.9,0.8,1C5,10.5,5.5,11,6,13.2z"
+                            />
+                            <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
+                          </g>
+                        </svg>
+                        <svg
+                          className="col-1 row-1 text-amber-500"
+                          style={{
+                            clipPath: `inset(${heightPercent}% 0 0  0)`,
+                          }}
+                          fill="currentColor"
+                          height="100%"
+                          width="100%"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 32 32"
+                          xml:space="preserve"
+                        >
+                          <g>
+                            <path
+                              d="M17,4c-0.2,0-0.5,0-0.7,0l-0.1,0c-0.4,0-0.8,0.4-0.9,0.8s0.1,0.9,0.5,1.1C18.4,7.3,20,10,20,13c0,4.4-3.6,8-8,8
+		c-2.3,0-4.6-1-6.1-2.8c-0.3-0.3-0.8-0.4-1.2-0.3c-0.4,0.2-0.6,0.6-0.6,1.1c1,6.4,6.4,11,12.8,11c7.2,0,13-5.8,13-13S24.2,4,17,4z"
+                            />
+                            <path
+                              d="M6,13.2C6.1,13.7,6.5,14,7,14s0.9-0.3,1-0.8c0.5-2.2,1-2.7,3.3-3.3C11.7,9.9,12,9.5,12,9s-0.3-0.9-0.8-1C9,7.5,8.5,7,8,4.8
+		C7.9,4.3,7.5,4,7,4S6.1,4.3,6,4.8C5.5,7,5,7.5,2.8,8C2.3,8.1,2,8.5,2,9s0.3,0.9,0.8,1C5,10.5,5.5,11,6,13.2z"
+                            />
+                            <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
+                          </g>
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </main>
       </div>

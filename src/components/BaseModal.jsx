@@ -13,7 +13,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
       <Dialog
         open={isOpen}
         as="div"
-        className="relative z-50 focus:outline-none"
+        className="relative z-50 text-neutral-400 focus:outline-none"
         onClose={handleClose}
       >
         <DialogBackdrop className="fixed inset-0 cursor-pointer overflow-y-auto bg-black/20 backdrop-blur-xs duration-1000" />
@@ -24,13 +24,13 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
               className="w-full max-w-[400px] overflow-clip rounded-lg bg-black/80 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
             >
               <div className="flex items-center px-2 py-1">
-                <DialogTitle className="text-md grow px-1 text-center text-lg font-extrabold text-white capitalize">
+                <DialogTitle className="text-md grow px-1 text-center text-lg font-extrabold capitalize">
                   {modalTitle}
                 </DialogTitle>
                 <CloseButton
                   as={"button"}
                   aria-label="Close modal"
-                  className="-ml-10 cursor-pointer rounded-full text-white opacity-50 transition-all duration-75 hover:opacity-100"
+                  className="-ml-10 cursor-pointer rounded-full opacity-50 transition-all duration-75 hover:opacity-100"
                 >
                   <XCircleIcon className="w-7" />
                 </CloseButton>
