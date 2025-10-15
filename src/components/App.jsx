@@ -200,9 +200,8 @@ function App() {
               >
                 {offsetInMins || 0} minutes
               </button>
-              , these wake-up times are ideal for a refreshing sleep. Pick a
-              time that fits you best, and set up an alarm to that time on your
-              favorite alarm clock.
+              , these wake-up times are ideal for a refreshing sleep. Pick one,
+              then set up an alarm for it on your favorite alarm clock.
             </h2>
           </div>
 
