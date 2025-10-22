@@ -169,7 +169,7 @@ function App() {
               <InformationCircleIcon className="grow pb-1" />
               <p className="text-[10px] leading-[10px] font-bold">About</p>
             </button>
-            <h1 className="font-caprasimo pb-1 text-2xl text-[#7a72ad]">
+            <h1 className="font-caprasimo pb-1 text-xl text-[#7a72ad]">
               wakey
             </h1>
             <button
