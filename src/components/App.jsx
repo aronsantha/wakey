@@ -156,17 +156,17 @@ function App() {
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
-        <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-300/10 bg-black/50 px-3 backdrop-blur">
+        <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/10 bg-black/50 px-3 backdrop-blur">
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
             <button
               onClick={() => setShownModal("ABOUT")}
-              className="z-10 flex h-10 cursor-pointer flex-col text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              className="z-10 flex h-10 max-w-14 cursor-pointer flex-col items-center text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
               style={{
                 opacity: shownModal === "ABOUT" && "1",
               }}
               aria-label="Open about modal"
             >
-              <InformationCircleIcon className="h-full w-full pb-1" />
+              <InformationCircleIcon className="grow pb-1" />
               <p className="text-[10px] font-bold">About</p>
             </button>
             <h1 className="font-caprasimo pb-1 text-2xl text-white/70">
@@ -174,13 +174,13 @@ function App() {
             </h1>
             <button
               onClick={() => setShownModal("SETTINGS")}
-              className="z-10 flex h-10 cursor-pointer flex-col text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              className="z-10 flex h-10 max-w-14 cursor-pointer flex-col items-center text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
               style={{
                 opacity: shownModal === "SETTINGS" && "1",
               }}
               aria-label="Open settings modal"
             >
-              <Cog6ToothIcon className="h-full w-full pb-1" />
+              <Cog6ToothIcon className="grow pb-1" />
               <p className="text-[10px] font-bold">Settings</p>
             </button>
           </div>
