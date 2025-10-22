@@ -160,28 +160,28 @@ function App() {
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
             <button
               onClick={() => setShownModal("ABOUT")}
-              className="z-10 flex h-10 max-w-14 cursor-pointer flex-col items-center text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              className="z-10 flex h-10 w-14 cursor-pointer flex-col items-center text-[#7a72ad] opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
               style={{
                 opacity: shownModal === "ABOUT" && "1",
               }}
               aria-label="Open about modal"
             >
               <InformationCircleIcon className="grow pb-1" />
-              <p className="text-[10px] font-bold">About</p>
+              <p className="text-[10px] leading-[10px] font-bold">About</p>
             </button>
-            <h1 className="font-caprasimo pb-1 text-2xl text-white/70">
+            <h1 className="font-caprasimo pb-1 text-2xl text-[#7a72ad]">
               wakey
             </h1>
             <button
               onClick={() => setShownModal("SETTINGS")}
-              className="z-10 flex h-10 max-w-14 cursor-pointer flex-col items-center text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              className="z-10 flex h-10 w-14 cursor-pointer flex-col items-center text-[#7a72ad] opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
               style={{
                 opacity: shownModal === "SETTINGS" && "1",
               }}
               aria-label="Open settings modal"
             >
               <Cog6ToothIcon className="grow pb-1" />
-              <p className="text-[10px] font-bold">Settings</p>
+              <p className="text-[10px] leading-[10px] font-bold">Settings</p>
             </button>
           </div>
         </footer>
