@@ -156,30 +156,32 @@ function App() {
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
-        <footer className="fixed right-0 bottom-0 z-50 h-12 w-full bg-neutral-900/50 px-3 backdrop-blur">
+        <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-300/10 bg-black/50 px-3 backdrop-blur">
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
             <button
               onClick={() => setShownModal("ABOUT")}
-              className="z-10 h-10 w-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              className="z-10 flex h-10 cursor-pointer flex-col text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
               style={{
                 opacity: shownModal === "ABOUT" && "1",
               }}
               aria-label="Open about modal"
             >
-              <InformationCircleIcon className="h-full w-full" />
+              <InformationCircleIcon className="h-full w-full pb-1" />
+              <p className="text-[10px] font-bold">About</p>
             </button>
-            <h1 className="font-caprasimo pb-1 text-2xl text-white/30">
+            <h1 className="font-caprasimo pb-1 text-2xl text-white/70">
               wakey
             </h1>
             <button
               onClick={() => setShownModal("SETTINGS")}
-              className="z-10 h-10 w-10 cursor-pointer rounded-full p-2 text-white opacity-50 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+              className="z-10 flex h-10 cursor-pointer flex-col text-white opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
               style={{
                 opacity: shownModal === "SETTINGS" && "1",
               }}
               aria-label="Open settings modal"
             >
-              <Cog6ToothIcon className="h-full w-full" />
+              <Cog6ToothIcon className="h-full w-full pb-1" />
+              <p className="text-[10px] font-bold">Settings</p>
             </button>
           </div>
         </footer>
@@ -196,8 +198,8 @@ function App() {
               >
                 {offsetInMins || 0} minutes
               </button>
-              , these wake-up times are ideal for a refreshing sleep. Pick one,
-              then set up an alarm for it on your favorite alarm clock.
+              , we recommend these wake-up times. Pick one, set up your alarm,
+              and wake up refreshed.
             </h2>
           </div>
 
@@ -233,10 +235,10 @@ function App() {
                     <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
                       <div className="mx-auto flex items-end gap-1">
                         <div className="grid">
-                          <p className="font-digital col-1 row-1 text-[#2c2652]">
+                          <p className="font-digital z-10 col-1 row-1 text-[#7a72ad]">
                             {formatTime(interval).time}
                           </p>
-                          <p className="font-digital col-1 row-1 text-[#413b66]/15">
+                          <p className="font-digital col-1 row-1 text-[#7a72ad]/10">
                             00:00
                           </p>
                         </div>
@@ -256,7 +258,7 @@ function App() {
                         title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
                       >
                         <svg
-                          className="col-1 row-1 text-[#413b66]/30"
+                          className="col-1 row-1 text-[#7a72ad]/20"
                           fill="currentColor"
                           height="100%"
                           width="100%"
@@ -276,7 +278,7 @@ function App() {
                           </g>
                         </svg>
                         <svg
-                          className="col-1 row-1 text-[#413b66]"
+                          className="col-1 row-1 text-[#7a72ad]"
                           style={{
                             clipPath: `inset(${heightPercent}% 0 0  0)`,
                           }}
