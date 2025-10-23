@@ -3,12 +3,18 @@ import { useStickyState } from "../hooks.js";
 import BaseModal from "./BaseModal.jsx";
 import ModalTriggerButton from "./ModalTriggerButton.jsx";
 import {
+  ONE_HOUR_MS,
+  SLEEP_CYCLE_INTERVALS,
+  LOCALE_FORMAT_MAP,
+  DEFAULT_FALL_ASLEEP_MINUTES,
+  MAX_FALL_ASLEEP_MINUTES,
+} from "../constants.js";
+
+import {
   Cog8ToothIcon as Cog8ToothIconOutline,
   HeartIcon as HeartIconOutline,
   InformationCircleIcon as InformationCircleIconOutline,
-  SparklesIcon as SparklesIconOutline,
 } from "@heroicons/react/24/outline";
-
 import {
   Cog8ToothIcon,
   HeartIcon,
@@ -17,12 +23,6 @@ import {
 } from "@heroicons/react/24/solid";
 
 function App() {
-  const ONE_HOUR_MS = 60 * 60 * 1000;
-  const SLEEP_CYCLE_INTERVALS = [9, 7.5, 6, 4.5, 3, 1.5];
-  const LOCALE_FORMAT_MAP = { "12h": "en-US", "24h": "en-GB" };
-  const DEFAULT_FALL_ASLEEP_MINUTES = 15;
-  const MAX_FALL_ASLEEP_MINUTES = 90;
-
   const [offsetInMins, setOffset] = useStickyState(
     DEFAULT_FALL_ASLEEP_MINUTES,
     "time-to-fall-asleep",
