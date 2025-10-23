@@ -188,18 +188,19 @@ function App() {
   );
 
   const modalMap = {
-    CREATOR: {
-      label: "Creator",
-      content: creatorModalContent,
-      IconSolid: HeartIcon,
-      IconOutline: HeartIconOutline,
-    },
     ABOUT: {
       label: "About",
       content: aboutModalContent,
       IconSolid: InformationCircleIcon,
       IconOutline: InformationCircleIconOutline,
     },
+    CREATOR: {
+      label: "Creator",
+      content: creatorModalContent,
+      IconSolid: HeartIcon,
+      IconOutline: HeartIconOutline,
+    },
+
     SETTINGS: {
       label: "Settings",
       content: settingsModalContent,
@@ -284,13 +285,13 @@ function App() {
             <div className="flex w-full flex-col overflow-clip rounded-2xl bg-[#030014] text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30">
               {sleepLengthArray.slice(1).map((interval, index) => {
                 const offsetIndex = index + 1;
-                const heightPercent = offsetIndex * 20;
+                const heightPercents = [35, 50, 70, 85, 100];
                 const sleepHours = SLEEP_CYCLE_INTERVALS[offsetIndex];
                 return (
                   <div key={index}>
                     <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
                       <SleepIndicator
-                        heightPercent={heightPercent}
+                        heightPercent={heightPercents[index]}
                         sleepHours={sleepHours}
                       />
                       <div className="mx-auto flex items-end gap-1">
@@ -309,7 +310,7 @@ function App() {
                           </p>
                         )}
                       </div>
-                      <p className="-ml-8 w-8 text-[10px] tracking-tighter text-[#7a72ad]/60">
+                      <p className="-ml-8 w-8 text-[10px] tracking-tighter text-[#7a72ad]/40">
                         {sleepHours} h
                       </p>
                     </div>
