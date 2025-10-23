@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import { useStickyState } from "../hooks.js";
 import BaseModal from "./BaseModal.jsx";
+import ModalTriggerButton from "./ModalTriggerButton.jsx";
 import {
-  Cog6ToothIcon,
+  Cog8ToothIcon as Cog8ToothIconOutline,
+  HeartIcon as HeartIconOutline,
+  InformationCircleIcon as InformationCircleIconOutline,
+  SparklesIcon as SparklesIconOutline,
+} from "@heroicons/react/24/outline";
+
+import {
+  Cog8ToothIcon,
+  HeartIcon,
   InformationCircleIcon,
   SparklesIcon,
-} from "@heroicons/react/20/solid";
+} from "@heroicons/react/24/solid";
 
 function App() {
   const ONE_HOUR_MS = 60 * 60 * 1000;
@@ -50,7 +59,7 @@ function App() {
   }
 
   const settingsModalContent = (
-    <div className="mx-auto flex flex-col justify-center px-4 pb-6 text-center">
+    <div className="mx-auto flex flex-col justify-center px-7 pb-6 text-center">
       <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2>
       <p className="text-xs text-neutral-500">
         The calculator includes the time it takes to fall asleep, which is 15
@@ -113,34 +122,89 @@ function App() {
   );
 
   const aboutModalContent = (
-    <div className="mx-auto flex flex-col justify-center px-4 pb-6 text-left">
-      <h2 className="mt-8 mb-3 font-bold">How sleep works</h2>
-      <p className="text-sm text-neutral-600">
-        Our sleep naturally follows cycles of about 90 minutes, where each cycle
-        goes through the stages of light sleep, deep sleep, and REM.
-      </p>
-      <p className="mt-3 text-sm text-neutral-600">
-        Waking up during deep sleep can leave us feeling drained, even after a
-        full night's rest. But if we wake closer to the end of a sleep cycle,
-        we're more likely to wake up feeling refreshed.
-      </p>
+    <div className="mx-auto flex flex-col justify-center px-7 pb-6 text-left">
+      <h2 className="mt-8 font-bold">How we sleep</h2>
+      <div className="mt-3 *:leading-[1.3rem]">
+        <p className="text-sm text-neutral-600">
+          Every time we sleep, we go through cycles of about 90 minutes. Waking
+          up in the middle of a cycle can leave us groggy — even if we sleep for
+          many hours.
+        </p>
+        <p className="mt-4 text-sm text-neutral-600">
+          But if we schedule our wake-up time to the end of a sleep cycle, we
+          feel more rested.
+        </p>
+      </div>
+      <h2 className="mt-6 font-bold">Tailored for you</h2>
+      <div className="mt-3 *:leading-[1.3rem]">
+        <p className="text-sm text-neutral-600">
+          Wakey helps you find the ideal time for waking up rested. You can even
+          set up how long it takes you to fall asleep, and choose your preferred
+          time format. Wakey will remember your choices for next time.
+        </p>
+      </div>
 
-      <h2 className="mt-8 mb-3 font-bold">Tailored for you</h2>
-      <p className="text-sm text-neutral-600">
-        Wakey helps you find the ideal time to wake up rested, ready for the
-        day. You can also customise your experience by setting how long it takes
-        you to fall asleep, and choosing your preferred time format.
-      </p>
       <div className="mt-8 flex items-center justify-center text-amber-500/80">
         <p className="font-caprasimo">Sleep tight!</p>
-        <SparklesIcon className="ml-1 w-3 pb-2" />
+        <SparklesIcon className="ml-1 w-3 pb-2" aria-hidden="true" />
       </div>
     </div>
   );
 
-  const ModalMap = {
-    SETTINGS: settingsModalContent,
-    ABOUT: aboutModalContent,
+  const creatorModalContent = (
+    <div className="mx-auto flex flex-col justify-center px-7 pt-2 pb-6 text-left">
+      <div className="flex items-center justify-center text-amber-500/80">
+        <p className="font-caprasimo">Hey there, I'm Aron</p>
+        <span className="ml-1" aria-hidden="true">
+          👋🏼
+        </span>
+      </div>
+      <div className="mt-6 *:leading-[1.3rem]">
+        <p className="text-sm text-neutral-600">
+          I'm a troubled sleeper. I've tried many other sleep apps, but none of
+          them really matched my needs. They either lacked important features,
+          had poor usability, or simply didn't look great.
+        </p>
+        <p className="mt-4 text-sm text-neutral-600">
+          So I built Wakey. And although I built this app for myself, I also
+          kept others in mind in the process: I included accessibility features
+          and made sure it looks great on any device size.
+        </p>
+        <p className="mt-4 text-sm text-neutral-600">
+          I hope you'll enjoy using the app as much as I do! If you have any
+          feedback or suggestions, feel free to reach out via my website:{" "}
+          <a
+            href="https://aronsantha.com"
+            target="_blank"
+            className="cursor-pointer text-amber-500 underline underline-offset-2 hover:text-amber-700"
+          >
+            aronsantha.com
+          </a>
+          .
+        </p>
+      </div>
+    </div>
+  );
+
+  const modalMap = {
+    CREATOR: {
+      label: "Creator",
+      content: creatorModalContent,
+      IconSolid: HeartIcon,
+      IconOutline: HeartIconOutline,
+    },
+    ABOUT: {
+      label: "About",
+      content: aboutModalContent,
+      IconSolid: InformationCircleIcon,
+      IconOutline: InformationCircleIconOutline,
+    },
+    SETTINGS: {
+      label: "Settings",
+      content: settingsModalContent,
+      IconSolid: Cog8ToothIcon,
+      IconOutline: Cog8ToothIconOutline,
+    },
   };
 
   return (
@@ -152,37 +216,28 @@ function App() {
           isOpen={Boolean(shownModal)}
           timeFormat={timeFormat}
           handleClose={() => setShownModal("")}
-          children={shownModal && ModalMap[shownModal]}
+          children={shownModal && modalMap[shownModal].content}
         />
       </div>
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
         <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/10 bg-black/50 px-3 backdrop-blur">
-          <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-between px-4">
-            <button
-              onClick={() => setShownModal("ABOUT")}
-              className="z-10 flex h-10 w-14 cursor-pointer flex-col items-center text-[#7a72ad] opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
-              style={{
-                opacity: shownModal === "ABOUT" && "1",
-              }}
-              aria-label="Open about modal"
-            >
-              <InformationCircleIcon className="grow pb-1" />
-              <p className="text-[10px] leading-[10px] font-bold">About</p>
-            </button>
-            <h1 className="font-caprasimo pb-1 text-xl text-[#7a72ad]">
+          <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-around px-6 pt-px">
+            {Object.keys(modalMap).map((modalKey) => {
+              return (
+                <ModalTriggerButton
+                  key={modalKey}
+                  modalKey={modalKey}
+                  shownModal={shownModal}
+                  handleSetModal={() => setShownModal(modalKey)}
+                  IconSolid={modalMap[modalKey].IconSolid}
+                  IconOutline={modalMap[modalKey].IconOutline}
+                  label={modalMap[modalKey].label}
+                />
+              );
+            })}
+            {/* <h1 className="font-caprasimo pb-1 text-xl text-[#7a72ad]">
               wakey
-            </h1>
-            <button
-              onClick={() => setShownModal("SETTINGS")}
-              className="z-10 flex h-10 w-14 cursor-pointer flex-col items-center text-[#7a72ad] opacity-70 transition-all duration-75 hover:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
-              style={{
-                opacity: shownModal === "SETTINGS" && "1",
-              }}
-              aria-label="Open settings modal"
-            >
-              <Cog6ToothIcon className="grow pb-1" />
-              <p className="text-[10px] leading-[10px] font-bold">Settings</p>
-            </button>
+            </h1> */}
           </div>
         </footer>
         <main className="mt-16 flex max-w-[500px] flex-col px-6 text-center">
