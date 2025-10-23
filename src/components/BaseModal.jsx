@@ -15,12 +15,12 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
       className="relative z-50 text-neutral-400 focus:outline-none"
       onClose={handleClose}
     >
-      <DialogBackdrop className="fixed inset-0 cursor-pointer overflow-y-auto bg-black/20 backdrop-blur-[3px] duration-1000 min-[400px]:bottom-0" />
-      <div className="fixed inset-0 w-screen overflow-y-auto p-2 max-[401px]:p-0 min-[400px]:bottom-0">
+      <DialogBackdrop className="fixed inset-0 bottom-0 cursor-pointer overflow-y-auto bg-black/20 backdrop-blur-[3px] duration-1000" />
+      <div className="fixed inset-0 bottom-0 w-screen overflow-y-auto p-2">
         <div className="flex h-full items-center justify-center">
           <DialogPanel
             transition
-            className="w-full max-w-[400px] overflow-clip border-neutral-100/10 bg-black/90 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0 max-[401px]:h-full min-[400px]:rounded-lg min-[400px]:border-[1px]"
+            className="w-full max-w-[400px] overflow-clip rounded-lg border-[1px] border-neutral-100/10 bg-black/90 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
           >
             <div className="flex items-center px-3 py-3">
               <DialogTitle className="text-md grow px-1 text-center text-lg font-extrabold capitalize">
