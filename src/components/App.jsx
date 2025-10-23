@@ -153,7 +153,7 @@ function App() {
   );
 
   const creatorModalContent = (
-    <div className="mx-auto flex flex-col justify-center px-7 pt-2 pb-6 text-left">
+    <div className="mx-auto flex flex-col justify-center px-7 pt-8 pb-6 text-left">
       <div className="flex items-center justify-center text-amber-500/80">
         <p className="font-caprasimo">Hey there, I'm Aron</p>
         <span className="ml-1" aria-hidden="true">
@@ -211,15 +211,13 @@ function App() {
   return (
     <>
       <div className="stars -z-10 hidden md:block"></div>
-      <div className="absolute z-50 flex flex-col gap-4">
-        <BaseModal
-          modalTitle={shownModal}
-          isOpen={Boolean(shownModal)}
-          timeFormat={timeFormat}
-          handleClose={() => setShownModal("")}
-          children={shownModal && modalMap[shownModal].content}
-        />
-      </div>
+      <BaseModal
+        modalTitle={shownModal}
+        isOpen={Boolean(shownModal)}
+        timeFormat={timeFormat}
+        handleClose={() => setShownModal("")}
+        children={shownModal && modalMap[shownModal].content}
+      />
       <div className="flex h-screen flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
         <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/10 bg-black/50 px-3 backdrop-blur">
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-around px-6 pt-px">
