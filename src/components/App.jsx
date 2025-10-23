@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useStickyState } from "../hooks.js";
 import BaseModal from "./BaseModal.jsx";
 import ModalTriggerButton from "./ModalTriggerButton.jsx";
+import SleepIndicator from "./SleepIndicator.jsx";
 import {
   ONE_HOUR_MS,
   SLEEP_CYCLE_INTERVALS,
@@ -162,7 +163,7 @@ function App() {
       <div className="mt-6 *:leading-[1.3rem]">
         <p className="text-sm text-neutral-600">
           I'm a troubled sleeper. I've tried many other sleep apps, but none of
-          them really matched my needs. They either lacked important features,
+          them fully matched my needs. They either lacked important features,
           had poor usability, or simply didn't look great.
         </p>
         <p className="mt-4 text-sm text-neutral-600">
@@ -284,10 +285,16 @@ function App() {
             </div>
             <div className="flex w-full flex-col overflow-clip rounded-2xl bg-[#030014] text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30">
               {sleepLengthArray.slice(1).map((interval, index) => {
-                const heightPercent = index * 20;
+                const offsetIndex = index + 1;
+                const heightPercent = offsetIndex * 20;
+                const sleepHours = SLEEP_CYCLE_INTERVALS[offsetIndex];
                 return (
                   <div key={index}>
                     <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
+                      <SleepIndicator
+                        heightPercent={heightPercent}
+                        sleepHours={sleepHours}
+                      />
                       <div className="mx-auto flex items-end gap-1">
                         <div className="grid">
                           <p className="font-digital z-10 col-1 row-1 text-[#7a72ad]">
@@ -304,58 +311,9 @@ function App() {
                           </p>
                         )}
                       </div>
-
-                      <div
-                        className="ml-[-15px] grid w-[15px] items-center"
-                        aria-label={
-                          SLEEP_CYCLE_INTERVALS[index] + " " + "hours"
-                        }
-                        title={SLEEP_CYCLE_INTERVALS[index] + " " + "hours"}
-                      >
-                        <svg
-                          className="col-1 row-1 text-[#7a72ad]/20"
-                          fill="currentColor"
-                          height="100%"
-                          width="100%"
-                          version="1.1"
-                          viewBox="0 0 32 32"
-                        >
-                          <g>
-                            <path
-                              d="M17,4c-0.2,0-0.5,0-0.7,0l-0.1,0c-0.4,0-0.8,0.4-0.9,0.8s0.1,0.9,0.5,1.1C18.4,7.3,20,10,20,13c0,4.4-3.6,8-8,8
-		c-2.3,0-4.6-1-6.1-2.8c-0.3-0.3-0.8-0.4-1.2-0.3c-0.4,0.2-0.6,0.6-0.6,1.1c1,6.4,6.4,11,12.8,11c7.2,0,13-5.8,13-13S24.2,4,17,4z"
-                            />
-                            <path
-                              d="M6,13.2C6.1,13.7,6.5,14,7,14s0.9-0.3,1-0.8c0.5-2.2,1-2.7,3.3-3.3C11.7,9.9,12,9.5,12,9s-0.3-0.9-0.8-1C9,7.5,8.5,7,8,4.8
-		C7.9,4.3,7.5,4,7,4S6.1,4.3,6,4.8C5.5,7,5,7.5,2.8,8C2.3,8.1,2,8.5,2,9s0.3,0.9,0.8,1C5,10.5,5.5,11,6,13.2z"
-                            />
-                            <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
-                          </g>
-                        </svg>
-                        <svg
-                          className="col-1 row-1 text-[#7a72ad]"
-                          style={{
-                            clipPath: `inset(${heightPercent}% 0 0  0)`,
-                          }}
-                          fill="currentColor"
-                          height="100%"
-                          width="100%"
-                          version="1.1"
-                          viewBox="0 0 32 32"
-                        >
-                          <g>
-                            <path
-                              d="M17,4c-0.2,0-0.5,0-0.7,0l-0.1,0c-0.4,0-0.8,0.4-0.9,0.8s0.1,0.9,0.5,1.1C18.4,7.3,20,10,20,13c0,4.4-3.6,8-8,8
-		c-2.3,0-4.6-1-6.1-2.8c-0.3-0.3-0.8-0.4-1.2-0.3c-0.4,0.2-0.6,0.6-0.6,1.1c1,6.4,6.4,11,12.8,11c7.2,0,13-5.8,13-13S24.2,4,17,4z"
-                            />
-                            <path
-                              d="M6,13.2C6.1,13.7,6.5,14,7,14s0.9-0.3,1-0.8c0.5-2.2,1-2.7,3.3-3.3C11.7,9.9,12,9.5,12,9s-0.3-0.9-0.8-1C9,7.5,8.5,7,8,4.8
-		C7.9,4.3,7.5,4,7,4S6.1,4.3,6,4.8C5.5,7,5,7.5,2.8,8C2.3,8.1,2,8.5,2,9s0.3,0.9,0.8,1C5,10.5,5.5,11,6,13.2z"
-                            />
-                            <path d="M11,14c-0.6,0-1,0.4-1,1s0.4,1,1,1c0,0.6,0.4,1,1,1s1-0.4,1-1c0.6,0,1-0.4,1-1s-0.4-1-1-1c0-0.6-0.4-1-1-1S11,13.4,11,14z" />
-                          </g>
-                        </svg>
-                      </div>
+                      <p className="-ml-8 w-8 text-[10px] tracking-tighter text-[#7a72ad]/60">
+                        {sleepHours} h
+                      </p>
                     </div>
                   </div>
                 );

@@ -21,7 +21,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
           <div className="flex min-h-full items-center justify-center">
             <DialogPanel
               transition
-              className="w-full max-w-[400px] overflow-clip rounded-lg border-[1px] border-neutral-100/10 bg-black/80 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
+              className="w-full max-w-[400px] overflow-clip rounded-lg border-[1px] border-neutral-100/10 bg-black/90 shadow-lg backdrop-blur-xs duration-100 data-[closed]:transform-[scale(98%)] data-[closed]:opacity-0"
             >
               <div className="flex items-center px-3 py-3">
                 <DialogTitle className="text-md grow px-1 text-center text-lg font-extrabold capitalize">
