@@ -220,11 +220,15 @@ function App() {
         children={shownModal && modalMap[shownModal].content}
       />
       <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
-        <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/10 bg-black/50 px-3 backdrop-blur">
+        <footer
+          role="tablist"
+          className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/20 bg-neutral-950/50 px-3 backdrop-blur-xl"
+        >
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-around px-6 pt-px">
             {Object.keys(modalMap).map((modalKey) => {
               return (
                 <ModalTriggerButton
+                  role="tab"
                   key={modalKey}
                   modalKey={modalKey}
                   shownModal={shownModal}
@@ -293,10 +297,10 @@ function App() {
                       />
                       <div className="mx-auto flex items-end gap-1">
                         <div className="grid">
-                          <p className="font-digital z-10 col-1 row-1 text-[#7a72ad]">
+                          <p className="font-digital text-lilac z-10 col-1 row-1">
                             {formatTime(interval).time}
                           </p>
-                          <p className="font-digital col-1 row-1 text-[#7a72ad]/10">
+                          <p className="font-digital text-lilac/10 col-1 row-1">
                             00:00
                           </p>
                         </div>
@@ -307,7 +311,7 @@ function App() {
                           </p>
                         )}
                       </div>
-                      <p className="-ml-8 w-8 text-[10px] tracking-tighter text-[#7a72ad]/40">
+                      <p className="text-lilac/40 -ml-8 w-8 text-[10px] tracking-tighter">
                         {sleepHours} h
                       </p>
                     </div>

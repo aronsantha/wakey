@@ -26,6 +26,10 @@ body {
   animation: gradient 30s infinite;
 }
 
+@theme {
+  --color-lilac: #7a72ad;
+}
+
 .stars {
   position: absolute;
   z-index: 0;

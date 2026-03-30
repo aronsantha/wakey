@@ -6,7 +6,7 @@ function SleepIndicator({ heightPercent, sleepHours }) {
       title={sleepHours + " " + "hours"}
     >
       <svg
-        className="col-1 row-1 text-[#7a72ad]/20"
+        className="text-lilac/20 col-1 row-1"
         fill="currentColor"
         height="100%"
         width="100%"
@@ -26,7 +26,7 @@ function SleepIndicator({ heightPercent, sleepHours }) {
         </g>
       </svg>
       <svg
-        className="col-1 row-1 text-[#7a72ad]/60"
+        className="text-lilac/60 col-1 row-1"
         style={{
           clipPath: `inset(${heightPercent}% 0 0  0)`,
         }}

@@ -9,7 +9,7 @@ function ModalTriggerButton({
   return (
     <button
       onClick={() => handleSetModal()}
-      className="z-10 flex h-10 w-14 cursor-pointer flex-col items-center rounded text-[#7a72ad] opacity-50 transition-all duration-75 hover:opacity-100 focus:opacity-100 focus:ring-2 focus:ring-white focus:outline-none"
+      className="text-lilac/70 z-10 flex h-10 w-14 cursor-pointer flex-col items-center rounded transition-all duration-75 hover:text-neutral-300 focus:text-neutral-300 focus:ring-2 focus:ring-white focus:outline-none"
       style={{
         opacity: shownModal === modalKey && "1",
       }}
