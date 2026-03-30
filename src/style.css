@@ -30,6 +30,8 @@
 
 html {
   background-color: #1b1426;
+  overflow: hidden;
+  height: 100vh;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
   display: block;
 }
@@ -45,6 +47,8 @@ body {
   padding: var(--safe-area-inset-top) var(--safe-area-inset-right)
     var(--safe-area-inset-bottom) var(--safe-area-inset-left);
   background-color: red;
+  /* position: fixed;
+  overflow-y: scroll; */
 }
 
 .stars {
