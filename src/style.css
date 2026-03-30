@@ -29,21 +29,16 @@
 }
 
 html {
-  display: block;
   /* background-color: #1b1426; */
   background-color: moccasin;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
 body {
-  height: 100dvh;
+  padding: 0;
   margin: 0;
-  padding: 0 var(--safe-area-inset-right) var(--safe-area-inset-bottom)
-    var(--safe-area-inset-left);
-  display: block;
-  overflow-y: scroll;
   color: #e3e3e3;
-  background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
+  /* background: linear-gradient(-60deg, #280a4a, #140923, #0a0331); */
   background-size: 200% 200%;
   animation: gradient 30s infinite;
   background-color: red;
