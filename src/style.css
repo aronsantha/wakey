@@ -38,6 +38,7 @@ html {
 }
 
 body {
+  min-height: 100dvh;
   margin: 0;
   padding: 20px;
   display: block;
