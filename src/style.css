@@ -25,6 +25,7 @@ body {
 
 .stars {
   position: absolute;
+  z-index: 0;
   animation: rotate 700s linear infinite;
   opacity: 50%;
   top: 50%;
