@@ -219,7 +219,7 @@ function App() {
         handleClose={() => setShownModal("")}
         children={shownModal && modalMap[shownModal].content}
       />
-      <div className="flex min-h-screen flex-col items-center overflow-y-auto scroll-smooth md:justify-center">
+      <div className="p-safe flex min-h-screen flex-col items-center overflow-y-auto scroll-smooth md:justify-center">
         <footer
           role="tablist"
           className="fixed right-0 bottom-0 left-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/20 bg-neutral-950/50 px-3 backdrop-blur-xl"
