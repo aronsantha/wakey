@@ -31,7 +31,6 @@
 html {
   background-color: #1b1426;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
-  height: 100%;
 }
 
 body {
@@ -40,7 +39,6 @@ body {
   background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
   background-size: 200% 200%;
   animation: gradient 30s infinite;
-  height: 100%;
 }
 
 .stars {
