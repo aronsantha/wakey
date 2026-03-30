@@ -219,7 +219,7 @@ function App() {
         handleClose={() => setShownModal("")}
         children={shownModal && modalMap[shownModal].content}
       />
-      <div className="flex min-h-[100vh] flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
+      <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto scroll-smooth pb-40 md:justify-center">
         {/* <footer className="fixed right-0 bottom-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/10 bg-black/50 px-3 backdrop-blur">
           <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-around px-6 pt-px">
             {Object.keys(modalMap).map((modalKey) => {
