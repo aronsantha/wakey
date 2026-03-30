@@ -1,16 +1,31 @@
 @import "tailwindcss";
 @import "./fonts.css";
 
+@theme {
+  --color-lilac: #7a72ad;
+}
+
+@utility p-safe {
+  padding-top: var(--safe-area-inset-top);
+  padding-right: var(--safe-area-inset-right);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+}
+
 :root {
   font-family: Nunito, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  --star-color: #ffd059;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --star-color: #ffd059;
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-right: env(safe-area-inset-right);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  --safe-area-inset-left: env(safe-area-inset-left);
 }
 
 html {
@@ -24,12 +39,6 @@ body {
   background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
   background-size: 200% 200%;
   animation: gradient 30s infinite;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
-@theme {
-  --color-lilac: #7a72ad;
 }
 
 .stars {
