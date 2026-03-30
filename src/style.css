@@ -35,13 +35,14 @@ html {
 }
 
 body {
+  padding: 0;
   margin: 0;
   color: #e3e3e3;
   /* background: linear-gradient(-60deg, #280a4a, #140923, #0a0331); */
   background-size: 200% 200%;
   animation: gradient 30s infinite;
-  padding: var(safe-area-inset-top) var(safe-area-inset-right)
-    var(safe-area-inset-bottom) var(safe-area-inset-left);
+  padding: var(--safe-area-inset-top) var(--safe-area-inset-right)
+    var(--safe-area-inset-bottom) var(--safe-area-inset-left);
   background-color: red;
 }
 
