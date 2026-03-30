@@ -219,7 +219,7 @@ function App() {
         handleClose={() => setShownModal("")}
         children={shownModal && modalMap[shownModal].content}
       />
-      <div className="flex h-[100dvh] flex-col items-center overflow-y-auto scroll-smooth md:justify-center">
+      <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto scroll-smooth md:justify-center">
         <footer
           role="tablist"
           className="fixed right-0 bottom-0 left-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/20 bg-neutral-950/50 px-3 backdrop-blur-xl"
@@ -241,7 +241,7 @@ function App() {
             })}
           </div>
         </footer>
-        <main className="mt-16 flex max-w-[500px] flex-col px-6 text-center">
+        <main className="mt-16 mb-24 flex max-w-[500px] flex-col px-6 text-center">
           <div className="mb-14 flex flex-col gap-4">
             <h1 className="font-caprasimo mb-8 text-4xl text-amber-500/80">
               It's sleepy time...
@@ -321,7 +321,6 @@ function App() {
             </div>
           </div>
         </main>
-        <div className="mb-[200px]"></div>
       </div>
     </>
   );
