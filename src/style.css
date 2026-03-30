@@ -31,6 +31,7 @@
 html {
   background-color: #1b1426;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
+  height: 100dvh;
 }
 
 body {
