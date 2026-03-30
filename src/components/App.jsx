@@ -219,7 +219,7 @@ function App() {
         handleClose={() => setShownModal("")}
         children={shownModal && modalMap[shownModal].content}
       />
-      <div className="fixed top-0 left-0 flex min-h-[100dvh] w-full flex-col items-center overflow-hidden bg-emerald-700 md:justify-center">
+      <div className="flex flex-col items-center overflow-y-auto bg-emerald-700 md:justify-center">
         {/* <footer
           role="tablist"
           className="p-safe fixed right-0 bottom-0 left-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/20 bg-neutral-950/50 px-3 backdrop-blur-xl"
@@ -241,89 +241,83 @@ function App() {
             })}
           </div>
         </footer> */}
-        <main className="h-full w-full overflow-auto px-6">
-          <div className="h-[calc(100% + 1px)] min-h-[calc(100% + 1px)] mx-auto flex w-full max-w-[500px] flex-col text-center">
-            <div className="h-[calc(100% - 1px)] sticky top-0 bottom-0 flex w-full flex-col content-stretch justify-start">
-              <div className="mt-52 mb-14 flex flex-col gap-4">
-                <h1 className="font-caprasimo mb-8 text-4xl text-amber-500/80">
-                  It's sleepy time...
-                </h1>
-                <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
-                  If you fall asleep in{" "}
-                  <button
-                    className="inline cursor-pointer font-bold text-amber-500/80"
-                    onClick={() => setShownModal("SETTINGS")}
-                  >
-                    {offsetInMins || 0} minutes
-                  </button>
-                  , we recommend these wake-up times. Pick one, set up your
-                  alarm, and wake up refreshed.
-                </h2>
-              </div>
+        <main className="mt-16 mb-24 flex max-w-[500px] flex-col px-6 text-center">
+          <div className="mb-14 flex flex-col gap-4">
+            <h1 className="font-caprasimo mb-8 text-4xl text-amber-500/80">
+              It's sleepy time...
+            </h1>
+            <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
+              If you fall asleep in{" "}
+              <button
+                className="inline cursor-pointer font-bold text-amber-500/80"
+                onClick={() => setShownModal("SETTINGS")}
+              >
+                {offsetInMins || 0} minutes
+              </button>
+              , we recommend these wake-up times. Pick one, set up your alarm,
+              and wake up refreshed.
+            </h2>
+          </div>
 
-              <div className="flex w-full flex-col items-center gap-y-2">
-                <div className="mb-5 w-full rounded-xl bg-[#030014] px-3 py-5 text-3xl text-amber-500 shadow-[0_0_8px_white]/10 outline-2 outline-amber-500/30">
-                  <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
-                    <div
-                      className="absolute right-2 grid h-2/3 max-w-[15px] items-center"
-                      aria-label={SLEEP_CYCLE_INTERVALS[0] + " " + "hours"}
-                      title={SLEEP_CYCLE_INTERVALS[0] + " " + "hours"}
-                    ></div>
-                    <div className="flex items-end gap-1">
-                      <div className="grid">
-                        <p className="font-digital col-1 row-1 opacity-90">
-                          {formatTime(sleepLengthArray[0]).time}
-                        </p>
-                        <p className="font-digital col-1 row-1 opacity-5">
-                          00:00
-                        </p>
-                      </div>
-
-                      {timeFormat === "12h" && (
-                        <p className="mb-px text-[8px] tracking-wide text-white/30">
-                          {formatTime(sleepLengthArray[0]).timeOfDay}
-                        </p>
-                      )}
-                    </div>
+          <div className="flex w-full flex-col items-center gap-y-2">
+            <div className="mb-5 w-full rounded-xl bg-[#030014] px-3 py-5 text-3xl text-amber-500 shadow-[0_0_8px_white]/10 outline-2 outline-amber-500/30">
+              <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
+                <div
+                  className="absolute right-2 grid h-2/3 max-w-[15px] items-center"
+                  aria-label={SLEEP_CYCLE_INTERVALS[0] + " " + "hours"}
+                  title={SLEEP_CYCLE_INTERVALS[0] + " " + "hours"}
+                ></div>
+                <div className="flex items-end gap-1">
+                  <div className="grid">
+                    <p className="font-digital col-1 row-1 opacity-90">
+                      {formatTime(sleepLengthArray[0]).time}
+                    </p>
+                    <p className="font-digital col-1 row-1 opacity-5">00:00</p>
                   </div>
-                </div>
-                <div className="flex w-full flex-col overflow-clip rounded-2xl bg-[#030014] text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30">
-                  {sleepLengthArray.slice(1).map((interval, index) => {
-                    const offsetIndex = index + 1;
-                    const heightPercents = [35, 50, 70, 85, 100];
-                    const sleepHours = SLEEP_CYCLE_INTERVALS[offsetIndex];
-                    return (
-                      <div key={index}>
-                        <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
-                          <SleepIndicator
-                            heightPercent={heightPercents[index]}
-                            sleepHours={sleepHours}
-                          />
-                          <div className="mx-auto flex items-end gap-1">
-                            <div className="grid">
-                              <p className="font-digital text-lilac z-10 col-1 row-1">
-                                {formatTime(interval).time}
-                              </p>
-                              <p className="font-digital text-lilac/10 col-1 row-1">
-                                00:00
-                              </p>
-                            </div>
 
-                            {timeFormat === "12h" && (
-                              <p className="mb-px text-[8px] tracking-wide text-white/20">
-                                {formatTime(interval).timeOfDay}
-                              </p>
-                            )}
-                          </div>
-                          <p className="text-lilac/40 -ml-8 w-8 text-[10px] tracking-tighter">
-                            {sleepHours} h
+                  {timeFormat === "12h" && (
+                    <p className="mb-px text-[8px] tracking-wide text-white/30">
+                      {formatTime(sleepLengthArray[0]).timeOfDay}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="flex w-full flex-col overflow-clip rounded-2xl bg-[#030014] text-lg shadow-[0_0_8px_white]/10 outline-amber-400/30">
+              {sleepLengthArray.slice(1).map((interval, index) => {
+                const offsetIndex = index + 1;
+                const heightPercents = [35, 50, 70, 85, 100];
+                const sleepHours = SLEEP_CYCLE_INTERVALS[offsetIndex];
+                return (
+                  <div key={index}>
+                    <div className="flex flex-row items-center justify-between border-b-[1px] border-white/10 px-8 py-4">
+                      <SleepIndicator
+                        heightPercent={heightPercents[index]}
+                        sleepHours={sleepHours}
+                      />
+                      <div className="mx-auto flex items-end gap-1">
+                        <div className="grid">
+                          <p className="font-digital text-lilac z-10 col-1 row-1">
+                            {formatTime(interval).time}
+                          </p>
+                          <p className="font-digital text-lilac/10 col-1 row-1">
+                            00:00
                           </p>
                         </div>
+
+                        {timeFormat === "12h" && (
+                          <p className="mb-px text-[8px] tracking-wide text-white/20">
+                            {formatTime(interval).timeOfDay}
+                          </p>
+                        )}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
+                      <p className="text-lilac/40 -ml-8 w-8 text-[10px] tracking-tighter">
+                        {sleepHours} h
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </main>
