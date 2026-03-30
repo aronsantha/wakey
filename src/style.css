@@ -8,19 +8,21 @@
   overflow: hidden;
 
   --star-color: #ffd059;
-  background-color: #1b1426;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background-color: #1b1426;
+  background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
+  color: #e3e3e3;
+  animation: gradient 30s infinite;
+}
+
 body {
   margin: 0;
-  color: #e3e3e3;
-  background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
-  background-size: 200% 200%;
-  animation: gradient 30s infinite;
 }
 
 .stars {
