@@ -29,7 +29,7 @@
 }
 
 html {
-  /* background-color: #1b1426; */
+  background-color: #06040f;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
