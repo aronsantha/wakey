@@ -15,6 +15,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
+}
+
 body {
   margin: 0;
   color: #e3e3e3;
