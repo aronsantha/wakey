@@ -33,31 +33,27 @@ html {
   /* background-color: #1b1426; */
   background-color: moccasin;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
-  padding: 20px;
+  padding: var(--safe-area-inset-top) var(--safe-area-inset-right)
+    var(--safe-area-inset-bottom) var(--safe-area-inset-left);
 }
 
 body {
   margin: 0;
+  padding: 20px;
   display: block;
   overflow-y: scroll;
   color: #e3e3e3;
   background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
   background-size: 200% 200%;
   animation: gradient 30s infinite;
-  padding: var(--safe-area-inset-top) var(--safe-area-inset-right)
-    var(--safe-area-inset-bottom) var(--safe-area-inset-left);
+
   background-color: red;
-  background-color: #e5e5f7;
   background-image:
     linear-gradient(135deg, #444cf7 25%, transparent 25%),
     linear-gradient(225deg, #444cf7 25%, transparent 25%),
     linear-gradient(45deg, #444cf7 25%, transparent 25%),
-    linear-gradient(315deg, #444cf7 25%, #e5e5f7 25%);
-  background-position:
-    10px 0,
-    10px 0,
-    0 0,
-    0 0;
+    linear-gradient(315deg, #444cf7 25%, #32c2c2 25%);
+
   background-size: 10px 10px;
   background-repeat: repeat;
 }
