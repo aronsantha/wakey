@@ -24,6 +24,8 @@ body {
   background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
   background-size: 200% 200%;
   animation: gradient 30s infinite;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 @theme {
