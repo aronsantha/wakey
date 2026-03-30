@@ -5,14 +5,17 @@
   font-family: Nunito, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  overflow: hidden;
 
   --star-color: #ffd059;
-  background-color: #1b1426;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: #1b1426;
+  overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
 body {
