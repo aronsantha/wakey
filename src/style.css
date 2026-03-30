@@ -32,6 +32,7 @@ html {
   display: block;
   /* background-color: #1b1426; */
   background-color: moccasin;
+  overflow: hidden;
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
