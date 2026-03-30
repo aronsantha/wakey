@@ -242,9 +242,9 @@ function App() {
           </div>
         </footer> */}
         <main className="h-full w-full overflow-auto px-6">
-          <div className="h-[calc(100% + 1px)] mx-auto flex w-full max-w-[500px] flex-col text-center">
+          <div className="h-[calc(100% + 1px)] min-h-[calc(100% + 1px)] mx-auto flex w-full max-w-[500px] flex-col text-center">
             <div className="h-[calc(100% - 1px)] sticky top-0 bottom-0 flex w-full flex-col content-stretch justify-start">
-              <div className="mb-14 flex flex-col gap-4">
+              <div className="mt-52 mb-14 flex flex-col gap-4">
                 <h1 className="font-caprasimo mb-8 text-4xl text-amber-500/80">
                   It's sleepy time...
                 </h1>
