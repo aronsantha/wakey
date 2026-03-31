@@ -220,11 +220,11 @@ function App() {
         children={shownModal && modalMap[shownModal].content}
       />
       <div className="flex h-[100dvh] flex-col items-center overflow-y-auto md:justify-center">
-        <footer
-          role="tablist"
-          className="p-safe fixed right-0 bottom-0 left-0 z-50 h-14 w-full border-t-[1px] border-neutral-100/20 bg-neutral-950/50 px-3 backdrop-blur-xl"
-        >
-          <div className="mx-auto flex h-full w-full max-w-[800px] items-center justify-around px-6 pt-px">
+        <footer className="pb-safe fixed right-0 bottom-0 left-0 z-50 w-full border-t-[1px] border-neutral-100/15 bg-neutral-950/50 px-3 backdrop-blur-xl">
+          <div
+            role="tablist"
+            className="mx-auto flex h-14 w-full max-w-[800px] items-center justify-around px-6 pt-px"
+          >
             {Object.keys(modalMap).map((modalKey) => {
               return (
                 <ModalTriggerButton
