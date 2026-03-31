@@ -39,6 +39,7 @@
 
 html {
   background-color: #06040f;
+
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
@@ -46,12 +47,10 @@ body {
   margin: 0;
   color: #e3e3e3;
   background: linear-gradient(
-    20deg,
-    transparent 10%,
-    #140923 50%,
-    #280a4ab1 55%,
-    #140923 65%,
-    transparent 90%
+    170deg,
+    transparent 30%,
+    #280a4ab1 50%,
+    transparent 75%
   );
   background-size: 200% 200%;
   animation: gradient 30s ease infinite;
