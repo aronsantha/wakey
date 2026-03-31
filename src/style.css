@@ -30,8 +30,8 @@
 }
 :root {
   font-family: Larsseit, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
+  letter-spacing: 0.01em;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

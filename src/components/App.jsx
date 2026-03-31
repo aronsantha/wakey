@@ -170,20 +170,20 @@ function App() {
   const aboutModalContent = (
     <div className="mx-auto flex flex-col justify-center px-7 pb-6 text-left">
       <h2 className="mt-8 font-bold">How we sleep</h2>
-      <div className="mt-3 *:leading-[1.3rem]">
-        <p className="text-sm text-neutral-600">
+      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-600">
+        <p>
           Every time we sleep, we go through cycles of about 90 minutes. Waking
           up in the middle of a cycle can leave us groggy — even if we sleep for
           many hours.
         </p>
-        <p className="mt-4 text-sm text-neutral-600">
+        <p className="mt-4">
           But if we schedule our wake-up time to the end of a sleep cycle, we
           feel more rested.
         </p>
       </div>
       <h2 className="mt-6 font-bold">Tailored for you</h2>
-      <div className="mt-3 *:leading-[1.3rem]">
-        <p className="text-sm text-neutral-600">
+      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-600">
+        <p>
           Wakey helps you find the ideal time for waking up rested. You can even
           set up how long it takes you to fall asleep, and choose your preferred
           time format. Wakey will remember your choices for next time.
@@ -205,18 +205,18 @@ function App() {
           👋🏼
         </span>
       </div>
-      <div className="mt-6 *:leading-[1.3rem]">
-        <p className="text-sm text-neutral-600">
+      <div className="mt-6 text-sm leading-[1.3rem] text-neutral-600">
+        <p>
           I'm a troubled sleeper. I've tried many other sleep apps, but none of
           them fully matched my needs. They either lacked important features,
           had poor usability, or simply didn't look great.
         </p>
-        <p className="mt-4 text-sm text-neutral-600">
+        <p className="mt-4">
           So I built Wakey. And although I built this app for myself, I also
           kept others in mind in the process: I included accessibility features
           and made sure it looks great on any device size.
         </p>
-        <p className="mt-4 text-sm text-neutral-600">
+        <p className="mt-4">
           I hope you'll enjoy using the app as much as I do! If you have any
           feedback or suggestions, feel free to reach out via my website:{" "}
           <a
@@ -258,7 +258,7 @@ function App() {
     <>
       <div className="stars -z-10"></div>
       <BaseModal
-        modalTitle={shownModal}
+        modalTitle={shownModal && modalMap[shownModal].label}
         isOpen={Boolean(shownModal)}
         timeFormat={timeFormat}
         handleClose={() => handleModalClose()}
@@ -291,7 +291,7 @@ function App() {
             <h1 className="font-caprasimo mb-4 text-3xl text-amber-500/80 md:mb-8 md:text-4xl">
               It's sleepy time...
             </h1>
-            <h2 className="text-lg text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
+            <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
               If you fall asleep in{" "}
               <button
                 className="inline cursor-pointer font-bold text-amber-500/80"
