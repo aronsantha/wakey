@@ -45,16 +45,23 @@ html {
 body {
   margin: 0;
   color: #e3e3e3;
-  background: linear-gradient(-60deg, #280a4a, #140923, #0a0331);
+  background: linear-gradient(
+    20deg,
+    transparent 10%,
+    #140923 50%,
+    #280a4ab1 55%,
+    #140923 65%,
+    transparent 90%
+  );
   background-size: 200% 200%;
-  animation: gradient 30s infinite;
+  animation: gradient 30s ease infinite;
 }
 
 .stars {
   position: absolute;
   z-index: 0;
   animation: rotate 700s linear infinite;
-  opacity: 50%;
+  opacity: 60%;
   top: 50%;
   left: 50%;
   height: 2px;
