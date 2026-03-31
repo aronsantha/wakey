@@ -59,6 +59,11 @@ function App() {
     (hours) => new Date(time.getTime() + offsetInMs + hours * ONE_HOUR_MS),
   );
 
+  function handleModalClose() {
+    setShownModal("");
+    console.log(document.activeElement);
+  }
+
   function formatTime(time) {
     const timeString = time.toLocaleTimeString(LOCALE_FORMAT_MAP[timeFormat], {
       hour: "2-digit",
@@ -256,7 +261,7 @@ function App() {
         modalTitle={shownModal}
         isOpen={Boolean(shownModal)}
         timeFormat={timeFormat}
-        handleClose={() => setShownModal("")}
+        handleClose={() => handleModalClose()}
         children={shownModal && modalMap[shownModal].content}
       />
       <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto md:justify-center">

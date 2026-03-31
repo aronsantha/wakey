@@ -9,10 +9,7 @@ function ModalTriggerButton({
   return (
     <button
       onClick={() => handleSetModal()}
-      className="text-lilac/70 z-10 flex h-10 w-14 cursor-pointer flex-col items-center rounded transition-all duration-75 hover:text-neutral-300 focus:text-neutral-300 focus:ring-2 focus:ring-white focus:outline-none"
-      style={{
-        opacity: shownModal === modalKey && "1",
-      }}
+      className="text-lilac/70 z-10 flex h-10 w-14 cursor-pointer flex-col items-center rounded transition-all duration-75 focus:outline-none pointer-fine:hover:text-neutral-300 pointer-fine:focus:text-neutral-300 pointer-fine:focus:ring-2 pointer-fine:focus:ring-white"
       aria-label={`Open ${label} modal`}
     >
       {shownModal === modalKey ? (
