@@ -241,7 +241,7 @@ function App() {
             })}
           </div>
         </footer>
-        <main className="mb-24 flex max-w-[500px] flex-col px-6 text-center">
+        <main className="mt-10 mb-22 flex max-w-[500px] flex-col px-6 text-center">
           <div className="mb-14 flex flex-col gap-4">
             <h1 className="font-caprasimo mb-4 text-3xl text-amber-500/80 md:mb-8 md:text-4xl">
               It's sleepy time...
