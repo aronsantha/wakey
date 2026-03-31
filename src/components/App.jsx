@@ -246,7 +246,7 @@ function App() {
             <h1 className="font-caprasimo mb-4 text-3xl text-amber-500/80 md:mb-8 md:text-4xl">
               It's sleepy time...
             </h1>
-            <h2 className="text-neutral-300 text-shadow-[0_0_2px] text-shadow-neutral-900">
+            <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
               If you fall asleep in{" "}
               <button
                 className="inline cursor-pointer font-bold text-amber-500/80"
@@ -311,7 +311,7 @@ function App() {
                           </p>
                         )}
                       </div>
-                      <p className="text-lilac/40 -ml-8 w-8 text-[10px] tracking-tighter">
+                      <p className="text-lilac/80 -ml-8 w-8 text-[10px] tracking-tighter">
                         {sleepHours} h
                       </p>
                     </div>
