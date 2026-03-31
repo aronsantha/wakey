@@ -61,7 +61,6 @@ function App() {
 
   function handleModalClose() {
     setShownModal("");
-    console.log(document.activeElement);
   }
 
   function formatTime(time) {
@@ -170,7 +169,7 @@ function App() {
   const aboutModalContent = (
     <div className="mx-auto flex flex-col justify-center px-7 pb-6 text-left">
       <h2 className="mt-8 font-bold">How we sleep</h2>
-      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-600">
+      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-500">
         <p>
           Every time we sleep, we go through cycles of about 90 minutes. Waking
           up in the middle of a cycle can leave us groggy — even if we sleep for
@@ -182,7 +181,7 @@ function App() {
         </p>
       </div>
       <h2 className="mt-6 font-bold">Tailored for you</h2>
-      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-600">
+      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-500">
         <p>
           Wakey helps you find the ideal time for waking up rested. You can even
           set up how long it takes you to fall asleep, and choose your preferred
@@ -205,11 +204,11 @@ function App() {
           👋🏼
         </span>
       </div>
-      <div className="mt-6 text-sm leading-[1.3rem] text-neutral-600">
+      <div className="mt-6 text-sm leading-[1.3rem] text-neutral-500">
         <p>
-          I'm a troubled sleeper. I've tried many other sleep apps, but none of
-          them fully matched my needs. They either lacked important features,
-          had poor usability, or simply didn't look great.
+          I'm a troubled sleeper. I tried many sleep apps, but none of them
+          fully matched my needs. They either lacked important features, had
+          poor usability, or simply didn't look great.
         </p>
         <p className="mt-4">
           So I built Wakey. And although I built this app for myself, I also
@@ -218,7 +217,7 @@ function App() {
         </p>
         <p className="mt-4">
           I hope you'll enjoy using the app as much as I do! If you have any
-          feedback or suggestions, feel free to reach out via my website:{" "}
+          feedback, feel free to reach out via my website:{" "}
           <a
             href="https://aronsantha.com"
             target="_blank"
@@ -265,7 +264,7 @@ function App() {
         children={shownModal && modalMap[shownModal].content}
       />
       <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto md:justify-center">
-        <footer className="pb-safe fixed right-0 bottom-0 left-0 z-50 w-full border-t-[1px] border-neutral-100/15 bg-neutral-950/50 px-3 backdrop-blur-xl">
+        <footer className="pb-safe fixed right-0 bottom-0 left-0 z-50 w-full border-t-[1px] border-neutral-100/15 bg-[#06040f] px-3 backdrop-blur-xl">
           <div
             role="tablist"
             className="mx-auto flex h-14 w-full max-w-[800px] items-center justify-around px-6 pt-px"
