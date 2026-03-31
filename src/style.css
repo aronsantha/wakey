@@ -21,6 +21,13 @@
   padding-right: var(--safe-area-inset-right);
 }
 
+[data-bgstyle="solid"] body {
+  background: none !important;
+}
+
+[data-bgstyle="solid"] .stars {
+  display: none !important;
+}
 :root {
   font-family: Nunito, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -39,7 +46,6 @@
 
 html {
   background-color: #06040f;
-
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
@@ -58,7 +64,7 @@ body {
 
 .stars {
   position: absolute;
-  z-index: 0;
+  z-index: -10;
   animation: rotate 700s linear infinite;
   opacity: 60%;
   top: 50%;

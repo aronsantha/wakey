@@ -26,12 +26,24 @@ import {
 function App() {
   const [offsetInMins, setOffset] = useStickyState(
     DEFAULT_FALL_ASLEEP_MINUTES,
-    "time-to-fall-asleep",
+    "wakey-fall-asleep-mins",
   );
-  const [timeFormat, setTimeFormat] = useStickyState("12h", "time-format");
+  const [timeFormat, setTimeFormat] = useStickyState(
+    "12h",
+    "wakey-time-format",
+  );
+
+  const [bgStyle, setBgStyle] = useStickyState("default", "wakey-bg");
+
   const offsetInMs = offsetInMins * 60 * 1000;
   const [time, setTime] = useState(new Date());
   const [shownModal, setShownModal] = useState("");
+
+  useEffect(() => {
+    if (!bgStyle) return;
+
+    document.documentElement.setAttribute("data-bgstyle", bgStyle);
+  }, [bgStyle]);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -74,6 +86,7 @@ function App() {
         >
           -
         </button>
+
         <div className="flex w-full flex-col items-center justify-center gap-1 py-2">
           <div className="grid text-xl text-amber-400/80">
             <p className="font-digital col-1 row-1 ml-auto">{offsetInMins}</p>
@@ -117,6 +130,33 @@ function App() {
           }`}
         >
           24-hour
+        </button>
+      </div>
+
+      <h2 className="mt-8 mb-2 font-bold">Background style</h2>
+      <p className="text-xs text-neutral-500">
+        A gently moving night sky or solid color.
+      </p>
+      <div className="mx-auto mt-6 flex flex-row items-center gap-2">
+        <button
+          onClick={() => setBgStyle("default")}
+          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+            bgStyle === "default"
+              ? "outline-1 outline-amber-400/80"
+              : "bg-neutral-900"
+          }`}
+        >
+          Night sky
+        </button>
+        <button
+          onClick={() => setBgStyle("solid")}
+          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
+            bgStyle === "solid"
+              ? "outline-1 outline-amber-400/80"
+              : "bg-neutral-900"
+          }`}
+        >
+          Solid
         </button>
       </div>
     </div>
@@ -211,7 +251,7 @@ function App() {
 
   return (
     <>
-      <div className="stars -z-10 hidden md:block"></div>
+      <div className="stars -z-10"></div>
       <BaseModal
         modalTitle={shownModal}
         isOpen={Boolean(shownModal)}
