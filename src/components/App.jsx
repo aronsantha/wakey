@@ -241,12 +241,12 @@ function App() {
             })}
           </div>
         </footer>
-        <main className="mt-16 mb-24 flex max-w-[500px] flex-col px-6 text-center">
+        <main className="mt-10 mb-24 flex max-w-[500px] flex-col px-6 text-center">
           <div className="mb-14 flex flex-col gap-4">
-            <h1 className="font-caprasimo mb-8 text-4xl text-amber-500/80">
+            <h1 className="font-caprasimo mb-4 text-3xl text-amber-500/80 md:mb-8 md:text-4xl">
               It's sleepy time...
             </h1>
-            <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
+            <h2 className="text-neutral-300 text-shadow-[0_0_2px] text-shadow-neutral-900">
               If you fall asleep in{" "}
               <button
                 className="inline cursor-pointer font-bold text-amber-500/80"
@@ -260,7 +260,7 @@ function App() {
           </div>
 
           <div className="flex w-full flex-col items-center gap-y-2">
-            <div className="mb-5 w-full rounded-xl bg-[#030014] px-3 py-5 text-3xl text-amber-500 shadow-[0_0_8px_white]/10 outline-2 outline-amber-500/30">
+            <div className="mb-5 w-full rounded-xl bg-[#030014] px-3 py-4 text-2xl text-amber-500 shadow-[0_0_8px_white]/10 outline-2 outline-amber-500/30">
               <div className="relative flex h-lh flex-row items-center justify-center gap-x-3 gap-y-1">
                 <div
                   className="absolute right-2 grid h-2/3 max-w-[15px] items-center"
