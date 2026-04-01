@@ -123,20 +123,20 @@ function App() {
         <div className="mt-4 flex w-full flex-row items-center justify-center gap-2">
           <button
             onClick={() => setTimeFormat("12h")}
-            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white outline-1 transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
               timeFormat === "12h"
-                ? "grow outline-1 outline-amber-400/80"
-                : "bg-neutral-900"
+                ? "grow outline-amber-400/80"
+                : "bg-neutral-900 outline-amber-400/0"
             }`}
           >
             12-hour
           </button>
           <button
             onClick={() => setTimeFormat("24h")}
-            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white outline-1 transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
               timeFormat === "24h"
-                ? "grow outline-1 outline-amber-400/80"
-                : "bg-neutral-900"
+                ? "grow outline-amber-400/80"
+                : "bg-neutral-900 outline-amber-400/0"
             }`}
           >
             24-hour
@@ -152,23 +152,23 @@ function App() {
         <div className="mt-4 flex w-full flex-row items-center justify-center gap-2">
           <button
             onClick={() => setBgStyle("default")}
-            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white outline-1 transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
               bgStyle === "default"
-                ? "grow outline-1 outline-amber-400/80"
-                : "bg-neutral-900"
+                ? "grow outline-amber-400/80"
+                : "bg-neutral-900 outline-amber-400/0"
             }`}
           >
             Night sky
           </button>
           <button
             onClick={() => setBgStyle("solid")}
-            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white outline-1 transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
               bgStyle === "solid"
-                ? "grow outline-1 outline-amber-400/80"
-                : "bg-neutral-900"
+                ? "grow outline-amber-400/80"
+                : "bg-neutral-900 outline-amber-400/0"
             }`}
           >
-            Solid{" "}
+            Solid
           </button>
         </div>
       </SettingsSection>
@@ -207,35 +207,26 @@ function App() {
 
   const creatorModalContent = (
     <div className="mx-auto flex flex-col justify-center px-7 pt-8 pb-6 text-left">
-      <div className="flex items-center justify-center text-amber-500/80">
-        <p className="font-caprasimo">Hey there, I'm Aron</p>
-        <span className="ml-1" aria-hidden="true">
-          👋🏼
-        </span>
-      </div>
+      <p className="font-caprasimo text-amber-500/80">
+        Hey there, I'm Aron, and I'm a troubled sleeper...
+      </p>
       <div className="mt-6 text-sm leading-[1.3rem] text-neutral-500">
         <p>
-          I'm a troubled sleeper. I tried many sleep apps, but none of them
-          fully matched my needs. They either lacked important features, had
-          poor usability, or simply didn't look great.
+          One of the few things that helped me over the years was following the
+          scientific advice on sleep cycles.
         </p>
+
         <p className="mt-4">
-          So I built Wakey. And although I built this app for myself, I also
-          kept others in mind in the process: I included accessibility features
-          and made sure it looks great on any device size.
+          I tried many sleep apps to help with that, but they were always a
+          compromise: missing features, poor design, or a clunky user
+          experience.
         </p>
+
         <p className="mt-4">
-          I hope you'll enjoy using the app as much as I do! If you have any
-          feedback, feel free to reach out via my website:{" "}
-          <a
-            href="https://aronsantha.com"
-            target="_blank"
-            className="cursor-pointer text-amber-500 underline underline-offset-2 hover:text-amber-700"
-          >
-            aronsantha.com
-          </a>
-          .
+          So I built Wakey. It's simple, it's accessible, and it looks polished.
+          It's basically the app I wish I had years ago.
         </p>
+        <p className="mt-4">I hope you'll enjoy using it as much as I do!</p>
       </div>
     </div>
   );
