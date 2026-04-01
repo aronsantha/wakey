@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useStickyState } from "../hooks.js";
 import BaseModal from "./BaseModal.jsx";
+import SettingsSection from "./SettingsSection.jsx";
 import ModalTriggerButton from "./ModalTriggerButton.jsx";
 import SleepIndicator from "./SleepIndicator.jsx";
 import {
@@ -22,6 +23,7 @@ import {
   InformationCircleIcon,
   SparklesIcon,
 } from "@heroicons/react/24/solid";
+import { ClockIcon } from "@heroicons/react/20/solid";
 
 function App() {
   const [offsetInMins, setOffset] = useStickyState(
@@ -85,93 +87,91 @@ function App() {
   }
 
   const settingsModalContent = (
-    <div className="mx-auto flex flex-col justify-center px-7 pb-6 text-center">
-      <h2 className="mt-8 mb-2 font-bold">Fall asleep time</h2>
-      <p className="text-xs text-neutral-500">
-        The calculator includes the time it takes to fall asleep, which is 15
-        minutes for most people. You can tweak this number to better align with
-        your own sleep habits. (Limit: {MAX_FALL_ASLEEP_MINUTES} minutes){" "}
-      </p>
-      <div className="mx-auto mt-6 flex max-w-fit flex-row overflow-clip rounded-3xl bg-neutral-800">
-        <button
-          onClick={() => offsetInMins > 0 && setOffset(offsetInMins - 5)}
-          className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-l-3xl rounded-r-3xl bg-neutral-900"
-        >
-          -
-        </button>
+    <div className="mx-auto flex flex-col justify-center px-4 pb-6">
+      <SettingsSection title="Delay">
+        <p className="mb-2">The time you need to wind down and fall asleep.</p>
 
-        <div className="flex w-full flex-col items-center justify-center gap-1 py-2">
-          <div className="grid text-xl text-amber-400/80">
-            <p className="font-digital col-1 row-1 ml-auto">{offsetInMins}</p>
-            <p className="font-digital col-1 row-1 opacity-5">00</p>
+        <div className="mx-auto mt-4 flex flex-row overflow-clip rounded-2xl bg-neutral-800">
+          <button
+            onClick={() => offsetInMins > 0 && setOffset(offsetInMins - 5)}
+            className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-l-2xl bg-neutral-900"
+          >
+            -
+          </button>
+
+          <div className="flex w-full items-end justify-center gap-2 py-2">
+            <div className="grid text-xl text-amber-400/80">
+              <p className="font-digital col-1 row-1 ml-auto">{offsetInMins}</p>
+              <p className="font-digital col-1 row-1 opacity-5">00</p>
+            </div>
+
+            <p className="text-xs text-neutral-400">min</p>
           </div>
-
-          <p className="text-xs text-neutral-400">minutes</p>
+          <button
+            className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-r-2xl bg-neutral-900"
+            onClick={() =>
+              offsetInMins < MAX_FALL_ASLEEP_MINUTES &&
+              setOffset(offsetInMins + 5)
+            }
+          >
+            +
+          </button>
         </div>
-        <button
-          className="font-digital text-md flex w-20 cursor-pointer items-center justify-center rounded-l-3xl rounded-r-3xl bg-neutral-900"
-          onClick={() =>
-            offsetInMins < MAX_FALL_ASLEEP_MINUTES &&
-            setOffset(offsetInMins + 5)
-          }
-        >
-          +
-        </button>
-      </div>
+      </SettingsSection>
 
-      <h2 className="mt-8 mb-2 font-bold">Time format</h2>
-      <p className="text-xs text-neutral-500">
-        Time will be displayed in your selected time format.
-      </p>
-      <div className="mx-auto mt-6 flex flex-row items-center gap-2">
-        <button
-          onClick={() => setTimeFormat("12h")}
-          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-            timeFormat === "12h"
-              ? "outline-1 outline-amber-400/80"
-              : "bg-neutral-900"
-          }`}
-        >
-          12-hour
-        </button>
-        <button
-          onClick={() => setTimeFormat("24h")}
-          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-            timeFormat === "24h"
-              ? "outline-1 outline-amber-400/80"
-              : "bg-neutral-900"
-          }`}
-        >
-          24-hour
-        </button>
-      </div>
+      <SettingsSection title="Time format">
+        <div className="mt-4 flex w-full flex-row items-center justify-center gap-2">
+          <button
+            onClick={() => setTimeFormat("12h")}
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+              timeFormat === "12h"
+                ? "grow outline-1 outline-amber-400/80"
+                : "bg-neutral-900"
+            }`}
+          >
+            12-hour
+          </button>
+          <button
+            onClick={() => setTimeFormat("24h")}
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+              timeFormat === "24h"
+                ? "grow outline-1 outline-amber-400/80"
+                : "bg-neutral-900"
+            }`}
+          >
+            24-hour
+          </button>
+        </div>
+      </SettingsSection>
 
-      <h2 className="mt-8 mb-2 font-bold">Background style</h2>
-      <p className="text-xs text-neutral-500">
-        A gently moving night sky or solid color.
-      </p>
-      <div className="mx-auto mt-6 flex flex-row items-center gap-2">
-        <button
-          onClick={() => setBgStyle("default")}
-          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-            bgStyle === "default"
-              ? "outline-1 outline-amber-400/80"
-              : "bg-neutral-900"
-          }`}
-        >
-          Night sky
-        </button>
-        <button
-          onClick={() => setBgStyle("solid")}
-          className={`cursor-pointer rounded-md px-4 py-2 text-sm font-semibold text-white ${
-            bgStyle === "solid"
-              ? "outline-1 outline-amber-400/80"
-              : "bg-neutral-900"
-          }`}
-        >
-          Solid
-        </button>
-      </div>
+      <SettingsSection title="Background style">
+        <p className="text-xs text-neutral-500">
+          A gently shifting night sky or solid color.
+        </p>
+
+        <div className="mt-4 flex w-full flex-row items-center justify-center gap-2">
+          <button
+            onClick={() => setBgStyle("default")}
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+              bgStyle === "default"
+                ? "grow outline-1 outline-amber-400/80"
+                : "bg-neutral-900"
+            }`}
+          >
+            Night sky
+          </button>
+          <button
+            onClick={() => setBgStyle("solid")}
+            className={`cursor-pointer rounded-md px-6 py-2 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.66,0,0,1.009)] ${
+              bgStyle === "solid"
+                ? "grow outline-1 outline-amber-400/80"
+                : "bg-neutral-900"
+            }`}
+          >
+            Solid{" "}
+          </button>
+        </div>
+      </SettingsSection>
     </div>
   );
 

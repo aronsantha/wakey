@@ -5,7 +5,7 @@ import {
   DialogTitle,
   CloseButton,
 } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/20/solid";
+import { XMarkIcon } from "@heroicons/react/16/solid";
 
 function BaseModal({ isOpen, handleClose, modalTitle, children }) {
   return (
@@ -17,23 +17,25 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
     >
       <DialogBackdrop className="fixed inset-0 bottom-0 cursor-pointer overflow-y-auto bg-black/20 backdrop-blur-[3px]" />
       <div className="fixed inset-0 bottom-0 w-screen overflow-y-auto">
-        <div className="flex h-full items-end justify-center overflow-hidden not-sm:pt-14 sm:items-center">
+        <div className="flex h-full items-end justify-center overflow-hidden sm:items-center">
           <DialogPanel
             transition
-            className="bg-theme/90 uration-300 w-full max-w-[640px] overflow-clip rounded-t-3xl border-t-[1px] border-neutral-100/15 pb-7 shadow-lg backdrop-blur-xs transition-all ease-in-out not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
+            className="h-full max-h-[90dvh] w-full max-w-[640px] rounded-t-3xl border-t-[1px] border-neutral-100/15 bg-black/80 pb-7 shadow-lg backdrop-blur-xs transition-all duration-300 ease-in-out not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
           >
-            <CloseButton
-              as={"button"}
-              aria-label="Close modal"
-              className="fixed right-0 m-5 cursor-pointer rounded-full border-[1px] border-neutral-100/30 p-1.5 text-neutral-100/50 transition-all duration-75 hover:text-neutral-100"
-            >
-              <XMarkIcon className="w-6" />
-            </CloseButton>
+            <div className="flex items-center justify-between p-4">
+              <DialogTitle className="grow text-center text-lg font-extrabold">
+                {modalTitle}
+              </DialogTitle>
+              <CloseButton
+                as={"button"}
+                aria-label="Close modal"
+                className="-ml-9 w-9 cursor-pointer rounded-full border-[1px] border-neutral-100/30 p-1.5 text-neutral-100/50 transition-all duration-75 hover:text-neutral-100"
+              >
+                <XMarkIcon />
+              </CloseButton>
+            </div>
 
-            <DialogTitle className="text-md grow px-1 pt-7 text-center text-lg font-extrabold">
-              {modalTitle}
-            </DialogTitle>
-            <>{children}</>
+            <div className="h-full overflow-y-scroll pb-18">{children}</div>
           </DialogPanel>
         </div>
       </div>
