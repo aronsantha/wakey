@@ -20,7 +20,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
         <div className="flex h-full items-end justify-center overflow-hidden not-sm:pt-14 sm:items-center">
           <DialogPanel
             transition
-            className="bg-theme/80 w-full max-w-[640px] overflow-clip rounded-t-3xl border-t-[1px] border-neutral-100/15 pb-7 shadow-lg backdrop-blur-xs not-sm:pb-14 not-sm:duration-300 data-[closed]:translate-y-full not-sm:data-[open]:ease-in-out sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
+            className="bg-theme/90 uration-300 w-full max-w-[640px] overflow-clip rounded-t-3xl border-t-[1px] border-neutral-100/15 pb-7 shadow-lg backdrop-blur-xs transition-all ease-in-out not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
           >
             <CloseButton
               as={"button"}

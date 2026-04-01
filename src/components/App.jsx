@@ -37,7 +37,20 @@ function App() {
 
   const offsetInMs = offsetInMins * 60 * 1000;
   const [time, setTime] = useState(new Date());
-  const [shownModal, setShownModal] = useState("");
+  const [activeModal, setActiveModal] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const activateModal = (modalName) => {
+    setActiveModal(modalName);
+    setIsModalOpen(true);
+  };
+
+  const deactivateModal = (timeout) => {
+    setIsModalOpen(false);
+    setTimeout(() => {
+      setActiveModal("");
+    }, timeout);
+  };
 
   useEffect(() => {
     if (!bgStyle) return;
@@ -58,10 +71,6 @@ function App() {
   const sleepLengthArray = SLEEP_CYCLE_INTERVALS.map(
     (hours) => new Date(time.getTime() + offsetInMs + hours * ONE_HOUR_MS),
   );
-
-  function handleModalClose() {
-    setShownModal("");
-  }
 
   function formatTime(time) {
     const timeString = time.toLocaleTimeString(LOCALE_FORMAT_MAP[timeFormat], {
@@ -257,11 +266,11 @@ function App() {
     <>
       <div className="stars -z-10"></div>
       <BaseModal
-        modalTitle={shownModal && modalMap[shownModal].label}
-        isOpen={Boolean(shownModal)}
+        modalTitle={activeModal && modalMap[activeModal].label}
+        isOpen={isModalOpen}
         timeFormat={timeFormat}
-        handleClose={() => handleModalClose()}
-        children={shownModal && modalMap[shownModal].content}
+        handleClose={() => deactivateModal(300)}
+        children={activeModal && modalMap[activeModal].content}
       />
       <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto md:justify-center">
         <footer className="pb-safe bg-theme fixed right-0 bottom-0 left-0 z-50 w-full border-t-[1px] border-neutral-100/15 px-3 backdrop-blur-xl">
@@ -275,8 +284,8 @@ function App() {
                   role="tab"
                   key={modalKey}
                   modalKey={modalKey}
-                  shownModal={shownModal}
-                  handleSetModal={() => setShownModal(modalKey)}
+                  activeModal={activeModal}
+                  handleSetModal={() => activateModal(modalKey)}
                   IconSolid={modalMap[modalKey].IconSolid}
                   IconOutline={modalMap[modalKey].IconOutline}
                   label={modalMap[modalKey].label}
@@ -294,7 +303,7 @@ function App() {
               If you fall asleep in{" "}
               <button
                 className="inline cursor-pointer font-bold text-amber-500/80"
-                onClick={() => setShownModal("SETTINGS")}
+                onClick={() => activateModal("SETTINGS")}
               >
                 {offsetInMins || 0} minutes
               </button>
