@@ -5,7 +5,7 @@ import {
   DialogTitle,
   CloseButton,
 } from "@headlessui/react";
-import { XCircleIcon } from "@heroicons/react/20/solid";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 
 function BaseModal({ isOpen, handleClose, modalTitle, children }) {
   return (
@@ -20,20 +20,19 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
         <div className="flex h-full items-end justify-center overflow-hidden not-sm:pt-14 sm:items-center">
           <DialogPanel
             transition
-            className="bg-theme/80 w-full max-w-[640px] overflow-clip rounded-t-3xl border-t-[1px] border-neutral-100/15 pb-14 shadow-lg backdrop-blur-xs not-sm:h-full not-sm:duration-300 data-[closed]:translate-y-full not-sm:data-[open]:ease-in-out sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
+            className="bg-theme/80 w-full max-w-[640px] overflow-clip rounded-t-3xl border-t-[1px] border-neutral-100/15 pb-7 shadow-lg backdrop-blur-xs not-sm:pb-14 not-sm:duration-300 data-[closed]:translate-y-full not-sm:data-[open]:ease-in-out sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
           >
-            <div className="flex items-center px-3 py-3">
-              <DialogTitle className="text-md grow px-1 text-center text-lg font-extrabold">
-                {modalTitle}
-              </DialogTitle>
-              <CloseButton
-                as={"button"}
-                aria-label="Close modal"
-                className="-ml-10 cursor-pointer rounded-full opacity-50 transition-all duration-75 hover:opacity-100"
-              >
-                <XCircleIcon className="w-7" />
-              </CloseButton>
-            </div>
+            <CloseButton
+              as={"button"}
+              aria-label="Close modal"
+              className="fixed right-0 m-5 cursor-pointer rounded-full border-[1px] border-neutral-100/30 p-1.5 text-neutral-100/50 transition-all duration-75 hover:text-neutral-100"
+            >
+              <XMarkIcon className="w-6" />
+            </CloseButton>
+
+            <DialogTitle className="text-md grow px-1 pt-7 text-center text-lg font-extrabold">
+              {modalTitle}
+            </DialogTitle>
             <>{children}</>
           </DialogPanel>
         </div>
