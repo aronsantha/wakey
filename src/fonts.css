@@ -1,48 +1,48 @@
 @font-face {
   font-family: "DSEG7Classic";
-  src: url("./assets/fonts/DSEG7Classic-Bold.woff2") format("woff2");
+  src: url("/fonts/DSEG7Classic-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "DSEG7ClassicMini";
-  src: url("./assets/fonts/DSEG7ClassicMini-Bold.woff2") format("woff2");
+  src: url("/fonts/DSEG7ClassicMini-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Caprasimo";
-  src: url("./assets/fonts/Caprasimo-Regular.ttf") format("truetype");
+  src: url("/fonts/Caprasimo-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Larsseit";
-  src: url("./assets/fonts/Larsseit-Regular.woff2") format("woff2");
+  src: url("/fonts/Larsseit-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Larsseit";
-  src: url("./assets/fonts/Larsseit-Light.woff2") format("woff2");
+  src: url("/fonts/Larsseit-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Larsseit";
-  src: url("./assets/fonts/Larsseit-Medium.woff2") format("woff2");
+  src: url("/fonts/Larsseit-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Larsseit";
-  src: url("./assets/fonts/Larsseit-Bold.woff2") format("woff2");
+  src: url("/fonts/Larsseit-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
