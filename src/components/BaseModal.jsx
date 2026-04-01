@@ -20,7 +20,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
         <div className="flex h-full items-end justify-center overflow-hidden sm:items-center">
           <DialogPanel
             transition
-            className="h-full max-h-[90dvh] w-full max-w-[640px] rounded-t-3xl border-t-[1px] border-neutral-100/15 bg-black/80 pb-7 shadow-lg backdrop-blur-xs transition-all duration-300 ease-in-out not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
+            className="max-h-[80dvh] w-full max-w-[640px] rounded-t-3xl border-t-[1px] border-neutral-100/15 bg-black/80 pb-7 shadow-lg backdrop-blur-xs transition-all duration-300 ease-in-out not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
           >
             <div className="flex items-center justify-between p-4">
               <DialogTitle className="grow text-center text-lg font-extrabold">
@@ -35,7 +35,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
               </CloseButton>
             </div>
 
-            <div className="h-full overflow-y-scroll pb-18">{children}</div>
+            <div className="pb-safe h-full overflow-y-scroll">{children}</div>
           </DialogPanel>
         </div>
       </div>
