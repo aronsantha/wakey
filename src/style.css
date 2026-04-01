@@ -3,6 +3,7 @@
 
 @theme {
   --color-lilac: #7a72ad;
+  --color-theme: var(--theme-color-dark);
 }
 
 @utility pt-safe {
@@ -38,6 +39,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --star-color: #ffd059;
+  --theme-color-dark: #06040f;
   --safe-area-inset-top: env(safe-area-inset-top);
   --safe-area-inset-right: env(safe-area-inset-right);
   --safe-area-inset-bottom: env(safe-area-inset-bottom);
@@ -45,7 +47,7 @@
 }
 
 html {
-  background-color: #06040f;
+  background-color: var(--theme-color-dark);
   overscroll-behavior: none; /* prevent bouncy overscroll effects, eg. "pull-to-refresh" */
 }
 
