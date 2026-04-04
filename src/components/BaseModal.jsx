@@ -23,7 +23,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
             className="ease-apple max-h-[80dvh] w-full max-w-[640px] rounded-t-3xl border-t-[1px] border-neutral-100/15 bg-black/80 pb-7 shadow-lg backdrop-blur-xs transition-all duration-300 not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:opacity-0"
           >
             <div className="flex items-center justify-between p-4">
-              <DialogTitle className="grow text-center text-lg font-extrabold">
+              <DialogTitle className="font-heading grow text-center text-2xl">
                 {modalTitle}
               </DialogTitle>
               <CloseButton

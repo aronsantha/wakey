@@ -88,8 +88,8 @@ function App() {
 
   const settingsModalContent = (
     <div className="mx-auto flex flex-col justify-center px-4 pb-6">
-      <SettingsSection title="Delay">
-        <p className="mb-2">The time you need to wind down and fall asleep.</p>
+      <SettingsSection title="Wind down">
+        <p className="mb-2">The time you need to fall asleep.</p>
 
         <div className="mx-auto mt-4 flex flex-row overflow-clip rounded-2xl bg-neutral-800">
           <button
@@ -144,7 +144,7 @@ function App() {
         </div>
       </SettingsSection>
 
-      <SettingsSection title="Background style">
+      <SettingsSection title="Background">
         <p className="text-xs text-neutral-500">
           A gently shifting night sky or solid color.
         </p>
@@ -178,7 +178,7 @@ function App() {
   const aboutModalContent = (
     <div className="mx-auto flex flex-col justify-center px-7 pb-6 text-left">
       <h2 className="mt-8 font-bold">How we sleep</h2>
-      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-500">
+      <div className="mt-3 text-sm text-neutral-500">
         <p>
           Every time we sleep, we go through cycles of about 90 minutes. Waking
           up in the middle of a cycle can leave us groggy — even if we sleep for
@@ -190,7 +190,7 @@ function App() {
         </p>
       </div>
       <h2 className="mt-6 font-bold">Tailored for you</h2>
-      <div className="mt-3 text-sm leading-[1.3rem] text-neutral-500">
+      <div className="mt-3 text-sm text-neutral-500">
         <p>
           Wakey helps you find the ideal time for waking up rested. You can even
           set up how long it takes you to fall asleep, and choose your preferred
@@ -199,7 +199,7 @@ function App() {
       </div>
 
       <div className="mt-8 flex items-center justify-center text-amber-500/80">
-        <p className="font-caprasimo">Sleep tight!</p>
+        <p className="font-heading">Sleep tight!</p>
         <SparklesIcon className="ml-1 w-3 pb-2" aria-hidden="true" />
       </div>
     </div>
@@ -207,10 +207,10 @@ function App() {
 
   const creatorModalContent = (
     <div className="mx-auto flex flex-col justify-center px-7 pt-8 pb-6 text-left">
-      <p className="font-caprasimo text-amber-500/80">
-        Hey there, I'm Aron, and I'm a troubled sleeper...
+      <p className="text-amber-500/80">
+        Hey, I'm Aron, and I'm a troubled sleeper...
       </p>
-      <div className="mt-6 text-sm leading-[1.3rem] text-neutral-500">
+      <div className="mt-6 text-sm text-neutral-500">
         <p>
           One of the few things that helped me over the years was following the
           scientific advice on sleep cycles.
@@ -287,7 +287,7 @@ function App() {
         </footer>
         <main className="mt-10 mb-16 flex max-w-[500px] flex-col px-6 text-center">
           <div className="mb-14 flex flex-col gap-4">
-            <h1 className="font-caprasimo mb-4 text-3xl text-amber-500/80 md:mb-8 md:text-4xl">
+            <h1 className="font-heading mb-5 text-4xl tracking-tight text-amber-500/80 md:mb-8 md:text-5xl">
               It's sleepy time...
             </h1>
             <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
@@ -298,8 +298,7 @@ function App() {
               >
                 {offsetInMins || 0} minutes
               </button>
-              , we recommend these wake-up times. Pick one, set up your alarm,
-              and wake up refreshed.
+              , these are the recommended times to wake up refreshed.
             </h2>
           </div>
 
@@ -355,7 +354,7 @@ function App() {
                           </p>
                         )}
                       </div>
-                      <p className="text-lilac/80 -ml-8 w-8 text-[10px] tracking-tighter">
+                      <p className="text-lilac/80 -ml-8 w-8 text-[10px] tracking-tight">
                         {sleepHours} h
                       </p>
                     </div>
