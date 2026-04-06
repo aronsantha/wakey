@@ -34,7 +34,8 @@ function BaseModal({ isOpen, handleDismiss, modalTitle, children }) {
 
   const handlePartialDismiss = (swipeLength) => {
     const el = swipeRef.current;
-    if (!el || el.classList.contains("snap-back")) return;
+    if (!el) return;
+    el.classList.remove("snap-back");
 
     el.style.setProperty("--swipe-y-length", `${swipeLength}px`);
     el.classList.remove("slide-up");
