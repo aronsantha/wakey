@@ -6,8 +6,14 @@ import {
   CloseButton,
 } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/16/solid";
+import { useMobileSwipe } from "../hooks";
 
 function BaseModal({ isOpen, handleClose, modalTitle, children }) {
+  const ref = useMobileSwipe(({ direction }) => {
+    if (direction !== "DOWN") return;
+    handleClose();
+  });
+
   return (
     <Dialog
       open={isOpen}
@@ -21,6 +27,7 @@ function BaseModal({ isOpen, handleClose, modalTitle, children }) {
       />
       <div className="fixed inset-0 flex w-screen flex-col items-center justify-end overflow-hidden sm:justify-center">
         <DialogPanel
+          ref={ref}
           transition
           className="slide-panel w-full max-w-[640px] overflow-hidden rounded-t-3xl border-t-[1px] border-neutral-100/15 bg-black/80 pb-7 shadow-lg backdrop-blur-xs transition-all delay-80 not-sm:pb-14 not-sm:data-[closed]:translate-y-full sm:rounded-3xl sm:border-[1px] sm:data-[closed]:scale-0"
         >
