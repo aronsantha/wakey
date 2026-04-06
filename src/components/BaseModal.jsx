@@ -39,7 +39,9 @@ function BaseModal({ isOpen, handleDismiss, modalTitle, children }) {
 
     el.style.setProperty("--swipe-y-length", `${swipeLength}px`);
     el.classList.remove("slide-up");
-    el.classList.add("snap-back");
+    requestAnimationFrame(() => {
+      el.classList.add("snap-back");
+    });
 
     el.addEventListener(
       "animationend",
