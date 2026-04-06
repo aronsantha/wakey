@@ -260,11 +260,11 @@ function App() {
         modalTitle={activeModal && modalMap[activeModal].label}
         isOpen={isModalOpen}
         timeFormat={timeFormat}
-        handleClose={() => deactivateModal(300)}
+        handleDismiss={() => deactivateModal(300)}
         children={activeModal && modalMap[activeModal].content}
       />
       <div className="flex min-h-[100dvh] flex-col items-center overflow-y-auto md:justify-center">
-        <footer className="pb-safe bg-theme fixed right-0 bottom-0 left-0 z-50 w-full border-t-[1px] border-neutral-100/15 px-3 backdrop-blur-xl">
+        <footer className="pb-safe bg-theme fixed right-0 bottom-0 left-0 z-50 w-full border-neutral-800 px-3 backdrop-blur-xl">
           <div
             role="tablist"
             className="mx-auto flex h-14 w-full max-w-[800px] items-center justify-around px-6 pt-px"

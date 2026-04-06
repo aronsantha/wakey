@@ -20,10 +20,14 @@ export function useStickyState<T>(
 }
 
 type SwipeDirection = "LEFT" | "RIGHT" | "UP" | "DOWN";
-type SwipeInput = {
+export type SwipeInput = {
   deltaX: number;
   deltaY: number;
   direction: SwipeDirection;
+};
+type UseMobileSwipeOptions = {
+  onSwipe: (input: SwipeInput) => void;
+  triggerLengthPx?: number;
 };
 
 function getDirection(deltaX: number, deltaY: number): SwipeDirection {
@@ -36,10 +40,10 @@ function getDirection(deltaX: number, deltaY: number): SwipeDirection {
   return deltaY > 0 ? "DOWN" : "UP";
 }
 
-export function useMobileSwipe(
-  onSwipe: (input: SwipeInput) => void,
-  triggerLengthPx: number = 10,
-) {
+export function useMobileSwipe({
+  onSwipe,
+  triggerLengthPx = 0,
+}: UseMobileSwipeOptions) {
   const ref = useRef<HTMLElement | null>(null);
 
   const startX = useRef(0);
@@ -67,7 +71,6 @@ export function useMobileSwipe(
       const absX = Math.abs(deltaX);
       const absY = Math.abs(deltaY);
 
-      // Ignore tiny swipes
       if (absX < triggerLengthPx && absY < triggerLengthPx) return;
 
       onSwipe({ deltaX, deltaY, direction: getDirection(deltaX, deltaY) });
