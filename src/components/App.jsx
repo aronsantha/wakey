@@ -293,7 +293,7 @@ function App() {
             <h2 className="text-neutral-400 text-shadow-[0_0_2px] text-shadow-neutral-900">
               If you fall asleep in{" "}
               <button
-                className="inline cursor-pointer font-bold text-amber-500/80"
+                className="p-clickable inline cursor-pointer font-bold text-amber-500/80"
                 onClick={() => activateModal("SETTINGS")}
               >
                 {offsetInMins || 0} minutes

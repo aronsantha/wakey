@@ -12,6 +12,12 @@
   padding-top: var(--safe-area-inset-top);
 }
 
+@utility p-clickable {
+  position: relative;
+  padding: 10px;
+  margin: -10px;
+}
+
 @utility pb-safe {
   padding-bottom: var(--safe-area-inset-bottom);
 }
